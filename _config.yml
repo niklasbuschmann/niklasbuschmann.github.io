@@ -1,0 +1,22 @@
+title: "Niklas Buschmann"
+author: "Niklas Buschmann"
+permalink: /:title/
+lang: "en"
+excerpt_separator: "\n\n\n"
+show_excerpts: false
+show_frame: true
+mathjax: true
+
+navigation:
+  - {title: Mail, icon: envelope, url: "mailto:niklasbuschmann@users.noreply.github.com"}
+  - {title: Github, icon: github, url: "https://github.com/niklasbuschmann/"}
+  - {title: Feed, icon: rss, url: "/feed.xml"}
+
+remote_theme: niklasbuschmann/contrast
+
+sass:
+  style: expanded
+
+plugins:
+ - jekyll-remote-theme
+ - jekyll-feed
