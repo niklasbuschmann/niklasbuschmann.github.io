@@ -13,9 +13,6 @@ navigation:
 
 remote_theme: niklasbuschmann/contrast
 
-sass:
-  style: expanded
-
 plugins:
  - jekyll-remote-theme
  - jekyll-feed
