@@ -24,13 +24,7 @@ $$
   P = \frac{C}{i}\left(1 - \frac{1}{(1+i)^N}\right) + \frac{F}{(1+i)^N}
 $$
 
-Writing the coupon as \\( C = F \cdot i_0 \\) where \\( i_0 \\) is the actual interest paid by the bond, equal to the market rate at the time the bond was issued:
-
-$$
-  P = F \left(\frac{i_0}{i}+\frac{1}{(1+i)^N}-\frac{i_0}{i(1+i)^N}\right)
-$$
-
-For newly issued bonds with \\( i_0 = i \\) the bond value simply equals the face value \\( P = F \\). Otherwise the old bonds lose or gain value with rising and sinking interest rates. Now back to the money printer: We would need the yield of a infinite duration bond for comparison, but the Treasury only offers bonds with a maximum duration of 30 years. Since there is no face value paid back in 30 years, we need to further discount the term \\( \frac{F}{(1+i)^30} \\) to account for the risk of changing interest rates, inflation, default, war, etc. after the 30 years. For the current rate of 2% for 30 year bonds, the discounted value of an infinite bond is somewhere between 2% (no further discount) to 4.4% (full discount).
+For newly issued bonds with \\( C = F \cdot i \\) the bond value simply equals the face value \\( P = F \\). Otherwise the old bonds lose or gain value with rising and sinking interest rates. Now back to the money printer: We would need the yield of a infinite duration bond for comparison, but the Treasury only offers bonds with a maximum duration of 30 years. Since there is no face value paid back in 30 years, we need to further discount the term \\( \frac{F}{(1+i)^{30}} \\) to account for the risk of changing interest rates, inflation, default, war, etc. after the 30 years. For the current rate of 2% for 30 year bonds, the discounted value of an infinite bond is somewhere between 2% (no further discount) to 4.4% (full discount).
 
 This leaves us with the answer that at current rates we should pay somewhere between 20 and 50 times the amount of dollars printed every year for the machine.
 
