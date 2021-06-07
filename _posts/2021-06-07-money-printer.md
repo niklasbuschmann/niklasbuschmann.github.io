@@ -21,7 +21,7 @@ $$
 One way is the above formula of the [discounted cash flow](https://en.wikipedia.org/wiki/Discounted_cash_flow), where the price \\( P \\) depends on the coupon \\( C \\), the current interest rate \\( i \\) and face value \\( F \\). We simply discount all the cash received by a factor \\( (1+i)^{-n} \\), assuming that we could have instead gotten the same cash by compounding the interest at a rate of \\( i \\). Rewriting the [geometric series](https://en.wikipedia.org/wiki/Geometric_series) gives us:
 
 $$
-  P = \frac{C}{i} - \frac{C}{i(1+i)^N} + \frac{F}{(1+i)^N}
+  P = \frac{C}{i}\left(1 - \frac{1}{(1+i)^N}\right) + \frac{F}{(1+i)^N}
 $$
 
 Writing the coupon as \\( C = F \cdot i_0 \\) where \\( i_0 \\) is the actual interest paid by the bond, equal to the market rate at the time the bond was issued:
@@ -49,7 +49,7 @@ Here \\( \mu_g \\) is the logarithmic geometric return, \\( \mu_a \\) the logari
 > The product integral formula is simply based on the fact that the sum of logarithms is the logarithm of the product:
 > \\( \prod f(x)^{\textrm{d}x} = \exp\left(\ln\left(\prod f(x)^{\textrm{d}x}\right)\right) = \exp\left(\sum \ln(f(x)) \textrm{d}x \right)\\)
 
-Now, is an investment with small return and low volatility worse than one with high return and high volatility? Using leverage \\( l\\) we can increase both the return and standard deviation:
+Now, is an investment with small return and low volatility worse than one with high return and high volatility? Using leverage \\( l\\) we can increase both the average arithmetic return and the standard deviation:
 
 $$
   e^{\mu_g} = e^{l \mu_a - \frac{(l\sigma)^2}{2}}
@@ -69,4 +69,4 @@ $$
   \mu_g^* = \frac{\mu_a^2}{2\sigma^2}
 $$
 
-So the geometric growth depends on the ration between arithmetic growth and volatility. Note, for uncorrelated assets the standard deviation of a portfolio has the [same form](https://en.wikipedia.org/wiki/Propagation_of_uncertainty#Example_formulae) as a vector: Adding a small, orthogonal (uncorrelated) step leaves its overall length unchanged. 
+So the geometric growth depends on the ration between arithmetic growth and volatility. Note that for uncorrelated assets the standard deviation of a portfolio has the [same form](https://en.wikipedia.org/wiki/Propagation_of_uncertainty#Example_formulae) as a vector: Adding a small, orthogonal (uncorrelated) step leaves its overall length unchanged. 
