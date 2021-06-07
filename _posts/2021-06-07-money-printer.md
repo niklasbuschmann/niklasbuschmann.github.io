@@ -15,19 +15,19 @@ Independent of the price you might be willing to pay, the relevant question is: 
 Let us first assume that money printing is legal and Jerome Powell trustworthy, making it a low-risk invesment - but you are the first private person to own a money printer and have to estimate its value. The best thing to compare would be Treasury Bonds, since the debt can be repaid with printed dollars, so the risk of default is low. Now how are government bonds valued?
 
 $$
-  P = \frac{C}{1+i} + \frac{C}{(1+i)^2} + \frac{C}{(1+i)^3} + ... + \frac{C}{(1+i)^N} + \frac{F}{(1+i)^N}
+  P = \sum_{n=1}^N \frac{C}{(1+i)^n} + \frac{F}{(1+i)^N}
 $$
 
-One way is the above formula of the [discounted cash flow](https://en.wikipedia.org/wiki/Discounted_cash_flow), where the price \\( P \\) depends on the coupon \\( C \\), the current interest rate \\( i \\) and face value \\( F \\). We simply discount all the cash received by a factor \\( (1+i)^{-n} \\), assuming that we could have instead gotten the same cash by compounding the interest at a rate of \\( i \\). Writing the coupon as \\( C = F \cdot i_0 \\) where \\( i_0 \\) is the actual interest paid by the bond, equal to the market rate at the time the bond was issued:
+One way is the above formula of the [discounted cash flow](https://en.wikipedia.org/wiki/Discounted_cash_flow), where the price \\( P \\) depends on the coupon \\( C \\), the current interest rate \\( i \\) and face value \\( F \\). We simply discount all the cash received by a factor \\( (1+i)^{-n} \\), assuming that we could have instead gotten the same cash by compounding the interest at a rate of \\( i \\). Rewriting the [geometric series](https://en.wikipedia.org/wiki/Geometric_series) gives us:
 
 $$
-  P = F \frac{F i_0}{1+i} + \frac{F i_0}{(1+i)^2} + \frac{F i_0}{(1+i)^3} + ... + \frac{F i_0}{(1+i)^N} + \frac{F}{(1+i)^N}
+  P = \frac{C}{i} - \frac{C}{i(1+i)^N} + \frac{F}{(1+i)^N}
 $$
 
-Rewriting the [geometric series](https://en.wikipedia.org/wiki/Geometric_series) gives us:
+Writing the coupon as \\( C = F \cdot i_0 \\) where \\( i_0 \\) is the actual interest paid by the bond, equal to the market rate at the time the bond was issued:
 
 $$
-  P = F \left(\frac{i_0}{i}-\frac{i_0}{i(1+i)^N}\right)+\frac{F}{(1+i)^N}
+  P = F \left(\frac{i_0}{i}+\frac{1}{(1+i)^N}-\frac{i_0}{i(1+i)^N}\right)
 $$
 
 For newly issued bonds with \\( i_0 = i \\) the bond value simply equals the face value \\( P = F \\). Otherwise the old bonds lose or gain value with rising and sinking interest rates. Now back to the money printer: We would need the yield of a infinite duration bond for comparison, but the Treasury only offers bonds with a maximum duration of 30 years. Since there is no face value paid back in 30 years, we need to further discount the term \\( \frac{F}{(1+i)^30} \\) to account for the risk of changing interest rates, inflation, default, war, etc. after the 30 years. For the current rate of 2% for 30 year bonds, the discounted value of an infinite bond is somewhere between 2% (no further discount) to 4.4% (full discount).
@@ -52,15 +52,21 @@ Here \\( \mu_g \\) is the logarithmic geometric return, \\( \mu_a \\) the logari
 Now, is an investment with small return and low volatility worse than one with high return and high volatility? Using leverage \\( l\\) we can increase both the return and standard deviation:
 
 $$
-  \mu_g = l \mu_a - \frac{(l\sigma)^2}{2}
+  e^{\mu_g} = e^{l \mu_a - \frac{(l\sigma)^2}{2}}
 $$
 
-Optimizing the geometric means leads to \\( l = \frac{\mu_a}{\sigma^2} \\) and a maximum growth rate of:
+Optimizing the geometric means leads to:
+
+$$
+  l = \frac{\mu_a}{\sigma^2}
+$$
+
+> This is the continous analog of the [Kelly formula](https://en.wikipedia.org/wiki/Kelly_criterion), where one has a series of favorable, but risky bets. Imagine for example you are offered 1000 bets where 40% of the time your wager is tripled and 60% of the time lost. How do you play?
+
+This leaves us with a maximum of:
 
 $$
   \mu_g^* = \frac{\mu_a^2}{2\sigma^2}
 $$
 
-> This is the continous analog of the [Kelly formula](https://en.wikipedia.org/wiki/Kelly_criterion), where one has a series of favorable, but risky bets. Imagine for example you are offered 1000 bets where 40% of the time your wager is tripled and 60% of the time lost. How do you play?
-
-For uncorrelated assets the standard deviation of a portfolio has the [same form](https://en.wikipedia.org/wiki/Propagation_of_uncertainty#Example_formulae) as a vector: Adding a small, orthogonal (uncorrelated) step leaves its overall length unchanged. 
+So the geometric growth depends on the ration between arithmetic growth and volatility. Note, for uncorrelated assets the standard deviation of a portfolio has the [same form](https://en.wikipedia.org/wiki/Propagation_of_uncertainty#Example_formulae) as a vector: Adding a small, orthogonal (uncorrelated) step leaves its overall length unchanged. 
