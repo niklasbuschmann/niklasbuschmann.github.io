@@ -24,9 +24,9 @@ $$
   P = C\left(\frac{1}{i} - \frac{1}{i(1+i)^N}\right) + \frac{F}{(1+i)^N}
 $$
 
-For newly issued bonds with \\( C = F \cdot i \\) the bond value simply equals the face value \\( P = F \\). Otherwise the old bonds lose or gain value with rising and sinking interest rates. Now back to the money printer: We would need the yield of a infinite duration bond for comparison, but the Treasury only offers bonds with a maximum duration of 30 years.
+For newly issued bonds with \\( C = F \cdot i \\) the bond value simply equals the face value \\( P = F \\). Older bonds lose value with rising interest rates and gain value with sinking interest rates. Now back to the money printer: We would need the yield of a infinite duration bond for comparison, but the Treasury only offers bonds with a maximum duration of 30 years.
 
-Since there is no face value paid back in 30 years, we need to further discount the term \\( \frac{F}{(1+i)^{30}} \\) to account for the risk of changing interest rates, inflation and default after the first 30 years. For the current rate of 2% for 30 year bonds, the discounted value of an infinite bond is then somewhere between 2% (no further discount) to 4.4% (full discount).
+Since there is no face value paid back in 30 years, we need to further discount the term \\( \frac{F}{(1+i)^{30}} \\) (which currently makes up 55% of the whole bond price) to account for the risk of changing interest rates, inflation and default after the first 30 years. For the current rate of 2% for 30 year bonds, the discounted value of an infinite bond is then somewhere between 2% (no further discount) to 4.4% (full discount).
 
 This leaves us with the answer that at current rates we should pay somewhere between 23 and 50 times the amount of dollars printed every year for the machine.
 
@@ -59,7 +59,7 @@ Let us look at some real data:
 From 1980 to 2018 the S&P 500 (dividends reinvested) had a geometric mean \\( 1.10543 \\) and volatility \\( 0.16137 \\). We can see that the geometric mean is in fact the exponential of the average log return since \\( 1.10543 = \exp(0.10023) \\). Calculating the geometric mean from the average returns and volatility yields a return of \\( 1.10460 = \exp(\ln(1.11908) - 0.16137^2/2) \\) which deviates only \\( 0.1% \\) from the true value.
 
 > The relationship between geometric mean and mean log is simply based on the fact that the sum of logarithms is the logarithm of the product:
-> \\( \sqrt[N]{\prod f(x)} = \exp\left(\ln\left(\prod f(x)^{\frac{1}{N}}\right)\right) = \exp\left(\sum \frac{\ln(f(x))}{N} \right)\\).
+> $$ \sqrt[N]{\prod f(x)} = \exp\left(\ln\left(\prod f(x)^{\frac{1}{N}}\right)\right) = \exp\left(\sum \frac{\ln(f(x))}{N} \right) $$.
 
 Now, is an investment with small return and low volatility worse than one with high return and high volatility? If we have access to leverage we could simply lever up both the average arithmetic return and the standard deviation. Accouting for the cost of leverage at a borrowing rate \\( r \\) this gives us:
 
