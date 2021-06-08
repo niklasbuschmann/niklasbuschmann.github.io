@@ -42,27 +42,43 @@ $$
 
 Here \\( \mu_g \\) is the logarithmic geometric return, \\( \mu_a \\) the logarithmic arithmetic return and \\( \sigma \\) the standard deviation of the logarithmic return. Using the [product integral](https://en.wikipedia.org/wiki/Product_integral#Type_II:_geometric_integral) we can see that \\( \mu_g \\) equals the expected logarithmic return \\( \mu_g = E(\log(x)) \\), whereas \\( \mu_a \\) equals the logarithm of the expected return \\( \mu_a = \log(E(x)) \\).
 
-> The product integral formula is simply based on the fact that the sum of logarithms is the logarithm of the product:
+Let us look at some real data. From 1980 to 2018 the S&P 500 (dividends reinvested) had a geometric mean 1.10543 and volatility 0.16137.
+
+|             | μ       | σ       |
+|-------------|---------|---------|
+| returns     | 1.11908 | 0.16624 |
+| log returns | 0.10023 | 0.16137 |
+
+We can see that the geometric mean is in fact the exponential of the average log return since \\( \exp(0.10023) = 1.10543 \\). Calculating the geometric mean from the average returns and volatility yields a return of \\( 1.10460 = \exp(\log(1.11908) - \frac{(0.16137)^2}{2}) \\) which deviates only 0.1% from the true value.
+
+For completeness here are the results of US stocks from 1871 to 2018 (dividends reinvested) with a geometric mean 1.09021 and volatility 0.17219:
+
+|             | μ       | σ       |
+|-------------|---------|---------|
+| returns     | 1.10586 | 0.18097 |
+| log returns | 0.08638 | 0.17219 |
+
+> The relationship between geometric mean and mean log is simply based on the fact that the sum of logarithms is the logarithm of the product:
 > \\( \prod f(x)^{\textrm{d}x} = \exp\left(\ln\left(\prod f(x)^{\textrm{d}x}\right)\right) = \exp\left(\sum \ln(f(x)) \textrm{d}x \right)\\)
 
-Now, is an investment with small return and low volatility worse than one with high return and high volatility? Using leverage \\( l\\) we can increase both the average arithmetic return and the standard deviation:
+Now, is an investment with small return and low volatility worse than one with high return and high volatility? If we have access to leverage we could simply lever up both the average arithmetic return and the standard deviation. Accouting for the cost of leverage at a borrowing rate \\( r \\) this gives us:
 
 $$
-  e^{\mu_g} = e^{l \mu_a - \frac{(l\sigma)^2}{2}}
+  \mu_g = l \mu_a - \frac{(l\sigma)^2}{2} - (l - 1)r
 $$
 
 Optimizing the geometric means leads to:
 
 $$
-  l = \frac{\mu_a}{\sigma^2}
+  l = \frac{\mu_a - r}{\sigma^2}
 $$
-
-> This is the continous analog of the [Kelly formula](https://en.wikipedia.org/wiki/Kelly_criterion), where one has a series of favorable, but risky bets. Imagine for example you are offered 1000 bets where 40% of the time your wager is tripled and 60% of the time lost. How do you play?
 
 This leaves us with a maximum of:
 
 $$
-  \mu_g^* = \frac{\mu_a^2}{2\sigma^2}
+  \mu_g^* = \frac{(\mu_a-r)^2}{2\sigma^2} + r
 $$
 
-So the geometric growth depends on the ration between arithmetic growth and volatility. Note that for uncorrelated assets the standard deviation of a portfolio has the [same form](https://en.wikipedia.org/wiki/Propagation_of_uncertainty#Example_formulae) as a vector: Adding a small, orthogonal (uncorrelated) step leaves its overall length unchanged. 
+So the geometric growth depends on the ration between arithmetic growth and volatility. Note that for uncorrelated assets the standard deviation of a portfolio has the [same form](https://en.wikipedia.org/wiki/Propagation_of_uncertainty#Example_formulae) as a vector: Adding a small, orthogonal (uncorrelated) step leaves its overall length unchanged.
+
+> This is the continous analog of the [Kelly formula](https://en.wikipedia.org/wiki/Kelly_criterion), where one has a series of favorable, but risky bets. Imagine for example you are offered 1000 bets where 40% of the time your wager is tripled and 60% of the time lost. How would you play?
