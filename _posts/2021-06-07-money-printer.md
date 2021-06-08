@@ -37,29 +37,29 @@ Until now we assumed there was a guaranteed, constant return on our investment. 
 The crucial part here is the relationship between the [arithmetic](https://en.wikipedia.org/wiki/Arithmetic_mean) and [geometric](https://en.wikipedia.org/wiki/Geometric_mean) mean. The geometric mean is always smaller than the arithmetic mean and the lower the volatility the smaller the difference between them becomes. Luckily there exists a simple formula of this relationship for the lognormal distribution:
 
 $$
-  \mu_g = \mu_a - \frac{\sigma^2}{2}
+  \mu_g = \mu_a - \sigma^2 / 2
 $$
 
-Here \\( \mu_g \\) is the logarithmic geometric return, \\( \mu_a \\) the logarithmic arithmetic return and \\( \sigma \\) the standard deviation of the logarithmic return. Using the [product integral](https://en.wikipedia.org/wiki/Product_integral#Type_II:_geometric_integral) we can see that \\( \mu_g \\) equals the expected logarithmic return \\( \mu_g = E(\log(x)) \\), whereas \\( \mu_a \\) equals the logarithm of the [expected return](https://en.wikipedia.org/wiki/Log-normal_distribution#Arithmetic_moments) \\( \mu_a = \log(E(x)) = \mu_g + \frac{\sigma^2}{2} \\).
+Here \\( \mu_g \\) is the logarithmic geometric return, \\( \mu_a \\) the logarithmic arithmetic return and \\( \sigma \\) the standard deviation of the logarithmic return.
 
-Let us look at some real data. From 1980 to 2018 the S&P 500 (dividends reinvested) had a geometric mean \\( 1.10543 \\) and volatility \\( 0.16137 \\).
+> Using the [product integral](https://en.wikipedia.org/wiki/Product_integral#Type_II:_geometric_integral) we can see that \\( \mu_g \\) equals the expected logarithmic return \\( \mu_g = E(\log(x)) \\), whereas \\( \mu_a \\) equals the logarithm of the [expected return](https://en.wikipedia.org/wiki/Log-normal_distribution#Arithmetic_moments) \\( \mu_a = \log(E(x)) = \mu_g + \frac{\sigma^2}{2} \\).
+
+Let us look at some real data:
 
 | 1980 - 2018 | μ       | σ       |
 |-------------|---------|---------|
 | returns     | 1.11908 | 0.16624 |
 | log returns | 0.10023 | 0.16137 |
 
-We can see that the geometric mean is in fact the exponential of the average log return since \\( 1.10543 = \exp(0.10023) \\). Calculating the geometric mean from the average returns and volatility yields a return of \\( 1.10460 = \exp(\ln(1.11908) - 0.16137^2/2) \\) which deviates only \\( 0.1% \\) from the true value.
-
-For completeness here are the results of US stocks from 1871 to 2018 (dividends reinvested) with a geometric mean \\( 1.09021 \\) and volatility \\( 0.17219 \\):
-
 | 1871 - 2018 | μ       | σ       |
 |-------------|---------|---------|
 | returns     | 1.10586 | 0.18097 |
 | log returns | 0.08638 | 0.17219 |
 
+From 1980 to 2018 the S&P 500 (dividends reinvested) had a geometric mean \\( 1.10543 \\) and volatility \\( 0.16137 \\). We can see that the geometric mean is in fact the exponential of the average log return since \\( 1.10543 = \exp(0.10023) \\). Calculating the geometric mean from the average returns and volatility yields a return of \\( 1.10460 = \exp(\ln(1.11908) - 0.16137^2/2) \\) which deviates only \\( 0.1% \\) from the true value.
+
 > The relationship between geometric mean and mean log is simply based on the fact that the sum of logarithms is the logarithm of the product:
-> \\( \left(\prod f(x)\right)^{\frac{1}{N}} = \exp\left(\frac{\ln\left(\prod f(x)\right)}{N}\right) = \exp\left(\sum \frac{\ln(f(x))}{N} \right)\\).
+> \\( \sqrt[N]{\prod f(x)} = \exp\left(\ln\left(\prod f(x)^{\frac{1}{N}}\right)\right) = \exp\left(\sum \frac{\ln(f(x))}{N} \right)\\).
 
 Now, is an investment with small return and low volatility worse than one with high return and high volatility? If we have access to leverage we could simply lever up both the average arithmetic return and the standard deviation. Accouting for the cost of leverage at a borrowing rate \\( r \\) this gives us:
 
@@ -79,6 +79,6 @@ $$
   \mu_g^* = \frac{(\mu_a-r)^2}{2\sigma^2} + r
 $$
 
-So the geometric growth depends on the ration between arithmetic growth and volatility. Note that for uncorrelated assets the standard deviation of a portfolio has the [same form](https://en.wikipedia.org/wiki/Propagation_of_uncertainty#Example_formulae) as a vector: Adding a small, orthogonal (uncorrelated) step leaves its overall length unchanged.
-
 > This is the continous analog of the [Kelly formula](https://en.wikipedia.org/wiki/Kelly_criterion), where one has a series of favorable, but risky bets. Imagine for example you are offered 1000 bets where 40% of the time your wager is tripled and 60% of the time lost. How would you play?
+
+So the geometric growth depends on the ration between arithmetic growth and volatility. Note that for uncorrelated assets the standard deviation of a portfolio has the [same form](https://en.wikipedia.org/wiki/Propagation_of_uncertainty#Example_formulae) as a vector: Adding a small, orthogonal (uncorrelated) step leaves its overall length unchanged.
