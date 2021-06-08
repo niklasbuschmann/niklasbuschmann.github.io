@@ -21,7 +21,7 @@ $$
 One way is the above formula of the [discounted cash flow](https://en.wikipedia.org/wiki/Discounted_cash_flow), where the price \\( P \\) depends on the coupon \\( C \\), the current interest rate \\( i \\) and face value \\( F \\). We simply discount all the cash received by a factor \\( (1+i)^{-n} \\), assuming that we could have instead gotten the same cash by compounding the interest at the current market rate of \\( i \\). Rewriting the [geometric series](https://en.wikipedia.org/wiki/Geometric_series) gives us:
 
 $$
-  P = \frac{C}{i}\left(1 - \frac{1}{(1+i)^N}\right) + \frac{F}{(1+i)^N} \overset{N\rightarrow \infty}{\rightarrow} \frac{C}{i}
+  P = \frac{C}{i}\left(1 - \frac{1}{(1+i)^N}\right) + \frac{F}{(1+i)^N}\ \overset{N\rightarrow \infty}{\rightarrow}\ \frac{C}{i}
 $$
 
 For newly issued bonds with \\( C = F \cdot i \\) the bond value simply equals the face value \\( P = F \\). Older bonds lose value with rising interest rates and gain value with sinking interest rates. Now back to the money printer: We would need the yield of a infinite duration bond for comparison, but the Treasury only offers bonds with a maximum duration of 30 years.
@@ -34,13 +34,13 @@ $$
   P = \int_0^N \frac{C}{(1+i)^n} \textrm{d}n + \frac{F}{(1+i)^N}
 $$
 
-Calculating the integral we can see that \\( \frac{1}{i} \\) needs to be replaced with \\( \frac{1}{\ln(1+i)} \\) (which is approximately \\( \frac{1}{i} \\)):
+Calculating the integral we can see that \\( \frac{1}{i} \\) needs to be replaced with \\( \frac{1}{\ln(1+i)} \\) - which is approximately equal to \\( \frac{1}{i} \\):
 
 $$
   P = \frac{C}{\ln(1+i)}\left(1 - \frac{1}{(1+i)^N}\right) + \frac{F}{(1+i)^N}
 $$
 
-After all we should now be willing to pay the annual output of the printer divided by the (logarithmic) interest rate of an infinite-duration government bond, which lies somewhere between 2% and 4.3%.
+After all we should now be willing to pay the annual output of the printer divided by the (logarithmic) interest rate of an infinite-duration government bond, which currently lies somewhere between 2% and 4.3%.
 
 ### Part 2: Volatility
 
@@ -78,7 +78,7 @@ We can see that the geometric mean is in fact the exponential of the average log
 Now, is an investment with small return and low volatility worse than one with high return and high volatility? If we have access to leverage we could simply lever up both the average arithmetic return and the standard deviation. Accouting for the cost of leverage at a borrowing rate \\( r \\) this gives us:
 
 $$
-  \mu_g = l \mu_a - \frac{(l\sigma)^2}{2} - (l - 1)r
+  \mu_g = l \mu_a - (l\sigma)^2/2 - (l - 1)r
 $$
 
 Optimizing the geometric means leads to:
@@ -95,9 +95,11 @@ $$
 
 > This is the continous analog of the [Kelly formula](https://en.wikipedia.org/wiki/Kelly_criterion), where one has a series of favorable, but risky bets. Imagine for example you are offered 1000 bets where 40% of the time your wager is tripled and 60% of the time lost. How would you play?
 
-So the geometric growth depends on the ration between arithmetic growth and volatility. Note that for uncorrelated assets the standard deviation of a portfolio has the [same form](https://en.wikipedia.org/wiki/Propagation_of_uncertainty#Example_formulae) as a vector: Adding a small, orthogonal (uncorrelated) step leaves its overall length unchanged, but increases the expected return.
+So when valuing an asset we should discount assets with higher volatility and chose to maximate the ratio of arithmetic returns to volatility.
 
-For a number of correlated assets the Kelly formula has the following form:
+Now, for a portfolio of multiple uncorrelated assets the standard deviation has the [same form](https://en.wikipedia.org/wiki/Propagation_of_uncertainty#Example_formulae) as a vector: Adding a small, orthogonal (uncorrelated) step leaves its overall length unchanged, but increases the expected return, making a diversified portfolio more attractive than an undiversified one.
+
+For a number of (correlated) assets the Kelly formula has the following form:
 
 $$
   \vec{l} = (1+r)\Sigma^{-1} (\vec{\mu} - r)
