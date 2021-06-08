@@ -34,10 +34,10 @@ $$
   P = \int_0^N \frac{C}{(1+i)^n} \textrm{d}n + \frac{F}{(1+i)^N}
 $$
 
-Calculating the integral we can see that \\( \frac{1}{i} \\) needs to be replaced with \\( \frac{1}{\ln(1+i)} \approx \frac{1}{i} \\):
+Calculating the integral we can see that \\( \frac{1}{i} \\) needs to be replaced with \\( \frac{1}{\ln(1+i)} \\) (which is approximately \\( \frac{1}{i} \\)):
 
 $$
-  P = \frac{C}{\ln(1+i)}\left(1 - \frac{1}{(1+i)^N}\right) + \frac{F}{(1+i)^N} \overset{N\rightarrow \infty}{\rightarrow} \frac{C}{\ln(1+i)}
+  P = \frac{C}{\ln(1+i)}\left(1 - \frac{1}{(1+i)^N}\right) + \frac{F}{(1+i)^N}
 $$
 
 After all we should now be willing to pay the annual output of the printer divided by the (logarithmic) interest rate of an infinite-duration government bond, which lies somewhere between 2% and 4.3%.
@@ -70,7 +70,7 @@ Let us look at some real data:
 
 From 1980 to 2018 the S&P 500 (with dividends reinvested) had a geometric mean of 1.10543 and a volatility of 0.16137.
 
-We can see that the geometric mean is in fact the exponential of the average log return since 1.10543 = exp(0.10023). Calculating the geometric mean from the average returns and volatility yields a return of 1.10460 = exp(ln(1.11908) - 0.16137^2/2) which deviates only 0.1% from the true value.
+We can see that the geometric mean is in fact the exponential of the average log return since 1.10543 = exp(0.10023). Calculating the geometric mean from the average returns and volatility yields a geometric return of 1.10460 = exp(ln(1.11908) - 0.16137^2/2) - which deviates only 0.1% from the true value.
 
 > The relationship between geometric mean and mean log is simply based on the fact that the sum of logarithms is the logarithm of the product: <br><br>
 > $$ \sqrt[N]{\prod f(x)} = \exp\left(\ln\left(\prod f(x)^{\frac{1}{N}}\right)\right) = \exp\left(\sum \frac{\ln(f(x))}{N} \right) $$ <br>
@@ -100,7 +100,7 @@ So the geometric growth depends on the ration between arithmetic growth and vola
 For a number of correlated assets the Kelly formula has the following form:
 
 $$
-  \vec{l} = (1+r)\Sigma^{-1} (\vec{mu} - r)
+  \vec{l} = (1+r)\Sigma^{-1} (\vec{\mu} - r)
 $$
 
-Where \\( \vec{l} \\) is the amount of our wealth we should put into each asset, \\( r \\) the borrowing rate, \\( \vec{\mu} \\) the expected returns and \\( \Sigma = E(\vec{\mu}\vec{\mu}^\intercal)\\) the second moment matrix.
+Where \\( \vec{l} \\) is the amount of our wealth we should put into each asset, \\( r \\) the borrowing rate, \\( \vec{\mu} \\) the expected returns and \\( \Sigma = E(\vec{\mu}\vec{\mu}^\intercal)\\) the matrix of second moments.
