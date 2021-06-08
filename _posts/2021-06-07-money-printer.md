@@ -39,7 +39,7 @@ After all we should now be willing to pay the annual output of the printer divid
 
 Until now we assumed there was a guaranteed, constant return on our investment. Let us now instead assume that the return follows a distribution with mean \\( \mu \\) and variance \\( \sigma^2 \\). Heuristically we can not lose more than our complete investment - which would conflict with a [normally distributed](https://en.wikipedia.org/wiki/Normal_distribution) return. Instead we will assume a [lognormally distributed](https://en.wikipedia.org/wiki/Log-normal_distribution) return, which empirically works somewhat well for actual stock returns.
 
-The crucial part here is the relationship between the [arithmetic](https://en.wikipedia.org/wiki/Arithmetic_mean) and [geometric](https://en.wikipedia.org/wiki/Geometric_mean) mean. The geometric mean is always smaller than the arithmetic mean and the lower the volatility the smaller the difference between them becomes. Luckily there exists a simple formula of this relationship for the lognormal distribution:
+The crucial part here is the relationship between the [arithmetic](https://en.wikipedia.org/wiki/Arithmetic_mean) and [geometric](https://en.wikipedia.org/wiki/Geometric_mean) mean. The geometric mean is always smaller than the arithmetic mean and the lower the volatility the smaller the difference between them becomes. Luckily there exists a simple formula describing the relationship for the lognormal distribution:
 
 $$
   \mu_g = \mu_a - \sigma^2 / 2
@@ -49,21 +49,14 @@ Here \\( \mu_g \\) is the logarithmic geometric return, \\( \mu_a \\) the logari
 
 > Using the [product integral](https://en.wikipedia.org/wiki/Product_integral#Type_II:_geometric_integral) we can see that \\( \mu_g \\) equals the expected logarithmic return \\( \mu_g = E(\log(x)) \\), whereas \\( \mu_a \\) equals the logarithm of the [expected return](https://en.wikipedia.org/wiki/Log-normal_distribution#Arithmetic_moments) \\( \mu_a = \log(E(x)) = \mu_g + \sigma^2 / 2 \\).
 
-Let us look at some real data, for example the S&P 500 (with dividends reinvested):
+Let us look at some real data, for example the S&P 500 (with dividends reinvested) from 1980 to 2018:
 
-| 1980 - 2018 | μ       | σ       |
+| S&P 500     | μ       | σ       |
 |-------------|---------|---------|
 | returns     | 1.11908 | 0.16624 |
 | log returns | 0.10023 | 0.16137 |
 
-| 1871 - 2018 | μ       | σ       |
-|-------------|---------|---------|
-| returns     | 1.10586 | 0.18097 |
-| log returns | 0.08638 | 0.17219 |
-
-From 1980 to 2018 the S&P had a geometric mean of 1.10543 and a volatility of 0.16137.
-
-We can see that the geometric mean is in fact the exponential of the average log return since 1.10543 = exp(0.10023). Calculating the geometric mean from the average returns and volatility yields a geometric return of 1.10460 = exp(ln(1.11908) - 0.16137^2/2) - which deviates only 0.1% from the true value.
+The S&P had a geometric mean of 1.10543 (which is in fact the exponential of the average log return) and a volatility of 0.16137. Calculating the geometric mean from the average returns and volatility yields a geometric return of 1.10460 = exp(ln(1.11908) - 0.16137^2/2) - which deviates only 0.1% from the true value.
 
 > The relationship between geometric mean and mean log is simply based on the fact that the sum of logarithms is the logarithm of the product:
 > 
@@ -88,7 +81,9 @@ $$
   \mu_g^* = \frac{(\mu_a-r)^2}{2\sigma^2} + r
 $$
 
-> This is the continous analog of the [Kelly formula](https://en.wikipedia.org/wiki/Kelly_criterion), where one has a series of favorable, but risky bets. Imagine for example you are offered 1000 bets where 40% of the time your wager is tripled and 60% of the time lost. How would you play?
+> This is the continous analog of the [Kelly formula](https://en.wikipedia.org/wiki/Kelly_criterion), where one has a series of favorable, but risky bets.
+> 
+> Imagine for example you are offered 1000 bets where 40% of the time your wager is tripled and 60% of the time lost. How would you play?
 
 So when valuing an asset we should discount assets with higher volatility and chose to maximate the ratio of arithmetic returns to volatility.
 
