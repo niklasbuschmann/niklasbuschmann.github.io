@@ -56,11 +56,11 @@ Let us look at some real data:
 | returns     | 1.10586 | 0.18097 |
 | log returns | 0.08638 | 0.17219 |
 
-From 1980 to 2018 the S&P 500 (with dividends reinvested) had a geometric mean 1.10543 and volatility 0.16137.
+From 1980 to 2018 the S&P 500 (with dividends reinvested) had a geometric mean of 1.10543 and a volatility of 0.16137.
 
-We can see that the geometric mean is in fact the exponential of the average log return since 1.10543 = exp(0.10023). Calculating the geometric mean from the average returns and volatility yields a return of 1.10460 \\( (= \exp(\ln(1.11908) - 0.16137^2/2)) \\) which deviates only 0.1% from the true value.
+We can see that the geometric mean is in fact the exponential of the average log return since 1.10543 = exp(0.10023). Calculating the geometric mean from the average returns and volatility yields a return of 1.10460 = exp(ln(1.11908) - 0.16137^2/2) which deviates only 0.1% from the true value.
 
-> The relationship between geometric mean and mean log is simply based on the fact that the sum of logarithms is the logarithm of the product: <br>
+> The relationship between geometric mean and mean log is simply based on the fact that the sum of logarithms is the logarithm of the product: <br><br>
 > $$ \sqrt[N]{\prod f(x)} = \exp\left(\ln\left(\prod f(x)^{\frac{1}{N}}\right)\right) = \exp\left(\sum \frac{\ln(f(x))}{N} \right) $$.
 
 Now, is an investment with small return and low volatility worse than one with high return and high volatility? If we have access to leverage we could simply lever up both the average arithmetic return and the standard deviation. Accouting for the cost of leverage at a borrowing rate \\( r \\) this gives us:
