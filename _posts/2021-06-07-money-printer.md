@@ -24,16 +24,16 @@ $$
   P = \frac{C}{i}\left(1 - \frac{1}{(1+i)^N}\right) + \frac{F}{(1+i)^N}\ \overset{N\rightarrow \infty}{\rightarrow}\ \frac{C}{i}
 $$
 
-> Assuming that the coupon is paid continously instead of once every year, we would need to replace the sum above with an integral:
->
-> $$ P = \int_0^N \frac{C}{(1+i)^n} \textrm{d}n + \frac{F}{(1+i)^N} = \frac{C}{\ln(1+i)}\left(1 - \frac{1}{(1+i)^N}\right) + \frac{F}{(1+i)^N}\ \overset{N\rightarrow \infty}{\rightarrow}\ \frac{C}{\ln(1+i)} $$
->
-
 For newly issued bonds with \\( C = F \cdot i \\) the bond value simply equals the face value \\( P = F \\). Older bonds lose value with rising interest rates and gain value with sinking interest rates. Now back to the money printer: We would need the yield of a infinite duration bond for comparison, but the Treasury only offers bonds with a maximum duration of 30 years.
 
 Since there is no face value paid back in 30 years, we need to further discount the term \\( \frac{F}{(1+i)^{30}} \\) (which currently makes up 55% of the whole bond price) to account for the risk of changing interest rates, inflation and default after the first 30 years. With the current rate of 2% for 30 year bonds, an infinite bond would then pay a rate somewhere between 2% (no discount) to 4.4% (full discount).
 
-After all we should now be willing to pay the annual output of the printer divided by the (logarithmic) interest rate of an infinite-duration government bond.
+After all we should now be willing to pay the annual output of the printer divided by the interest rate of an infinite-duration government bond.
+
+> Assuming that the coupon is paid continously instead of once every year, we would need to replace the sum above with an integral:
+>
+> $$ P = \int_0^N \frac{C}{(1+i)^n} \textrm{d}n + \frac{F}{(1+i)^N} = \frac{C}{\ln(1+i)}\left(1 - \frac{1}{(1+i)^N}\right) + \frac{F}{(1+i)^N}\ \overset{N\rightarrow \infty}{\rightarrow}\ \frac{C}{\ln(1+i)} $$
+>
 
 ### Part 2: Volatility
 
@@ -67,7 +67,7 @@ We can see that the geometric mean is in fact the exponential of the average log
 
 > The relationship between geometric mean and mean log is simply based on the fact that the sum of logarithms is the logarithm of the product:
 > 
-> $$ \sqrt[N]{\prod f(x)} = \exp\left(\ln\left(\prod f(x)^{\frac{1}{N}}\right)\right) = \exp\left(\sum \frac{\ln(f(x))}{N} \right) $$
+> $$ \sqrt[N]{\prod x_i} = \exp\left(\ln\left(\prod x_i^{\frac{1}{N}}\right)\right) = \exp\left(\sum \frac{\ln(x_i)}{N} \right) = \exp(E(\ln(x))) $$
 >
 
 Now, is an investment with small return and low volatility worse than one with high return and high volatility? If we have access to leverage we could simply lever up both the average arithmetic return and the standard deviation. Accouting for the cost of leverage at a borrowing rate \\( r \\) this gives us:
