@@ -24,16 +24,16 @@ $$
   P = \frac{C}{i}\left(1 - \frac{1}{(1+i)^N}\right) + \frac{F}{(1+i)^N}\ \overset{N\rightarrow \infty}{\rightarrow}\ \frac{C}{i}
 $$
 
+> Assuming that the coupon is paid continously instead of once every year, we would need to replace the sum above with an integral:
+>
+> $$ P = \int_0^N \frac{C}{(1+i)^n} \textrm{d}n + \frac{F}{(1+i)^N} = \frac{C}{\ln(1+i)}\left(1 - \frac{1}{(1+i)^N}\right) + \frac{F}{(1+i)^N}\ \overset{N\rightarrow \infty}{\rightarrow}\ \frac{C}{\ln(1+i)} $$
+>
+
 For newly issued bonds with \\( C = F \cdot i \\) the bond value simply equals the face value \\( P = F \\). Older bonds lose value with rising interest rates and gain value with sinking interest rates. Now back to the money printer: We would need the yield of a infinite duration bond for comparison, but the Treasury only offers bonds with a maximum duration of 30 years.
 
 Since there is no face value paid back in 30 years, we need to further discount the term \\( \frac{F}{(1+i)^{30}} \\) (which currently makes up 55% of the whole bond price) to account for the risk of changing interest rates, inflation and default after the first 30 years. With the current rate of 2% for 30 year bonds, an infinite bond would then pay a rate somewhere between 2% (no discount) to 4.4% (full discount).
 
-After all we should now be willing to pay the annual output of the printer divided by the interest rate of an infinite-duration government bond.
-
-> Assuming that the coupon is paid continously instead of once every year, we would need to replace the sum above with an integral:
->
-> $$ P = \int_0^N \frac{C}{(1+i)^n} \textrm{d}n + \frac{F}{(1+i)^N} = \frac{C}{\ln(1+i)}\left(1 - \frac{1}{(1+i)^N}\right) + \frac{F}{(1+i)^N} $$
->
+After all we should now be willing to pay the annual output of the printer divided by the (logarithmic) interest rate of an infinite-duration government bond.
 
 ### Part 2: Volatility
 
