@@ -63,6 +63,8 @@ The S&P had a geometric mean of 1.10592 (which is in fact the exponential of the
 > $$ \sqrt[N]{\prod x_i} = \exp\left(\ln\left(\prod x_i^{\frac{1}{N}}\right)\right) = \exp\left(\sum \frac{\ln(x_i)}{N} \right) = \exp(E(\ln(x))) $$
 >
 
+### Part 3: How much to invest?
+
 Now, is an investment with small return and low volatility worse than one with high return and high volatility? If we have access to leverage we could simply lever up both the average arithmetic return and the standard deviation. Assuming one maintains a constant leverage and accouting for the borrowing rate \\( r \\) this gives us:
 
 $$
@@ -84,9 +86,9 @@ $$
 > This is the continous analog of the [Kelly formula](https://en.wikipedia.org/wiki/Kelly_criterion), where one has a series of favorable, but risky bets.
 > Imagine for example you are offered 1000 bets where 40% of the time your wager is tripled and 60% of the time lost. How would you play?
 
-So when valuing an asset we should discount assets with higher volatility and chose to maximate the ratio of arithmetic returns to volatility.
+So when valuing an asset we should discount assets with higher volatility and chose to maximate the ratio of arithmetic returns to volatility. But should we put all our money into the asset with the highest ratio or diversify?
 
-Now, for a portfolio of multiple uncorrelated assets the standard deviation has the [same form](https://en.wikipedia.org/wiki/Propagation_of_uncertainty#Example_formulae) as a vector: Adding a small, orthogonal (uncorrelated) step leaves its overall length unchanged, but increases the expected return, making a diversified portfolio more attractive than an undiversified one.
+For a portfolio of multiple uncorrelated assets the standard deviation has the [same form](https://en.wikipedia.org/wiki/Propagation_of_uncertainty#Example_formulae) as a vector: Adding a small, orthogonal (uncorrelated) step leaves its overall length unchanged, but increases the expected return, making a diversified portfolio more attractive than an undiversified one.
 
 For a number of (correlated) assets the Kelly formula has the following form:
 
