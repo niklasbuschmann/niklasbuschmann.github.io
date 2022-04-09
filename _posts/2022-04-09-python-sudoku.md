@@ -11,13 +11,13 @@ So a simple Python implementation could look like this:
 ```python
 def solve(board):
     if not get_empty_square(board):
-        print('Done')
-        quit()
+        return board
     pos_x, pos_y = get_empty_square(board)
     for candidate in range(1, 10):
         if not conflicts(board, pos_x, pos_y, candidate):
             board[pos_x][pos_y] = candidate
-            solve(board)
+            if solve(board):
+                return board
     board[pos_x][pos_y] = 0
 ```
 
@@ -28,12 +28,12 @@ def solve(board):
     empty_squares = ((i, j) for i in range(9) for j in range(9) if not board[i][j])
     pos_x, pos_y = next(empty_squares, (None, None))
     if (pos_x, pos_y) == (None, None):
-        print('Done')
-        quit()
+        return board
     for candidate in range(1, 10):
         if not conflicts(board, pos_x, pos_y, candidate):
             board[pos_x][pos_y] = candidate
-            solve(board)
+            if solve(board):
+                return board
     board[pos_x][pos_y] = 0
 ```
 
@@ -60,13 +60,13 @@ def solve(board):
     empty_squares = ((i, j) for i in range(9) for j in range(9) if not board[i][j])
     pos_x, pos_y = next(empty_squares, (None, None))
     if (pos_x, pos_y) == (None, None):
-        print(*board, sep='\n')
-        quit()
+        return board
     for candidate in range(1, 10):
         conflicts = ((x, y) for x, y in adjacent_squares[pos_x][pos_y] if board[x][y] == candidate)
         if not next(conflicts, False):
             board[pos_x][pos_y] = candidate
-            solve(board)
+            if solve(board):
+                return board
     board[pos_x][pos_y] = 0
 ```
 
