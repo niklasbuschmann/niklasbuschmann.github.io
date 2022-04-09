@@ -4,9 +4,9 @@ date: 2022-04-09
 description: A simple backtracking algorithm for solving Sudokus with Python
 ---
 
-Solving sudokus with python is surprisingly easy: One can simply start with an empty square and guess a number that doesn't appear in the corresponding row, column and subgrid and then recursively do this again for the next empty square until either there is no square left or one hits a square with no possible candidates. In the latter case one of the previous guesses must have been wrong and the recursion should go back one step and try the next valid number for that square.
+Solving Sudokus with Python is surprisingly easy: One can simply start with an empty square and guess a number that doesn't appear in the corresponding row, column and subgrid and then recursively do this again for the next empty square until either there is no square left or one hits a square with no possible candidates. In the latter case one of the previous guesses must have been wrong and the recursion should go back one step and try the next valid number for that square.
 
-So a simple python implementation could look like this:
+So a simple Python implementation could look like this:
 
 ```python
 def solve(board):
@@ -41,8 +41,8 @@ Now to check whether a number can be placed on an empty square without conflicts
 
 ```python
 adjacent_squares = [[
-        [(pos_x, y) for y in range(9) if y != pos_y] + 
-        [(x, pos_y) for x in range(9) if x != pos_x] + 
+        [(pos_x, y) for y in range(9) if y != pos_y] +
+        [(x, pos_y) for x in range(9) if x != pos_x] +
         [(x, y) for x in range((pos_x // 3) * 3, (pos_x // 3) * 3 + 3) for y in range((pos_y // 3) * 3, (pos_y // 3) * 3 + 3) if x != pos_x and y != pos_y]
     for pos_y in range(9)] for pos_x in range(9)]
 ```
@@ -51,8 +51,8 @@ Again using the generator expression `conflicts = ((x, y) for x, y in affected_s
 
 ```python
 adjacent_squares = [[
-        [(pos_x, x) for x in range(9) if x != pos_y] + 
-        [(y, pos_y) for y in range(9) if y != pos_x] + 
+        [(pos_x, y) for y in range(9) if y != pos_y] +
+        [(x, pos_y) for x in range(9) if x != pos_x] +
         [(x, y) for x in range((pos_x // 3) * 3, (pos_x // 3) * 3 + 3) for y in range((pos_y // 3) * 3, (pos_y // 3) * 3 + 3) if x != pos_x and y != pos_y]
     for pos_y in range(9)] for pos_x in range(9)]
 
