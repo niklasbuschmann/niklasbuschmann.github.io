@@ -21,11 +21,11 @@ def solve(board):
     board[pos_x][pos_y] = 0
 ```
 
-To implement `get_empty_square` one can use the generator expression `((i, j) for i in range(9) for j in range(9) if not board[i][j])` that allows one to iterate over all empty squares. Python's `next()` function allows one to take the first empty square found or return a default argument if there is no empty square. The code could now look like this:
+To implement `get_empty_square` one can use the generator expression `((x, y) for x in range(9) for y in range(9) if not board[x][y])` that allows one to iterate over all empty squares. Python's `next()` function allows one to take the first empty square found or return a default argument if there is no empty square. The code could now look like this:
 
 ```python
 def solve(board):
-    empty_squares = ((i, j) for i in range(9) for j in range(9) if not board[i][j])
+    empty_squares = ((x, y) for x in range(9) for y in range(9) if not board[x][y])
     pos_x, pos_y = next(empty_squares, (None, None))
     if (pos_x, pos_y) == (None, None):
         return board
@@ -47,7 +47,7 @@ adjacent_squares = [[
     for pos_y in range(9)] for pos_x in range(9)]
 ```
 
-Again using the generator expression `conflicts = ((x, y) for x, y in affected_squares[pos_x][pos_y] if board[x][y] == candidate)` one can generate a list of conflicting squares for each candidate and use `next()` to check whether there exists one. The final code looks like this:
+Again using the generator expression `conflicts = ((x, y) for x, y in affected_squares[pos_x][pos_y] if board[x][y] == candidate)` one can generate a list of conflicting squares for each candidate and use `any()` to check whether there exists one. The final code looks like this:
 
 ```python
 adjacent_squares = [[
@@ -57,13 +57,13 @@ adjacent_squares = [[
     for pos_y in range(9)] for pos_x in range(9)]
 
 def solve(board):
-    empty_squares = ((i, j) for i in range(9) for j in range(9) if not board[i][j])
+    empty_squares = ((x, y) for x in range(9) for y in range(9) if not board[x][y])
     pos_x, pos_y = next(empty_squares, (None, None))
     if (pos_x, pos_y) == (None, None):
         return board
     for candidate in range(1, 10):
         conflicts = ((x, y) for x, y in adjacent_squares[pos_x][pos_y] if board[x][y] == candidate)
-        if not next(conflicts, False):
+        if not any(conflicts):
             board[pos_x][pos_y] = candidate
             if solve(board):
                 return board
