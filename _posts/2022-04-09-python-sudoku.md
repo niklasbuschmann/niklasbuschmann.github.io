@@ -10,19 +10,18 @@ So a simple Python implementation could look like this:
 
 ```python
 def solve(board):
-    pos_x, pos_y = get_empty_square(board)
+    pos_x, pos_y = next_empty_square(board)
     if (pos_x, pos_y) == (None, None):
         return board
-    adjacent_values = get_adjacent_values(board, pos_x, pos_y)
-    for candidate in range(1, 10):
-        if candidate not in adjacent_values:
-            board[pos_x][pos_y] = candidate
-            if solve(board):
-                return board
+    candidates = get_candidates(board, pos_x, pos_y)
+    for candidate in candidates:
+        board[pos_x][pos_y] = candidate
+        if solve(board):
+            return board
     board[pos_x][pos_y] = 0
 ```
 
-To implement `get_empty_square()` one can use the following generator expression iterating over all empty squares:
+To implement `next_empty_square()` one can use the generator expression `empty_squares` to iterate over all empty squares, and use Python's `next()` function to take the first entry.
 
 ```python
 def solve(board):
@@ -30,16 +29,15 @@ def solve(board):
     pos_x, pos_y = next(empty_squares, (None, None))
     if (pos_x, pos_y) == (None, None):
         return board
-    adjacent_values = get_adjacent_values(board, pos_x, pos_y)
-    for candidate in range(1, 10):
-        if candidate not in adjacent_values:
-            board[pos_x][pos_y] = candidate
-            if solve(board):
-                return board
+    candidates = get_candidates(board, pos_x, pos_y)
+    for candidate in candidates:
+        board[pos_x][pos_y] = candidate
+        if solve(board):
+            return board
     board[pos_x][pos_y] = 0
 ```
 
-Python's `next()` function allows one to take the first entry or return a default argument if there is none found. `get_adjacent_values()` can be implemented using a combination of three list comprehension, corresponding to the current row, column and subgrid:
+ `get_candidates()` can be implemented by collecting the digits that already occur in the adjacent squares of the current row, column and subgrid:
 
 ```python
 def solve(board):
@@ -48,11 +46,10 @@ def solve(board):
     if (pos_x, pos_y) == (None, None):
         return board
     adjacent_values = [board[pos_x][y] for y in range(9)] + [board[x][pos_y] for x in range(9)] + [board[x][y] for x in range((pos_x//3)*3, (pos_x//3)*3+3) for y in range((pos_y//3) * 3, (pos_y//3)*3+3)]
-    for candidate in range(1, 10):
-        if candidate not in adjacent_values:
-            board[pos_x][pos_y] = candidate
-            if solve(board):
-                return board
+    for candidate in set(range(1, 10)) - set(adjacent_values):
+        board[pos_x][pos_y] = candidate
+        if solve(board):
+            return board
     board[pos_x][pos_y] = 0
 ```
 
