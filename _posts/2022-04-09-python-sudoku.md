@@ -22,7 +22,7 @@ def solve(board):
     board[pos_x][pos_y] = 0
 ```
 
-To implement `get_empty_square` one can use the following generator expression iterating over all empty squares. Python's `next()` function allows one to take the first entry or return a default argument if there is none found. The code could then look like this:
+To implement `get_empty_square()` one can use the following generator expression iterating over all empty squares:
 
 ```python
 def solve(board):
@@ -39,7 +39,7 @@ def solve(board):
     board[pos_x][pos_y] = 0
 ```
 
-The adjacent_values of the current empty square can be found using the following list comprehension:
+Python's `next()` function allows one to take the first entry or return a default argument if there is none found. `get_adjacent_values()` can be implemented using a combination of three list comprehension, corresponding to the current row, column and subgrid:
 
 ```python
 def solve(board):
