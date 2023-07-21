@@ -233,6 +233,13 @@ $$
   \left(\frac{1}{c^2}\frac{\partial^2}{\partial t^2} - \nabla^2\right)\left(\phi-c\mathbf{A}\right) = \frac{\rho}{\epsilon_0} - \mu_0c\mathbf{j}
 $$
 
+The Lorentz force law can be expressed using the four velocity \\( c + \mathbf{v} \\) and gives the result for the power and force experienced by both electric and magnetic monopoles:
+
+$$
+  (\mathbf{E}+c\mathbf{B}I)(qc+q\mathbf{v})
+  = \underbrace{q(\mathbf{E}\cdot\mathbf{v})}_{\textrm{power}} + c\underbrace{q(\mathbf{E} - \mathbf{B}\times\mathbf{v})}_{\textrm{electric force}} + c^2\underbrace{q\left(\mathbf{B} + \mathbf{E}\times\frac{\mathbf{v}}{c^2}\right)}_{\textrm{magnetic force}} I + c\underbrace{q(\mathbf{B}\cdot\mathbf{v})}_{\textrm{power}}I
+$$
+
 ## Part 4: Four Dimensions
 
 In four dimensions there are now 16 basis vectors:
