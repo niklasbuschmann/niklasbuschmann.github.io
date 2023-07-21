@@ -206,7 +206,7 @@ Together \\( \\{1, \mathbf{e}_x\mathbf{e}_y, \mathbf{e}_z\mathbf{e}_x, \mathbf{e
 Another nice property of geometric algebra is that [Maxwell's equations](https://en.wikipedia.org/wiki/Maxwell%27s_equations) take on a particularly simple form when [expressed](https://en.wikipedia.org/wiki/Mathematical_descriptions_of_the_electromagnetic_field#Geometric_algebra_formulations) using it:
 
 $$
-  \left(\frac{1}{c}\frac{\partial}{\partial t} + \mathbf{\nabla}\right)\left(\mathbf{E}+ Ic\mathbf{B}\right) = \frac{\rho}{\epsilon_0} - \mu_0c\mathbf{j}
+  \left(\frac{1}{c}\frac{\partial}{\partial t} + \mathbf{\nabla}\right)\left(\mathbf{E}+ c\mathbf{B}I\right) = \frac{\rho}{\epsilon_0} - \mu_0c\mathbf{j}
 $$
 
 Expanding the product shows that the expression above is in fact equal to Maxwell's equations:
@@ -224,7 +224,7 @@ Using the [electric potential](https://en.wikipedia.org/wiki/Electric_potential)
 $$
   \left(\frac{1}{c}\frac{\partial}{\partial t} - \mathbf{\nabla}\right)\left(\phi-c\mathbf{A}\right)
   = c\underbrace{\left(\frac{1}{c^2}\frac{\partial \phi}{\partial t}+\mathbf{\nabla} \cdot \mathbf{A}\right)}_{=\ 0}
-  + \underbrace{\left(-\mathbf{\nabla}\phi - \frac{\partial \mathbf{A}}{\partial t}\right)}_{=\ \mathbf{E}} + Ic\underbrace{\left(\mathbf{\nabla} \times \mathbf{A}\right)}_{=\ \mathbf{B}}
+  + \underbrace{\left(-\mathbf{\nabla}\phi - \frac{\partial \mathbf{A}}{\partial t}\right)}_{=\ \mathbf{E}} + c\underbrace{\left(\mathbf{\nabla} \times \mathbf{A}\right)}_{=\ \mathbf{B}}I
 $$
 
 This yields the known formular involving the [d'Alembert operator](https://en.wikipedia.org/wiki/D%27Alembert_operator):
