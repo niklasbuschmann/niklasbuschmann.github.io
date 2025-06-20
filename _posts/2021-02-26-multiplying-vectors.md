@@ -381,7 +381,7 @@ $$
 Starting with an even dimension \\( n \\) then: 
 
 $$
-  \bm{e}_{n+1} = \begin{pmatrix}0 & -i\cdot\mathbf{1}\\ i\cdot\mathbf{1} & 0\end{pmatrix}
+  \mathbf{e}_i = \mathbf{e}_i \quad \bm{e}_{n+1} = \begin{pmatrix}0 & -i\cdot\mathbf{1}\\ i\cdot\mathbf{1} & 0\end{pmatrix}
 $$
 
 ## Summary
