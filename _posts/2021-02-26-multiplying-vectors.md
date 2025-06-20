@@ -35,7 +35,7 @@ $$
   (\mathbf{a}+\mathbf{b})\mathbf{c} = \mathbf{a}\mathbf{c} + \mathbf{b}\mathbf{c} \qquad \mathbf{c}(\mathbf{a}+\mathbf{b})=\mathbf{c}\mathbf{a}+\mathbf{c}\mathbf{b}
 $$
 
-Assuming distributivity we can reduce the problem to the multiplication of the basis vectors \\( \mathbf{e}_i \\):
+Assuming distributivity the problem can be reduced to the multiplication of the basis vectors \\( \mathbf{e}_i \\):
 
 $$
 \begin{aligned}
@@ -53,7 +53,7 @@ $$
   \mathbf{e}_x\mathbf{e}_x \overset{!}{=} u_1^2 \mathbf{e}_x\mathbf{e}_x + u_1u_2 \mathbf{e}_x\mathbf{e}_y + u_2u_1\mathbf{e}_y\mathbf{e}_x + u_2^2 \mathbf{e}_y\mathbf{e}_y \overset{!}{=} \mathbf{e}_y\mathbf{e}_y
 $$
 
-It immediately follows that \\( \mathbf{e}_x\mathbf{e}_x = \mathbf{e}_y\mathbf{e}_y \\) and \\( \mathbf{e}_x\mathbf{e}_y = -\mathbf{e}_y\mathbf{e}_x \\) since \\( u_1^2+u_2^2 = 1 \\).
+It immediately follows that \\( \mathbf{e}_x\mathbf{e}_x \overset{!}{=} \mathbf{e}_y\mathbf{e}_y \\) and \\( \mathbf{e}_x\mathbf{e}_y \overset{!}{=} -\mathbf{e}_y\mathbf{e}_x \\) since \\( u_1^2+u_2^2 = 1 \\).
 
 The product can now be simplified to:
 
@@ -87,13 +87,11 @@ We can see that \\( \\{\mathbf{1}, \mathbf{I}\\} \\) is [isomorphic](https://en.
 By definition we know that vectors are left unchanged when multiplied with the neutral element \\( 1 \\). But how does \\( \mathbf{I} \\) act on the ordinary basis vectors?
 
 $$
-  \mathbf{I} \mathbf{e}_x = \mathbf{e}_x \mathbf{e}_y \mathbf{e}_x = - \mathbf{e}_y \\[1ex]
-  \mathbf{I} \mathbf{e}_y = \mathbf{e}_x \mathbf{e}_y \mathbf{e}_y = + \mathbf{e}_x
+  \mathbf{I} \mathbf{e}_x = \mathbf{e}_x \mathbf{e}_y \mathbf{e}_x = -\mathbf{e}_x \mathbf{e}_x \mathbf{e}_y = - 1\mathbf{e}_y \\[1ex]
+  \mathbf{I} \mathbf{e}_y = \mathbf{e}_x \mathbf{e}_y \mathbf{e}_y = + 1\mathbf{e}_x
 $$
 
-From this one can see that \\( \mathbf{I} \\) acts like a rotor on any vector.
-
-Because \\( \\{1, \mathbf{I}\\} \\) is closed under multiplication and both give back a vector when multiplied with a vector, the complete geometric algebra \\( \\{1, \mathbf{e}_x, \mathbf{e}_y, \mathbf{I}\\} \\) is closed under multiplication, with the following multiplication table:
+Because \\( \\{1, \mathbf{I}\\} \\) is now closed under multiplication and both give back a vector when multiplied with a vector, the complete geometric algebra \\( \\{1, \mathbf{e}_x, \mathbf{e}_y, \mathbf{I}\\} \\) is closed under multiplication, with the following multiplication table:
 
 $$
   \mathbf{e}_x\mathbf{e}_x = 1 \quad \mathbf{e}_x\mathbf{e}_y = \mathbf{I} \quad \mathbf{e}_x \mathbf{I} = \mathbf{e}_y\\[1ex]
@@ -121,18 +119,18 @@ $$
   \{1, \mathbf{e}_x, \mathbf{e}_y, \mathbf{e}_z, \mathbf{e}_y\mathbf{e}_z, \mathbf{e}_z\mathbf{e}_x, \mathbf{e}_x\mathbf{e}_y, \mathbf{e}_x\mathbf{e}_y\mathbf{e}_z \}
 $$
 
-Again defining the pseudoscalar \\( \bm{I}:=\mathbf{e}_x\mathbf{e}_y\mathbf{e}_z\\) allows the basis to be rewritten as:
+Again defining \\( \mathbf{I}:=\mathbf{e}_x\mathbf{e}_y\mathbf{e}_z\\) allows the basis to be rewritten as:
 
 $$
-  \{1, \mathbf{e}_x, \mathbf{e}_y, \mathbf{e}_z, \bm{I}\mathbf{e}_x, \bm{I}\mathbf{e}_y, \bm{I}\mathbf{e}_z, \bm{I} \}
+  \{1, \mathbf{e}_x, \mathbf{e}_y, \mathbf{e}_z, \mathbf{I}\mathbf{e}_x, \mathbf{I}\mathbf{e}_y, \mathbf{I}\mathbf{e}_z, \mathbf{I} \}
 $$
 
 Where we used that:
 
 $$
-  \bm{I}\mathbf{e}_x = \mathbf{e}_y \mathbf{e}_z \qquad
-  \bm{I}\mathbf{e}_y = \mathbf{e}_z \mathbf{e}_x \qquad
-  \bm{I}\mathbf{e}_z = \mathbf{e}_x \mathbf{e}_y
+  \mathbf{I}\mathbf{e}_x = \mathbf{e}_y \mathbf{e}_z \qquad
+  \mathbf{I}\mathbf{e}_y = \mathbf{e}_z \mathbf{e}_x \qquad
+  \mathbf{I}\mathbf{e}_z = \mathbf{e}_x \mathbf{e}_y
 $$
 
 Let us see what happens when two ordinary vectors are multiplied together:
@@ -141,10 +139,10 @@ $$
   \mathbf{a}\mathbf{b} = (a_1b_1 + a_2b_2+a_3b_3) + (a_1b_2-a_2b_1)\mathbf{e}_x\mathbf{e}_y - (a_1b_3-a_3b_1)\mathbf{e}_z\mathbf{e}_x + (a_2b_3-a_3b_2)\mathbf{e}_y\mathbf{e}_z
 $$
 
-Using the pseudoscalar \\( \bm{I} \\) this can again be written as:
+Using the pseudoscalar \\( \mathbf{I} \\) this can again be written as:
 
 $$
-  \mathbf{a}\mathbf{b} = \mathbf{a}\cdot\mathbf{b} + (\mathbf{a}\times\mathbf{b}) \bm{I}
+  \mathbf{a}\mathbf{b} = \mathbf{a}\cdot\mathbf{b} + (\mathbf{a}\times\mathbf{b}) \mathbf{I}
 $$
 
 Another interesting property is that the pseudoscalar part of the product of three vectors equals the [determinant](https://en.wikipedia.org/wiki/Determinant) or [triple product](https://en.wikipedia.org/wiki/Triple_product) of them:
@@ -152,8 +150,8 @@ Another interesting property is that the pseudoscalar part of the product of thr
 $$
 \begin{aligned}
   \mathbf{a}\mathbf{b}\mathbf{c}
-  &= (\mathbf{a}\cdot\mathbf{b})\mathbf{c} + ((\mathbf{a}\times\mathbf{b})\cdot\mathbf{c}+((\mathbf{a}\times\mathbf{b})\times\mathbf{c}) \bm{I}) \bm{I}\\[1ex]
-  &= (\mathbf{a}\cdot\mathbf{b})\mathbf{c} - (\mathbf{a}\cdot\mathbf{c})\mathbf{b} + (\mathbf{b}\cdot\mathbf{c})\mathbf{a} + \det([\mathbf{a}|\mathbf{b}|\mathbf{c}]) \bm{I}
+  &= (\mathbf{a}\cdot\mathbf{b})\mathbf{c} + ((\mathbf{a}\times\mathbf{b})\cdot\mathbf{c}+((\mathbf{a}\times\mathbf{b})\times\mathbf{c}) \mathbf{I}) \mathbf{I}\\[1ex]
+  &= (\mathbf{a}\cdot\mathbf{b})\mathbf{c} - (\mathbf{a}\cdot\mathbf{c})\mathbf{b} + (\mathbf{b}\cdot\mathbf{c})\mathbf{a} + \det([\mathbf{a}|\mathbf{b}|\mathbf{c}]) \mathbf{I}
 \end{aligned}
 $$
 
@@ -173,7 +171,7 @@ Together \\( \\{1, \mathbf{e}_x\mathbf{e}_y, \mathbf{e}_z\mathbf{e}_x, \mathbf{e
 Another nice property of geometric algebra is that [Maxwell's equations](https://en.wikipedia.org/wiki/Maxwell%27s_equations) take on a particularly simple form when [expressed](https://en.wikipedia.org/wiki/Mathematical_descriptions_of_the_electromagnetic_field#Geometric_algebra_formulations) using it:
 
 $$
-  \left(\frac{1}{c}\frac{\partial}{\partial t} - \mathbf{\nabla}\right)\left(-\mathbf{E}+ c\mathbf{B}\bm{I}\right) = \frac{\rho}{\epsilon_0} + \mu_0c\mathbf{j}
+  \left(\frac{1}{c}\frac{\partial}{\partial t} - \mathbf{\nabla}\right)\left(-\mathbf{E}+ c\mathbf{B}\mathbf{I}\right) = \frac{\rho}{\epsilon_0} + \mu_0c\mathbf{j}
 $$
 
 Expanding the product shows that the expression above is in fact equal to Maxwell's equations:
@@ -181,8 +179,8 @@ Expanding the product shows that the expression above is in fact equal to Maxwel
 $$
   \underbrace{\left(\mathbf{\nabla}\cdot\mathbf{E}\right)}_\mathrm{Gauss} + 
   c\underbrace{\left(\mathbf{\nabla}\times\mathbf{B} - \frac{1}{c^2}\frac{\partial \mathbf{E}}{\partial t}\right)}_\mathrm{Ampere-Maxwell} + 
-  \underbrace{\left(\mathbf{\nabla}\times\mathbf{E}+\frac{\partial \mathbf{B}}{\partial t}\right)}_\mathrm{Faraday} \bm{I} + 
-  c\underbrace{\left(\mathbf{\nabla}\cdot\mathbf{B}\right)}_\mathrm{Gauss} \bm{I}
+  \underbrace{\left(\mathbf{\nabla}\times\mathbf{E}+\frac{\partial \mathbf{B}}{\partial t}\right)}_\mathrm{Faraday} \mathbf{I} + 
+  c\underbrace{\left(\mathbf{\nabla}\cdot\mathbf{B}\right)}_\mathrm{Gauss} \mathbf{I}
   = \frac{\rho}{\epsilon_0} + \mu_0c\mathbf{j}
 $$
 
@@ -190,7 +188,7 @@ Using the [electric potential](https://en.wikipedia.org/wiki/Electric_potential)
 
 $$
   \left(\frac{1}{c}\frac{\partial}{\partial t} + \mathbf{\nabla}\right)\left(\phi + c\mathbf{A}\right)
-  = c\underbrace{\left(\frac{1}{c^2}\frac{\partial \phi}{\partial t}+\mathbf{\nabla} \cdot \mathbf{A}\right)}_{=\ 0} - \underbrace{\left(-\mathbf{\nabla}\phi - \frac{\partial \mathbf{A}}{\partial t}\right)}_{=\ \mathbf{E}} + c\underbrace{\left(\mathbf{\nabla} \times \mathbf{A}\right)}_{=\ \mathbf{B}}\bm{I} = -\mathbf{E}+ c\mathbf{B}\bm{I}
+  = c\underbrace{\left(\frac{1}{c^2}\frac{\partial \phi}{\partial t}+\mathbf{\nabla} \cdot \mathbf{A}\right)}_{=\ 0} - \underbrace{\left(-\mathbf{\nabla}\phi - \frac{\partial \mathbf{A}}{\partial t}\right)}_{=\ \mathbf{E}} + c\underbrace{\left(\mathbf{\nabla} \times \mathbf{A}\right)}_{=\ \mathbf{B}}\mathbf{I} = -\mathbf{E}+ c\mathbf{B}\mathbf{I}
 $$
 
 This yields the known formular involving the [d'Alembert operator](https://en.wikipedia.org/wiki/D%27Alembert_operator):
@@ -202,8 +200,8 @@ $$
 The Lorentz force law can then be expressed as:
 
 $$
-  (c\rho + \mathbf{j})(-\mathbf{E}+c\mathbf{B}\bm{I})
-  = -\underbrace{(\mathbf{E}\cdot\mathbf{j})}_{\textrm{power}} - c\underbrace{(\rho\mathbf{E} + \mathbf{j}\times\mathbf{B})}_{\textrm{electric monopole force}} + c^2\underbrace{\left(\rho\mathbf{B} - \mathbf{j}\times\frac{\mathbf{E}}{c^2}\right)}_{\textrm{magnetic monopole force}} \bm{I} + c\underbrace{(\mathbf{B}\cdot\mathbf{j})}_{\textrm{power}}\bm{I}
+  (c\rho + \mathbf{j})(-\mathbf{E}+c\mathbf{B}\mathbf{I})
+  = -\underbrace{(\mathbf{E}\cdot\mathbf{j})}_{\textrm{power}} - c\underbrace{(\rho\mathbf{E} + \mathbf{j}\times\mathbf{B})}_{\textrm{electric monopole force}} + c^2\underbrace{\left(\rho\mathbf{B} - \mathbf{j}\times\frac{\mathbf{E}}{c^2}\right)}_{\textrm{magnetic monopole force}} \mathbf{I} + c\underbrace{(\mathbf{B}\cdot\mathbf{j})}_{\textrm{power}}\mathbf{I}
 $$
 
 ## Part 4: Four Dimensions
@@ -211,7 +209,7 @@ $$
 In four dimensions there are now 16 basis vectors:
 
 $$
-  \{1, \mathbf{e}_t, \mathbf{e}_x, \mathbf{e}_y, \mathbf{e}_z, \mathbf{e}_t\mathbf{e}_x, \mathbf{e}_t\mathbf{e}_y, \mathbf{e}_t\mathbf{e}_z, \mathbf{e}_x\mathbf{e}_y, \mathbf{e}_z\mathbf{e}_x, \mathbf{e}_y\mathbf{e}_z, \bm{I}\mathbf{e}_t, \bm{I}\mathbf{e}_x, \bm{I}\mathbf{e}_y, \bm{I}\mathbf{e}_z, \bm{I} \}
+  \{1, \mathbf{e}_t, \mathbf{e}_x, \mathbf{e}_y, \mathbf{e}_z, \mathbf{e}_t\mathbf{e}_x, \mathbf{e}_t\mathbf{e}_y, \mathbf{e}_t\mathbf{e}_z, \mathbf{e}_x\mathbf{e}_y, \mathbf{e}_z\mathbf{e}_x, \mathbf{e}_y\mathbf{e}_z, \mathbf{I}\mathbf{e}_t, \mathbf{I}\mathbf{e}_x, \mathbf{I}\mathbf{e}_y, \mathbf{I}\mathbf{e}_z, \mathbf{I} \}
 $$
 
 Since there are now six bivector components, the product of two vectors does not again correspond to a four-component vector. Because of this, the cross product, generalized to four dimensions, would either return six components or require three vectors as input.
@@ -253,7 +251,7 @@ Here \\( \mathbf{F} = F^{\mu\nu}\bm{\gamma}\_\mu\bm{\gamma}\_\nu \\) is a bivect
 In three dimensions the geometric prouct can be written as:
 
 $$
-  \mathbf{a}\mathbf{b} = \mathbf{a}\cdot\mathbf{b} + (\mathbf{a}\times\mathbf{b}) \bm{I} \quad \Leftrightarrow \quad \mathbf{b}\mathbf{a} = \mathbf{a}\cdot\mathbf{b} - (\mathbf{a}\times\mathbf{b}) \bm{I}
+  \mathbf{a}\mathbf{b} = \mathbf{a}\cdot\mathbf{b} + (\mathbf{a}\times\mathbf{b}) \mathbf{I} \quad \Leftrightarrow \quad \mathbf{b}\mathbf{a} = \mathbf{a}\cdot\mathbf{b} - (\mathbf{a}\times\mathbf{b}) \mathbf{I}
 $$
 
 But in any number of dimensions the product between two vectors splits into a commutative and anticommutative part, called scalar and [wedge product](https://en.wikipedia.org/wiki/Exterior_algebra):
@@ -278,8 +276,8 @@ $$
 Since the wedge product can only increase the order of its input, this allows one to extract the higher part of vector products:
 
 $$
-  \mathbf{a}\wedge\mathbf{b} = (\mathbf{a}\times\mathbf{b}) \bm{I} \\[1ex]
-  \mathbf{a}\wedge\mathbf{b}\wedge\mathbf{c} = \det([\mathbf{a}|\mathbf{b}|\mathbf{c}]) \bm{I}
+  \mathbf{a}\wedge\mathbf{b} = (\mathbf{a}\times\mathbf{b}) \mathbf{I} \\[1ex]
+  \mathbf{a}\wedge\mathbf{b}\wedge\mathbf{c} = \det([\mathbf{a}|\mathbf{b}|\mathbf{c}]) \mathbf{I}
 $$
 
 This even works in n dimensions as long as n vectors are multiplied for the determinant and n-1 vectors for the cross product - which then returns another pseudovector in a direction orthogonal to all of them.
