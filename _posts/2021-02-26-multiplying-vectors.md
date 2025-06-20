@@ -26,13 +26,13 @@ We will then derive a set of rules that define something named [geometric algebr
 For the following we define a set of two basis vectors:
 
 $$
-  \mathbf{e}_x := \begin{pmatrix}1\\0\end{pmatrix} \qquad \mathbf{e}_y := \begin{pmatrix}0\\1\end{pmatrix}
+  \mathbf{\hat{e}}_x := \begin{pmatrix}1\\0\end{pmatrix} \qquad \mathbf{\hat{e}}_y := \begin{pmatrix}0\\1\end{pmatrix}
 $$
 
 This allows us to write any ordinary vector \\( \mathbf{a} \\) as a combination of these basis vectors:
 
 $$
-  \mathbf{a} = \begin{pmatrix}a_1\\a_2\end{pmatrix} = a_1\begin{pmatrix}1\\0\end{pmatrix} + a_2\begin{pmatrix}0\\1\end{pmatrix} = a_1 \mathbf{e}_x+a_2 \mathbf{e}_y
+  \mathbf{a} = \begin{pmatrix}a_1\\a_2\end{pmatrix} = a_1\begin{pmatrix}1\\0\end{pmatrix} + a_2\begin{pmatrix}0\\1\end{pmatrix} = a_1 \mathbf{\hat{e}}_x+a_2 \mathbf{\hat{e}}_y
 $$
 
 One fundamental property associated with multiplication is [distributivity](https://en.wikipedia.org/wiki/Distributive_property) over addition:
@@ -41,7 +41,7 @@ $$
   (\mathbf{a}+\mathbf{b})\mathbf{c} = \mathbf{a}\mathbf{c} + \mathbf{b}\mathbf{c} \qquad \mathbf{c}(\mathbf{a}+\mathbf{b})=\mathbf{c}\mathbf{a}+\mathbf{c}\mathbf{b}
 $$
 
-This property is so fundamental that if the operation is not distributive it probably should not be called multiplication. This reduces the problem of multiplying to vectors to the problem of multiplying the basis vectors:
+Assuming distributivity we can reduce the problem to the multiplication of the basis vectors \\( \mathbf{\hat{e}}_i \\):
 
 $$
 \begin{aligned}
@@ -51,35 +51,27 @@ $$
 \end{aligned}
 $$
 
-Although not very useful yet, this is the most general form of what the product of two vectors should look like.
+Besides distributivity the only requirement of the product is that it should for two vectors only depend on the relative angle between them, not on the absolute angles of the vectors themselves. In other words: the product should stay invariant under rotations of the coordinate system.
 
-One desirable property of our multiplication would be that the product of two vectors should only depend on the relative angle between them, not on the absolute angles of the vectors themselves. In other words: the product should stay invariant under rotations of the coordinate system. (This also implies that our result is not a vector - which is not invariant under rotations.)
-
-Let us now consider for example the product of a unit vector \\( \mathbf{\hat{u}} \\) with itself: We could then choose three coordinate systems where \\( \mathbf{\hat{u}} \\) points (i) along the x-axis or (ii) somewhere between x and y-axis or (iii) along the y-axis. Calculating the results and requiring them to be equal yields:
+Let us now consider for example the product of a unit vector \\( \mathbf{\hat{u}} \\) with itself: We could then choose three coordinate systems where \\( \mathbf{\hat{u}} \\) points (i) along the x-axis or (ii) somewhere between x and y-axis or (iii) along the y-axis. Calculating the products and requiring them to be equal yields:
 
 $$
-  \mathbf{e}_x\mathbf{e}_x = u_1^2 \mathbf{e}_x\mathbf{e}_x + u_1u_2 \mathbf{e}_x\mathbf{e}_y + u_2u_1\mathbf{e}_y\mathbf{e}_x + u_2^2 \mathbf{e}_y\mathbf{e}_y = \mathbf{e}_y\mathbf{e}_y
+  \mathbf{\hat{e}}_x\mathbf{\hat{e}}_x \overset{!}{=} u_1^2 \mathbf{\hat{e}}_x\mathbf{\hat{e}}_x + u_1u_2 \mathbf{\hat{e}}_x\mathbf{\hat{e}}_y + u_2u_1\mathbf{\hat{e}}_y\mathbf{\hat{e}}_x + u_2^2 \mathbf{\hat{e}}_y\mathbf{\hat{e}}_y \overset{!}{=} \mathbf{\hat{e}}_y\mathbf{\hat{e}}_y
 $$
 
-It immediately follows that \\( \mathbf{e}_x\mathbf{e}_x = \mathbf{e}_y\mathbf{e}_y \\), and combined with the fact that \\( \\|\mathbf{\hat{u}}\\|^2 = u_1^2+u_2^2 = 1 \\) this means that \\( \mathbf{e}_x\mathbf{e}_y \\) and \\( \mathbf{e}_y\mathbf{e}_x \\) must cancel out each other. We will use this to define two new basis vectors:
+It immediately follows that \\( \mathbf{\hat{e}}_x\mathbf{\hat{e}}_x = \mathbf{\hat{e}}_y\mathbf{\hat{e}}_y \\), and \\( \mathbf{\hat{e}}_x\mathbf{\hat{e}}_y = -\mathbf{\hat{e}}_y\mathbf{\hat{e}}_x \\) since \\( u_1^2+u_2^2 = 1 \\).
 
-$$
-  \mathbf{e}_s := \mathbf{e}_x\mathbf{e}_x = \mathbf{e}_y\mathbf{e}_y \qquad \mathbf{e}_c := \mathbf{e}_x\mathbf{e}_y = -\mathbf{e}_y\mathbf{e}_x
-$$
-
-The product can then be expressed as:
+The product can now be simplified to:
 
 $$
 \begin{aligned}
   \mathbf{a}\mathbf{b}
-  &= (a_1 b_1 + a_2 b_2)\mathbf{e}_s + (a_1b_2 - a_2b_1)\mathbf{e}_c \\[1ex]
-  &= (\mathbf{a}\cdot\mathbf{b})\mathbf{e}_s + (\mathbf{a}\times\mathbf{b})\mathbf{e}_c
+  &= (a_1 b_1 + a_2 b_2)\mathbf{\hat{e}}_x\mathbf{\hat{e}}_x + (a_1b_2 - a_2b_1)\mathbf{\hat{e}}_x\mathbf{\hat{e}}_y \\[1ex]
+  &= (\mathbf{a}\cdot\mathbf{b})\mathbf{\hat{e}}_x\mathbf{\hat{e}}_x + (\mathbf{a}\times\mathbf{b})\mathbf{\hat{e}}_x\mathbf{\hat{e}}_y
 \end{aligned}
 $$
 
-The resulting multiplication closely resembles the definition of the [dot product](https://en.wikipedia.org/wiki/Dot_product) and the [cross product](https://en.wikipedia.org/wiki/Cross_product) - if we consider the cross product of two vectors in the xy-plane to be the z-component of the traditional cross product in three dimensions: \\(\ \mathbf{a}\times\mathbf{b} := a_1b_2 - a_2b_1 \\).
-
-Both scalar and cross product - restricted to one plane - are invariant under rotations, so the two requirements we found previously are sufficient to guarantee rotational invariance for the product of two arbitrary vectors. Thus the product can not be simplified further without losing information.
+The resulting multiplication closely resembles the definition of the [dot product](https://en.wikipedia.org/wiki/Dot_product) \\(\ \mathbf{a}\cdot\mathbf{b} = a_1b_1 + a_2b_2 \\) and the [cross product](https://en.wikipedia.org/wiki/Cross_product) \\(\ \mathbf{a}\times\mathbf{b} = a_1b_2 - a_2b_1 \\), since those two are invariant under rotations in the plane.
 
 ## Part 2: Geometric Algebra
 
