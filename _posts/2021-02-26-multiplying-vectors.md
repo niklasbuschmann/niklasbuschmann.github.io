@@ -40,8 +40,8 @@ Assuming distributivity we can reduce the problem to the multiplication of the b
 $$
 \begin{aligned}
   \mathbf{a}\mathbf{b}
-  &= (a_1 \mathbf{e}_x+a_2 \mathbf{e}_y)(b_1 \mathbf{e}_x+b_2 \mathbf{e}_y)\\[1ex]
-  &= a_1b_1\mathbf{e}_x\mathbf{e}_x+a_1b_2\mathbf{e}_x\mathbf{e}_y+a_2b_1\mathbf{e}_y\mathbf{e}_x+a_2b_2\mathbf{e}_y\mathbf{e}_y
+  &= (a_1 \mathbf{\hat{e}}_x+a_2 \mathbf{\hat{e}}_y)(b_1 \mathbf{\hat{e}}_x+b_2 \mathbf{\hat{e}}_y)\\[1ex]
+  &= a_1b_1\mathbf{\hat{e}}_x\mathbf{\hat{e}}_x+a_1b_2\mathbf{\hat{e}}_x\mathbf{\hat{e}}_y+a_2b_1\mathbf{\hat{e}}_y\mathbf{\hat{e}}_x+a_2b_2\mathbf{\hat{e}}_y\mathbf{\hat{e}}_y
 \end{aligned}
 $$
 
