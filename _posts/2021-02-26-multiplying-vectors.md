@@ -23,16 +23,10 @@ We will then derive a set of rules that define something named [geometric algebr
 
 ## Part 1: Rotational Invariance
 
-For the following we define a set of two basis vectors:
+Starting in two dimensions, any vector \\( \mathbf{a} \\) can be written as combination of the two basis vectors \\( \mathbf{\hat{e}}_x \\) and \\( \mathbf{\hat{e}}_y \\):
 
 $$
-  \mathbf{\hat{e}}_x := \begin{pmatrix}1\\0\end{pmatrix} \qquad \mathbf{\hat{e}}_y := \begin{pmatrix}0\\1\end{pmatrix}
-$$
-
-This allows us to write any ordinary vector \\( \mathbf{a} \\) as a combination of these basis vectors:
-
-$$
-  \mathbf{a} = \begin{pmatrix}a_1\\a_2\end{pmatrix} = a_1\begin{pmatrix}1\\0\end{pmatrix} + a_2\begin{pmatrix}0\\1\end{pmatrix} = a_1 \mathbf{\hat{e}}_x+a_2 \mathbf{\hat{e}}_y
+  \mathbf{a} = \begin{pmatrix}a_1\\a_2\end{pmatrix} = a_1\begin{pmatrix}1\\0\end{pmatrix} + a_2\begin{pmatrix}0\\1\end{pmatrix} =: a_1 \mathbf{\hat{e}}_x+a_2 \mathbf{\hat{e}}_y
 $$
 
 One fundamental property associated with multiplication is [distributivity](https://en.wikipedia.org/wiki/Distributive_property) over addition:
