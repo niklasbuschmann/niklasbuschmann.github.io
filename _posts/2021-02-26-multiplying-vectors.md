@@ -47,7 +47,7 @@ $$
 
 Besides distributivity the only assumption about the product is that for two vectors it should only depend on the relative angle between them, not on the absolute angles of the vectors themselves. In other words: the product should stay invariant under rotations of the coordinate system.
 
-Let us now consider for example the product of a unit vector \\( \mathbf{\hat{u}} \\) with itself: We could then choose three coordinate systems where \\( \mathbf{\hat{u}} \\) points (i) along the x-axis or (ii) somewhere between x and y-axis or (iii) along the y-axis. Calculating the products and requiring them to be equal yields:
+Let us now consider for example the product of a unit vector \\( \mathbf{\hat{u}} \\) with itself: We could then choose three coordinate systems where \\( \mathbf{\hat{u}} \\) points (i) along the x-axis or (ii) somewhere between x and y-axis or (iii) along the y-axis. Calculating the three products and requiring them to be equal yields:
 
 $$
   \mathbf{e}_x\mathbf{e}_x \overset{!}{=} u_1^2 \mathbf{e}_x\mathbf{e}_x + u_1u_2 \mathbf{e}_x\mathbf{e}_y + u_2u_1\mathbf{e}_y\mathbf{e}_x + u_2^2 \mathbf{e}_y\mathbf{e}_y \overset{!}{=} \mathbf{e}_y\mathbf{e}_y
@@ -69,7 +69,7 @@ The resulting multiplication closely resembles the definition of the [dot produc
 
 ## Part 2: Geometric Algebra
 
-We found two fundamental types of multiplication - one that stays the same when the vectors are switched and one that changes its sign. If we additionally assume [associativity](https://en.wikipedia.org/wiki/Associative_property) of the product then we can see how \\( \mathbf{1} := \mathbf{e}_x\mathbf{e}_x \\) and \\( \mathbf{I} := \mathbf{e}_x\mathbf{e}_y \\) are multiplied:
+We found two fundamental types of multiplication - one that stays the same when the vectors are switched and one that changes its sign. If we additionally assume [associativity](https://en.wikipedia.org/wiki/Associative_property) of the product then we can see how \\( \mathbf{1} := \mathbf{e}_x\mathbf{e}_x \\) and \\( \mathbf{I} := \mathbf{e}_x\mathbf{e}_y \\) are multiplied with each other:
 
 $$
   \mathbf{1}\cdot\mathbf{1} = \mathbf{e}_x \mathbf{e}_x \mathbf{e}_y \mathbf{e}_y = - \mathbf{e}_x \mathbf{e}_y \mathbf{e}_x \mathbf{e}_y = -\mathbf{I}\cdot\mathbf{I} \\[1ex]
@@ -82,7 +82,7 @@ $$
   (a_1\mathbf{1} + a_2\mathbf{I})(b_1\mathbf{1} + b_2\mathbf{I}) = (a_1b_1 - a_2b_2)\mathbf{1}\cdot\mathbf{1} + (a_1b_2 + a_2b_1)\mathbf{1}\cdot\mathbf{I}
 $$
 
-We can see that \\( \\{\mathbf{1}, \mathbf{I}\\} \\) becomes [isomorphic](https://en.wikipedia.org/wiki/Isomorphism) to the [complex numbers](https://en.wikipedia.org/wiki/Complex_number) \\( \\{1, i\\} \\) if we define \\( \mathbf{1} \\) to be the [neutral element](https://en.wikipedia.org/wiki/Identity_element) \\( 1 \\) of the multiplication.
+We can see that \\( \\{\mathbf{1}, \mathbf{I}\\} \\) becomes [isomorphic](https://en.wikipedia.org/wiki/Isomorphism) to the [complex numbers](https://en.wikipedia.org/wiki/Complex_number) \\( \\{1, i\\} \\) if we *define* \\( \mathbf{1} \\) to be the [neutral element](https://en.wikipedia.org/wiki/Identity_element) \\( 1 \\) of the multiplication.
 
 By definition we know that vectors are left unchanged when multiplied with the neutral element \\( 1 \\). But how does \\( \mathbf{I} \\) act on the ordinary basis vectors?
 
