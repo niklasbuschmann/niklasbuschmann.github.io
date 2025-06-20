@@ -69,7 +69,7 @@ The resulting multiplication closely resembles the definition of the [dot produc
 
 ## Part 2: Geometric Algebra
 
-We found two fundamental types of multiplication - one that stays the same when the vectors are switched and one that changes its sign. If we additionally assume [associativity](https://en.wikipedia.org/wiki/Associative_property) of the product - requiring that \\( a(bc)=(ab)c\\)) - then we can see how \\( \mathbf{1} := \mathbf{e}_x\mathbf{e}_x \\) and \\( \mathbf{I} := \mathbf{e}_x\mathbf{e}_y \\) are multiplied:
+We found two fundamental types of multiplication - one that stays the same when the vectors are switched and one that changes its sign. If we additionally assume [associativity](https://en.wikipedia.org/wiki/Associative_property) of the product then we can see how \\( \mathbf{1} := \mathbf{e}_x\mathbf{e}_x \\) and \\( \mathbf{I} := \mathbf{e}_x\mathbf{e}_y \\) are multiplied:
 
 $$
   \mathbf{1}\cdot\mathbf{1} = \mathbf{e}_x \mathbf{e}_x \mathbf{e}_y \mathbf{e}_y = - \mathbf{e}_x \mathbf{e}_y \mathbf{e}_x \mathbf{e}_y = -\mathbf{I}\cdot\mathbf{I} \\[1ex]
@@ -82,12 +82,12 @@ $$
   (a_1\mathbf{1} + a_2\mathbf{I})(b_1\mathbf{1} + b_2\mathbf{I}) = (a_1b_1 - a_2b_2)\mathbf{1}\cdot\mathbf{1} + (a_1b_2 + a_2b_1)\mathbf{1}\cdot\mathbf{I}
 $$
 
-We can see that \\( \\{\mathbf{1}, \mathbf{I}\\} \\) is [isomorphic](https://en.wikipedia.org/wiki/Isomorphism) to the [complex numbers](https://en.wikipedia.org/wiki/Complex_number) \\( \\{1, i\\} \\) if we define \\( \mathbf{1} \\) to be the [neutral element](https://en.wikipedia.org/wiki/Identity_element) \\( 1 \\) of the multiplication.
+We can see that \\( \\{\mathbf{1}, \mathbf{I}\\} \\) becomes [isomorphic](https://en.wikipedia.org/wiki/Isomorphism) to the [complex numbers](https://en.wikipedia.org/wiki/Complex_number) \\( \\{1, i\\} \\) if we define \\( \mathbf{1} \\) to be the [neutral element](https://en.wikipedia.org/wiki/Identity_element) \\( 1 \\) of the multiplication.
 
 By definition we know that vectors are left unchanged when multiplied with the neutral element \\( 1 \\). But how does \\( \mathbf{I} \\) act on the ordinary basis vectors?
 
 $$
-  \mathbf{I} \mathbf{e}_x = \mathbf{e}_x \mathbf{e}_y \mathbf{e}_x = -\mathbf{e}_x \mathbf{e}_x \mathbf{e}_y = - 1\mathbf{e}_y \\[1ex]
+  \mathbf{I} \mathbf{e}_x = \mathbf{e}_x \mathbf{e}_y \mathbf{e}_x = - 1\mathbf{e}_y \\[1ex]
   \mathbf{I} \mathbf{e}_y = \mathbf{e}_x \mathbf{e}_y \mathbf{e}_y = + 1\mathbf{e}_x
 $$
 
@@ -139,7 +139,7 @@ $$
   \mathbf{a}\mathbf{b} = (a_1b_1 + a_2b_2+a_3b_3) + (a_1b_2-a_2b_1)\mathbf{e}_x\mathbf{e}_y - (a_1b_3-a_3b_1)\mathbf{e}_z\mathbf{e}_x + (a_2b_3-a_3b_2)\mathbf{e}_y\mathbf{e}_z
 $$
 
-Using the pseudoscalar \\( \mathbf{I} \\) this can again be written as:
+Using \\( \mathbf{I} \\) this can again be written as:
 
 $$
   \mathbf{a}\mathbf{b} = \mathbf{a}\cdot\mathbf{b} + (\mathbf{a}\times\mathbf{b}) \mathbf{I}
