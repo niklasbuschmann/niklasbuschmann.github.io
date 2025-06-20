@@ -23,10 +23,10 @@ We will then derive a set of rules that define something named [geometric algebr
 
 ## Part 1: Rotational Invariance
 
-Starting in two dimensions, any vector \\( \mathbf{a} \\) can be written as combination of the two basis vectors \\( \mathbf{\hat{e}}_x \\) and \\( \mathbf{\hat{e}}_y \\):
+Starting in two dimensions, any vector \\( \mathbf{a} \\) can be written as combination of the two basis vectors \\( \mathbf{e}_x \\) and \\( \mathbf{e}_y \\):
 
 $$
-  \mathbf{a} = \begin{pmatrix}a_1\\a_2\end{pmatrix} = a_1\begin{pmatrix}1\\0\end{pmatrix} + a_2\begin{pmatrix}0\\1\end{pmatrix} =: a_1 \mathbf{\hat{e}}_x+a_2 \mathbf{\hat{e}}_y
+  \mathbf{a} = \begin{pmatrix}a_1\\a_2\end{pmatrix} = a_1\begin{pmatrix}1\\0\end{pmatrix} + a_2\begin{pmatrix}0\\1\end{pmatrix} =: a_1 \mathbf{e}_x+a_2 \mathbf{e}_y
 $$
 
 One fundamental property associated with multiplication is [distributivity](https://en.wikipedia.org/wiki/Distributive_property) over addition:
@@ -35,13 +35,13 @@ $$
   (\mathbf{a}+\mathbf{b})\mathbf{c} = \mathbf{a}\mathbf{c} + \mathbf{b}\mathbf{c} \qquad \mathbf{c}(\mathbf{a}+\mathbf{b})=\mathbf{c}\mathbf{a}+\mathbf{c}\mathbf{b}
 $$
 
-Assuming distributivity we can reduce the problem to the multiplication of the basis vectors \\( \mathbf{\hat{e}}_i \\):
+Assuming distributivity we can reduce the problem to the multiplication of the basis vectors \\( \mathbf{e}_i \\):
 
 $$
 \begin{aligned}
   \mathbf{a}\mathbf{b}
-  &= (a_1 \mathbf{\hat{e}}_x+a_2 \mathbf{\hat{e}}_y)(b_1 \mathbf{\hat{e}}_x+b_2 \mathbf{\hat{e}}_y)\\[1ex]
-  &= a_1b_1\mathbf{\hat{e}}_x\mathbf{\hat{e}}_x+a_1b_2\mathbf{\hat{e}}_x\mathbf{\hat{e}}_y+a_2b_1\mathbf{\hat{e}}_y\mathbf{\hat{e}}_x+a_2b_2\mathbf{\hat{e}}_y\mathbf{\hat{e}}_y
+  &= (a_1 \mathbf{e}_x+a_2 \mathbf{e}_y)(b_1 \mathbf{e}_x+b_2 \mathbf{e}_y)\\[1ex]
+  &= a_1b_1\mathbf{e}_x\mathbf{e}_x+a_1b_2\mathbf{e}_x\mathbf{e}_y+a_2b_1\mathbf{e}_y\mathbf{e}_x+a_2b_2\mathbf{e}_y\mathbf{e}_y
 \end{aligned}
 $$
 
@@ -50,18 +50,18 @@ Besides distributivity the only assumption about the product is that for two vec
 Let us now consider for example the product of a unit vector \\( \mathbf{\hat{u}} \\) with itself: We could then choose three coordinate systems where \\( \mathbf{\hat{u}} \\) points (i) along the x-axis or (ii) somewhere between x and y-axis or (iii) along the y-axis. Calculating the products and requiring them to be equal yields:
 
 $$
-  \mathbf{\hat{e}}_x\mathbf{\hat{e}}_x \overset{!}{=} u_1^2 \mathbf{\hat{e}}_x\mathbf{\hat{e}}_x + u_1u_2 \mathbf{\hat{e}}_x\mathbf{\hat{e}}_y + u_2u_1\mathbf{\hat{e}}_y\mathbf{\hat{e}}_x + u_2^2 \mathbf{\hat{e}}_y\mathbf{\hat{e}}_y \overset{!}{=} \mathbf{\hat{e}}_y\mathbf{\hat{e}}_y
+  \mathbf{e}_x\mathbf{e}_x \overset{!}{=} u_1^2 \mathbf{e}_x\mathbf{e}_x + u_1u_2 \mathbf{e}_x\mathbf{e}_y + u_2u_1\mathbf{e}_y\mathbf{e}_x + u_2^2 \mathbf{e}_y\mathbf{e}_y \overset{!}{=} \mathbf{e}_y\mathbf{e}_y
 $$
 
-It immediately follows that \\( \mathbf{\hat{e}}_x\mathbf{\hat{e}}_x = \mathbf{\hat{e}}_y\mathbf{\hat{e}}_y \\) and \\( \mathbf{\hat{e}}_x\mathbf{\hat{e}}_y = -\mathbf{\hat{e}}_y\mathbf{\hat{e}}_x \\) since \\( u_1^2+u_2^2 = 1 \\).
+It immediately follows that \\( \mathbf{e}_x\mathbf{e}_x = \mathbf{e}_y\mathbf{e}_y \\) and \\( \mathbf{e}_x\mathbf{e}_y = -\mathbf{e}_y\mathbf{e}_x \\) since \\( u_1^2+u_2^2 = 1 \\).
 
 The product can now be simplified to:
 
 $$
 \begin{aligned}
   \mathbf{a}\mathbf{b}
-  &= (a_1 b_1 + a_2 b_2)\mathbf{\hat{e}}_x\mathbf{\hat{e}}_x + (a_1b_2 - a_2b_1)\mathbf{\hat{e}}_x\mathbf{\hat{e}}_y \\[1ex]
-  &= (\mathbf{a}\cdot\mathbf{b})\mathbf{\hat{e}}_x\mathbf{\hat{e}}_x + (\mathbf{a}\times\mathbf{b})\mathbf{\hat{e}}_x\mathbf{\hat{e}}_y
+  &= (a_1 b_1 + a_2 b_2)\mathbf{e}_x\mathbf{e}_x + (a_1b_2 - a_2b_1)\mathbf{e}_x\mathbf{e}_y \\[1ex]
+  &= (\mathbf{a}\cdot\mathbf{b})\mathbf{e}_x\mathbf{e}_x + (\mathbf{a}\times\mathbf{b})\mathbf{e}_x\mathbf{e}_y
 \end{aligned}
 $$
 
@@ -69,31 +69,31 @@ The resulting multiplication closely resembles the definition of the [dot produc
 
 ## Part 2: Geometric Algebra
 
-We found two fundamental types of multiplication - one that stays the same when the vectors are switched and one that changes its sign. If we additionally assume [associativity](https://en.wikipedia.org/wiki/Associative_property) of the product - requiring that \\( \mathbf{a}(\mathbf{b}\mathbf{c})=(\mathbf{a}\mathbf{b})\mathbf{c}\\)) - then we can see how \\( \mathbf{1} := \mathbf{\hat{e}}_x\mathbf{\hat{e}}_x \\) and \\( \mathbf{I} := \mathbf{\hat{e}}_x\mathbf{\hat{e}}_y \\) are multiplied:
+We found two fundamental types of multiplication - one that stays the same when the vectors are switched and one that changes its sign. If we additionally assume [associativity](https://en.wikipedia.org/wiki/Associative_property) of the product - requiring that \\( a(bc)=(ab)c\\)) - then we can see how \\( \mathbf{1} := \mathbf{e}_x\mathbf{e}_x \\) and \\( \mathbf{I} := \mathbf{e}_x\mathbf{e}_y \\) are multiplied:
 
 $$
-  \mathbf{1}\mathbf{1} = \mathbf{e}_x \mathbf{e}_x \mathbf{e}_y \mathbf{e}_y = - \mathbf{e}_x \mathbf{e}_y \mathbf{e}_x \mathbf{e}_y = -\mathbf{I}\mathbf{I} \\[1ex]
-  \quad \mathbf{1}\mathbf{I} = \mathbf{e}_x \mathbf{e}_x \mathbf{e}_x \mathbf{e}_y = -\mathbf{e}_x \mathbf{e}_x \mathbf{e}_y \mathbf{e}_x = \mathbf{e}_x \mathbf{e}_y \mathbf{e}_x \mathbf{e}_x = \mathbf{I}\mathbf{1}
+  \mathbf{1}\cdot\mathbf{1} = \mathbf{e}_x \mathbf{e}_x \mathbf{e}_y \mathbf{e}_y = - \mathbf{e}_x \mathbf{e}_y \mathbf{e}_x \mathbf{e}_y = -\mathbf{I}\cdot\mathbf{I} \\[1ex]
+  \quad \mathbf{1}\cdot\mathbf{I} = \mathbf{e}_x \mathbf{e}_x \mathbf{e}_x \mathbf{e}_y = -\mathbf{e}_x \mathbf{e}_x \mathbf{e}_y \mathbf{e}_x = \mathbf{e}_x \mathbf{e}_y \mathbf{e}_x \mathbf{e}_x = \mathbf{I}\cdot\mathbf{1}
 $$
 
 The product of an arbitrary combination of \\( \mathbf{1} \\) and \\( \mathbf{I} \\) can thus be written as:
 
 $$
-  (a_1\mathbf{1} + a_2\mathbf{I})(b_1\mathbf{1} + b_2\mathbf{I}) = (a_1b_1 - a_2b_2)\mathbf{1}\mathbf{1} + (a_1b_2 + a_2b_1)\mathbf{1}\mathbf{I}
+  (a_1\mathbf{1} + a_2\mathbf{I})(b_1\mathbf{1} + b_2\mathbf{I}) = (a_1b_1 - a_2b_2)\mathbf{1}\cdot\mathbf{1} + (a_1b_2 + a_2b_1)\mathbf{1}\cdot\mathbf{I}
 $$
 
-We can see that \\( \\{\mathbf{1}, \mathbf{I}\\} \\) is [isomorphic](https://en.wikipedia.org/wiki/Isomorphism) to the [complex numbers](https://en.wikipedia.org/wiki/Complex_number) \\( \\{1, i\\} \\) if we define \\( \mathbf{1} \\) to be the neutral element \\( 1 \\) of the multiplication.
+We can see that \\( \\{\mathbf{1}, \mathbf{I}\\} \\) is [isomorphic](https://en.wikipedia.org/wiki/Isomorphism) to the [complex numbers](https://en.wikipedia.org/wiki/Complex_number) \\( \\{1, i\\} \\) if we define \\( \mathbf{1} \\) to be the [neutral element](https://en.wikipedia.org/wiki/Identity_element) \\( 1 \\) of the multiplication.
 
-By definition we know that vectors are left unchanged when multiplied with the neutral element \\( \mathbf{1} \\). But how does \\( \mathbf{I} \\) act on the ordinary basis vectors?
+By definition we know that vectors are left unchanged when multiplied with the neutral element \\( 1 \\). But how does \\( \mathbf{I} \\) act on the ordinary basis vectors?
 
 $$
-  \mathbf{I} \mathbf{e}_x = \mathbf{\hat{e}}_x \mathbf{\hat{e}}_y \mathbf{e}_x = - \mathbf{\hat{e}}_y \\[1ex]
-  \mathbf{I} \mathbf{e}_y = \mathbf{\hat{e}}_x \mathbf{\hat{e}}_y \mathbf{e}_y = + \mathbf{\hat{e}}_x
+  \mathbf{I} \mathbf{e}_x = \mathbf{e}_x \mathbf{e}_y \mathbf{e}_x = - \mathbf{e}_y \\[1ex]
+  \mathbf{I} \mathbf{e}_y = \mathbf{e}_x \mathbf{e}_y \mathbf{e}_y = + \mathbf{e}_x
 $$
 
 From this one can see that \\( \mathbf{I} \\) acts like a rotor on any vector.
 
-Because \\( \\{1, \mathbf{I}\\} \\) is closed under multiplication and both give back a vector when multiplied with a vector, the complete geometric algebra \\( \\{1, \mathbf{\hat{e}}_x, \mathbf{\hat{e}}_y, \mathbf{I}\\} \\) is closed under multiplication, with the following multiplication table:
+Because \\( \\{1, \mathbf{I}\\} \\) is closed under multiplication and both give back a vector when multiplied with a vector, the complete geometric algebra \\( \\{1, \mathbf{e}_x, \mathbf{e}_y, \mathbf{I}\\} \\) is closed under multiplication, with the following multiplication table:
 
 $$
   \mathbf{e}_x\mathbf{e}_x = 1 \quad \mathbf{e}_x\mathbf{e}_y = \mathbf{I} \quad \mathbf{e}_x \mathbf{I} = \mathbf{e}_y\\[1ex]
@@ -104,13 +104,13 @@ $$
 In fact the geometric algebra can be generalized to any number of dimensions where for any \\( i \neq j \\):
 
 $$
-  \mathbf{\hat{e}}_i\mathbf{\hat{e}}_i = 1 \qquad \mathbf{\hat{e}}_i\mathbf{\hat{e}}_j = -\mathbf{\hat{e}}_j\mathbf{\hat{e}}_i
+  \mathbf{e}_i\mathbf{e}_i = 1 \qquad \mathbf{e}_i\mathbf{e}_j = -\mathbf{e}_j\mathbf{e}_i
 $$
 
 Using the [anti-commutator](https://en.wikipedia.org/wiki/Commutator#Ring_theory) and the [delta symbol](https://en.wikipedia.org/wiki/Kronecker_delta) this can be written more elegantly as:
 
 $$
-  \frac{1}{2}\{\mathbf{\hat{e}}_i,\mathbf{\hat{e}}_j\} = \delta_{ij}
+  \frac{1}{2}\{\mathbf{e}_i,\mathbf{e}_j\} = \delta_{ij}
 $$
 
 ## Part 3: Three Dimensions
