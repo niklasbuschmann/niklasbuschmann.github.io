@@ -375,13 +375,13 @@ $$
 This construction can be continued for **higher dimensions**, starting with an odd dimension \\( n \\) then:
 
 $$
-  \mathbf{e}_i = \begin{pmatrix}-\bm{e}_i & 0\\ 0 & \bm{e}_i\end{pmatrix} \quad \bm{e}_{n+1} = \begin{pmatrix}0 & \mathbf{1}\\ \mathbf{1} & 0\end{pmatrix}
+  \mathbf{e}_i' = \begin{pmatrix}-\bm{e}_i & 0\\ 0 & \bm{e}_i\end{pmatrix} \qquad \bm{e}_{n+1}' = \begin{pmatrix}0 & \mathbf{1}\\ \mathbf{1} & 0\end{pmatrix}
 $$
 
 Starting with an even dimension \\( n \\) then: 
 
 $$
-  \mathbf{e}_i = \mathbf{e}_i \quad \bm{e}_{n+1} = \begin{pmatrix}0 & -i\cdot\mathbf{1}\\ i\cdot\mathbf{1} & 0\end{pmatrix}
+  \mathbf{e}_i' = \mathbf{e}_i \qquad \bm{e}_{n+1}' = \begin{pmatrix}0 & -i\cdot\mathbf{1}\\ i\cdot\mathbf{1} & 0\end{pmatrix}
 $$
 
 ## Summary
