@@ -35,7 +35,7 @@ $$
   (\mathbf{a}+\mathbf{b})\mathbf{c} = \mathbf{a}\mathbf{c} + \mathbf{b}\mathbf{c} \qquad \mathbf{c}(\mathbf{a}+\mathbf{b})=\mathbf{c}\mathbf{a}+\mathbf{c}\mathbf{b}
 $$
 
-Assuming distributivity the problem can be reduced to the multiplication of the basis vectors \\( \mathbf{e}_i \\):
+Assuming distributivity, the problem can be reduced to the multiplication of the basis vectors \\( \mathbf{e}_i \\):
 
 $$
 \begin{aligned}
@@ -45,7 +45,7 @@ $$
 \end{aligned}
 $$
 
-Besides distributivity the only assumption about the product is that for two vectors it should only depend on the relative angle between them, not on the absolute angles of the vectors themselves. In other words: the product should stay invariant under rotations of the coordinate system.
+Besides distributivity, the only assumption about the product is that for two vectors it should only depend on the relative angle between them, not on the absolute angles of the vectors themselves. In other words: the product should stay invariant under rotations of the coordinate system.
 
 Let us now consider for example the product of a unit vector \\( \mathbf{\hat{u}} \\) with itself: We could then choose three coordinate systems where \\( \mathbf{\hat{u}} \\) points (i) along the x-axis or (ii) somewhere between x and y-axis or (iii) along the y-axis. Calculating the three products and requiring them to be equal yields:
 
@@ -53,7 +53,7 @@ $$
   \mathbf{e}_x\mathbf{e}_x \overset{!}{=} u_1^2 \mathbf{e}_x\mathbf{e}_x + u_1u_2 \mathbf{e}_x\mathbf{e}_y + u_2u_1\mathbf{e}_y\mathbf{e}_x + u_2^2 \mathbf{e}_y\mathbf{e}_y \overset{!}{=} \mathbf{e}_y\mathbf{e}_y
 $$
 
-It immediately follows that \\( \mathbf{e}_x\mathbf{e}_x \overset{!}{=} \mathbf{e}_y\mathbf{e}_y \\) and \\( \mathbf{e}_x\mathbf{e}_y \overset{!}{=} -\mathbf{e}_y\mathbf{e}_x \\) since \\( u_1^2+u_2^2 = 1 \\).
+It immediately follows that \\( \mathbf{e}_x\mathbf{e}_x = \mathbf{e}_y\mathbf{e}_y \\) and \\( \mathbf{e}_x\mathbf{e}_y = -\mathbf{e}_y\mathbf{e}_x \\) since \\( u_1^2+u_2^2 = 1 \\).
 
 The product can now be simplified to:
 
@@ -69,7 +69,9 @@ The resulting multiplication closely resembles the definition of the [dot produc
 
 ## Part 2: Geometric Algebra
 
-We found two fundamental types of multiplication - one that stays the same when the vectors are switched and one that changes its sign. If we additionally assume [associativity](https://en.wikipedia.org/wiki/Associative_property) of the product then we can see how \\( \mathbf{1} := \mathbf{e}_x\mathbf{e}_x \\) and \\( \mathbf{I} := \mathbf{e}_x\mathbf{e}_y \\) are multiplied with each other:
+We found two fundamental types of multiplication: one that stays the same when the vectors are switched and one that changes its sign.
+
+If we additionally assume [associativity](https://en.wikipedia.org/wiki/Associative_property) of the product then we can see how \\( \mathbf{1} := \mathbf{e}_x\mathbf{e}_x \\) and \\( \mathbf{I} := \mathbf{e}_x\mathbf{e}_y \\) are multiplied with each other:
 
 $$
   \mathbf{1}\cdot\mathbf{1} = \mathbf{e}_x \mathbf{e}_x \mathbf{e}_y \mathbf{e}_y = - \mathbf{e}_x \mathbf{e}_y \mathbf{e}_x \mathbf{e}_y = -\mathbf{I}\cdot\mathbf{I} \\[1ex]
@@ -234,7 +236,7 @@ $$
   \mathbf{\nabla}^2 = \left(\bm{\gamma}_0 \frac{1}{c}\frac{\partial}{\partial t} + \bm{\gamma}_1 \frac{\partial}{\partial x} + \bm{\gamma}_2 \frac{\partial}{\partial y} + \bm{\gamma}_3 \frac{\partial}{\partial z} \right)^2 = \frac{1}{c^2}\frac{\partial^2}{\partial t^2} - \nabla^2
 $$
 
-Now, since the [octonions](https://en.wikipedia.org/wiki/Octonion) are not associative, there does not exist a subset of basis vectors isomorphic to them. But the complete three dimensional geometric algebra is isomorphic to the [biquaternions](https://en.wikipedia.org/wiki/Biquaternion), in four dimensions the scalar, bivectors and pseudoscalar together are isomorphic to the [split-biquaternions](https://en.wikipedia.org/wiki/Split-biquaternion) and with spacetime the scalar, bivectors and pseudoscalar together are again isomorphic to the biquaternions.
+Now, since the [octonions](https://en.wikipedia.org/wiki/Octonion) are not associative, there does not exist a subset of basis vectors isomorphic to them. But the complete three dimensional geometric algebra is isomorphic to the [biquaternions](https://en.wikipedia.org/wiki/Biquaternion) and in four dimensions the scalar, bivectors and pseudoscalar together are isomorphic to the [split-biquaternions](https://en.wikipedia.org/wiki/Split-biquaternion).
 
 ### Electromagnetism
 
