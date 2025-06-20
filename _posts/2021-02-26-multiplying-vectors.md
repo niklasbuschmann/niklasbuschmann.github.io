@@ -280,7 +280,7 @@ $$
    \mathbf{\nabla}\mathbf{F} = \mu_0\mathbf{j}
 $$
 
-Here \\( \mathbf{F} = F^{\mu\nu}\bm{\gamma}\_\mu\bm{\gamma}\_\nu \\) is a bivector of the spacetime algebra, whose components \\( F^{\mu\nu} \\) will be the \\( \mathbf{E} \\) and \\( \mathbf{B} \\) field.
+Here \\( \mathbf{F} = F^{\mu\nu}\bm{\gamma}\_\mu\bm{\gamma}\_\nu (= \mathbf{\nabla}\mathbf{A}) \\) is a bivector of the spacetime algebra, whose components \\( F^{\mu\nu} \\) will be the \\( \mathbf{E} \\) and \\( \mathbf{B} \\) field.
 
 ## Part 5: Scalar and Wedge product
 
@@ -371,6 +371,8 @@ And the spacetime basis vectors \\( \bm{\gamma}_i \\) correspond to the [gamma m
 $$
   \bm{\gamma}_0 = \begin{pmatrix}0 & \mathbf{1}\\ \mathbf{1} & 0\end{pmatrix} \quad \bm{\gamma}_1 = \begin{pmatrix}0 & \bm{\sigma}_x\\ -\bm{\sigma}_x & 0\end{pmatrix} \quad \bm{\gamma}_2 = \begin{pmatrix}0 & \bm{\sigma}_y\\ -\bm{\sigma}_y & 0\end{pmatrix} \quad \bm{\gamma}_3 = \begin{pmatrix}0 & \bm{\sigma}_z\\ -\bm{\sigma}_z & 0\end{pmatrix}
 $$
+
+This construction can be continued for **higher dimensions**, starting with an even dimension \\( n \\) then \\( \bm{e}_{n+1} = \begin{pmatrix}0 & -i\mathbf{1}\\ i\mathbf{1} & 0\end{pmatrix} \\). Starting with an odd dimension \\( n \\) then \\( \bm{\gamma}_{n+1} = \begin{pmatrix}0 & \mathbf{1}\\ \mathbf{1} & 0\end{pmatrix} \\) and \\( \mathbf{e}_i = \begin{pmatrix}-\bm{e}_i & 0\\ 0 & \bm{e}_i\end{pmatrix} \\).
 
 ## Summary
 
