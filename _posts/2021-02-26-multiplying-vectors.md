@@ -277,10 +277,10 @@ Now, since the [octonions](https://en.wikipedia.org/wiki/Octonion) are not assoc
 Replacing \\( \\{1, \mathbf{e}\_x, \mathbf{e}\_y, \mathbf{e}\_z \\} \\) with \\( \\{\bm{\gamma}\_0, \bm{\gamma}\_1, \bm{\gamma}\_2, \bm{\gamma}\_3 \\} \\) cleans up the equations considerably. Using the usual definitions of the [four-gradient](https://en.wikipedia.org/wiki/Four-vector#Four-gradient) \\( \mathbf{\nabla} = \partial^\mu \bm{\gamma}\_\mu \\) and [four-current](https://en.wikipedia.org/wiki/Four-vector#Electromagnetism) \\( \mathbf{j} = j^\mu \bm{\gamma}\_\mu \\) yields:
 
 $$
-   \mathbf{\nabla}\mathbf{F} = \mu_0\mathbf{j}
+   \mathbf{\nabla}\mathbf{F} = \mathbf{\nabla}\mathbf{\nabla}\mathbf{A} = \mu_0\mathbf{j}
 $$
 
-Here \\( \mathbf{F} = F^{\mu\nu}\bm{\gamma}\_\mu\bm{\gamma}\_\nu = \mathbf{\nabla}\mathbf{A} \\) is a bivector of the spacetime algebra, whose components \\( F^{\mu\nu} \\) will be the \\( \mathbf{E} \\) and \\( \mathbf{B} \\) field.
+Here \\( \mathbf{F} = F^{\mu\nu}\bm{\gamma}\_\mu\bm{\gamma}\_\nu \\) is a bivector of the spacetime algebra, whose components \\( F^{\mu\nu} \\) will be the \\( \mathbf{E} \\) and \\( \mathbf{B} \\) field.
 
 ## Part 5: Scalar and Wedge product
 
@@ -373,6 +373,7 @@ $$
 $$
 
 This construction can be continued for **higher dimensions**, starting with an even dimension \\( n \\) then:
+
 $$
   \bm{e}_{n+1} = \begin{pmatrix}0 & -i\mathbf{1}\\ i\mathbf{1} & 0\end{pmatrix}
 $$
