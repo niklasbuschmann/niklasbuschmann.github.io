@@ -45,7 +45,7 @@ $$
 \end{aligned}
 $$
 
-Besides distributivity the only requirement of the product is that it should for two vectors only depend on the relative angle between them, not on the absolute angles of the vectors themselves. In other words: the product should stay invariant under rotations of the coordinate system.
+Besides distributivity the only assumption about the product is that for two vectors it should only depend on the relative angle between them, not on the absolute angles of the vectors themselves. In other words: the product should stay invariant under rotations of the coordinate system.
 
 Let us now consider for example the product of a unit vector \\( \mathbf{\hat{u}} \\) with itself: We could then choose three coordinate systems where \\( \mathbf{\hat{u}} \\) points (i) along the x-axis or (ii) somewhere between x and y-axis or (iii) along the y-axis. Calculating the products and requiring them to be equal yields:
 
@@ -53,7 +53,7 @@ $$
   \mathbf{\hat{e}}_x\mathbf{\hat{e}}_x \overset{!}{=} u_1^2 \mathbf{\hat{e}}_x\mathbf{\hat{e}}_x + u_1u_2 \mathbf{\hat{e}}_x\mathbf{\hat{e}}_y + u_2u_1\mathbf{\hat{e}}_y\mathbf{\hat{e}}_x + u_2^2 \mathbf{\hat{e}}_y\mathbf{\hat{e}}_y \overset{!}{=} \mathbf{\hat{e}}_y\mathbf{\hat{e}}_y
 $$
 
-It immediately follows that \\( \mathbf{\hat{e}}_x\mathbf{\hat{e}}_x = \mathbf{\hat{e}}_y\mathbf{\hat{e}}_y \\), and \\( \mathbf{\hat{e}}_x\mathbf{\hat{e}}_y = -\mathbf{\hat{e}}_y\mathbf{\hat{e}}_x \\) since \\( u_1^2+u_2^2 = 1 \\).
+It immediately follows that \\( \mathbf{\hat{e}}_x\mathbf{\hat{e}}_x = \mathbf{\hat{e}}_y\mathbf{\hat{e}}_y \\) and \\( \mathbf{\hat{e}}_x\mathbf{\hat{e}}_y = -\mathbf{\hat{e}}_y\mathbf{\hat{e}}_x \\) since \\( u_1^2+u_2^2 = 1 \\).
 
 The product can now be simplified to:
 
@@ -69,68 +69,48 @@ The resulting multiplication closely resembles the definition of the [dot produc
 
 ## Part 2: Geometric Algebra
 
-We found two fundamental types of multiplication - one that stays the same when the vectors are switched and one that changes its sign. Now we can try to see how \\( \mathbf{e}_s \\) and \\( \mathbf{e}_c \\) multiply with each other:
+We found two fundamental types of multiplication - one that stays the same when the vectors are switched and one that changes its sign. If we additionally assume [associativity](https://en.wikipedia.org/wiki/Associative_property) of the product - requiring that \\( \mathbf{a}(\mathbf{b}\mathbf{c})=(\mathbf{a}\mathbf{b})\mathbf{c}\\)) - then we can see how \\( \mathbf{1} := \mathbf{\hat{e}}_x\mathbf{\hat{e}}_x \\) and \\( \mathbf{I} := \mathbf{\hat{e}}_x\mathbf{\hat{e}}_y \\) are multiplied:
 
 $$
-  \mathbf{e}_s \mathbf{e}_s = \mathbf{e}_x \mathbf{e}_x \mathbf{e}_y \mathbf{e}_y = - \mathbf{e}_x \mathbf{e}_y \mathbf{e}_x \mathbf{e}_y = -\mathbf{e}_c\mathbf{e}_c \\[1ex]
-  \quad \mathbf{e}_s \mathbf{e}_c = \mathbf{e}_x \mathbf{e}_x \mathbf{e}_x \mathbf{e}_y = -\mathbf{e}_x \mathbf{e}_x \mathbf{e}_y \mathbf{e}_x = \mathbf{e}_x \mathbf{e}_y \mathbf{e}_x \mathbf{e}_x = \mathbf{e}_c \mathbf{e}_s
+  \mathbf{1}\mathbf{1} = \mathbf{e}_x \mathbf{e}_x \mathbf{e}_y \mathbf{e}_y = - \mathbf{e}_x \mathbf{e}_y \mathbf{e}_x \mathbf{e}_y = -\mathbf{I}\mathbf{I} \\[1ex]
+  \quad \mathbf{1}\mathbf{I} = \mathbf{e}_x \mathbf{e}_x \mathbf{e}_x \mathbf{e}_y = -\mathbf{e}_x \mathbf{e}_x \mathbf{e}_y \mathbf{e}_x = \mathbf{e}_x \mathbf{e}_y \mathbf{e}_x \mathbf{e}_x = \mathbf{I}\mathbf{1}
 $$
 
-(Note that here we also implicitly assumed [associativity](https://en.wikipedia.org/wiki/Associative_property), requiring that \\( \mathbf{a}(\mathbf{b}\mathbf{c})=(\mathbf{a}\mathbf{b})\mathbf{c}\\))
-
-The product of an arbitrary combination of \\( \mathbf{e}_s \\) and \\( \mathbf{e}_c \\) can thus be written as:
+The product of an arbitrary combination of \\( \mathbf{1} \\) and \\( \mathbf{I} \\) can thus be written as:
 
 $$
-  (a_1\mathbf{e}_s + a_2\mathbf{e}_c)(b_1\mathbf{e}_s + b_2\mathbf{e}_c) = (a_1b_1 - a_2b_2)\mathbf{e}_s\mathbf{e}_s + (a_1b_2 + a_2b_1)\mathbf{e}_s\mathbf{e}_c
+  (a_1\mathbf{1} + a_2\mathbf{I})(b_1\mathbf{1} + b_2\mathbf{I}) = (a_1b_1 - a_2b_2)\mathbf{1}\mathbf{1} + (a_1b_2 + a_2b_1)\mathbf{1}\mathbf{I}
 $$
 
-Let us now look at rotations of the coordinate system (e.g. \\(\mathbf{e}_x \mapsto \mathbf{e}_y, \mathbf{e}_y \mapsto -\mathbf{e}_x\\)) and reflections (e.g. \\(\mathbf{e}_x \mapsto \mathbf{e}_y, \mathbf{e}_y \mapsto \mathbf{e}_x\\)). We chose \\( \mathbf{e}_s \\) and \\( \mathbf{e}_c \\) in a way that left them unchanged when the coordinates are rotated. We can also see that \\( \mathbf{e}_s \\) stays the same when reflected, whereas \\( \mathbf{e}_c \\) changes its sign under reflection. This means \\(\mathbf{e}_s\\) is a [scalar](https://en.wikipedia.org/wiki/Scalar) and \\( \mathbf{e}_c \\) is a [pseudoscalar](https://en.wikipedia.org/wiki/Pseudoscalar).
+We can see that \\( \\{\mathbf{1}, \mathbf{I}\\} \\) is [isomorphic](https://en.wikipedia.org/wiki/Isomorphism) to the [complex numbers](https://en.wikipedia.org/wiki/Complex_number) \\( \\{1, i\\} \\) if we define \\( \mathbf{1} \\) to be the neutral element \\( 1 \\) of the multiplication.
 
-We can also recognize that \\( \mathbf{e}_s\mathbf{e}_s \\) is another scalar and \\( \mathbf{e}_s\mathbf{e}_c \\) is another pseudoscalar. Assuming there only exists one kind of scalar and one kind of pseudoscalar, we will assure that \\( \mathbf{e}_s=\mathbf{e}_s\mathbf{e}_s \\) and \\( \mathbf{e}_c=\mathbf{e}_s\mathbf{e}_c \\) by defining \\( \mathbf{e}_s \\) to be the [neutral element](https://en.wikipedia.org/wiki/Identity_element), that when multiplied with leaves everything unchanged.
-
-With this \\( \\{\mathbf{e}_s, \mathbf{e}_c\\} \\) is now [isomorphic](https://en.wikipedia.org/wiki/Isomorphism) to the [complex numbers](https://en.wikipedia.org/wiki/Complex_number) \\( \\{1, i\\} \\), meaning both behave completely identical with respect to addition and multiplication, and allowing us to rename \\( \mathbf{e}_s = 1 \\) and \\(\mathbf{e}_c = \bm{I} \\). Note that a capital \\( \bm{I} \\) is used here to distinguish vectors with complex coefficients.
-
-Since they are isomorphic to the complex numbers, [Euler's formula](https://en.wikipedia.org/wiki/Euler's_formula) also applies to \\( 1 \\) and \\( \bm{I} \\):
+By definition we know that vectors are left unchanged when multiplied with the neutral element \\( \mathbf{1} \\). But how does \\( \mathbf{I} \\) act on the ordinary basis vectors?
 
 $$
-  e^{\bm{I} \varphi} = \cos(\varphi) + \sin(\varphi) \bm{I}
+  \mathbf{I} \mathbf{e}_x = \mathbf{\hat{e}}_x \mathbf{\hat{e}}_y \mathbf{e}_x = - \mathbf{\hat{e}}_y \\[1ex]
+  \mathbf{I} \mathbf{e}_y = \mathbf{\hat{e}}_x \mathbf{\hat{e}}_y \mathbf{e}_y = + \mathbf{\hat{e}}_x
 $$
 
-By definition we know that vectors are left unchanged when multiplied with the neutral element \\( 1 \\). But how does \\( \bm{I} \\) act on the ordinary basis vectors?
+From this one can see that \\( \mathbf{I} \\) acts like a rotor on any vector.
+
+Because \\( \\{1, \mathbf{I}\\} \\) is closed under multiplication and both give back a vector when multiplied with a vector, the complete geometric algebra \\( \\{1, \mathbf{\hat{e}}_x, \mathbf{\hat{e}}_y, \mathbf{I}\\} \\) is closed under multiplication, with the following multiplication table:
 
 $$
-  \bm{I} \mathbf{e}_x = \mathbf{e}_x \mathbf{e}_y \mathbf{e}_x = - \mathbf{e}_y \\[1ex]
-  \bm{I} \mathbf{e}_y = \mathbf{e}_x \mathbf{e}_y \mathbf{e}_y = + \mathbf{e}_x
+  \mathbf{e}_x\mathbf{e}_x = 1 \quad \mathbf{e}_x\mathbf{e}_y = \mathbf{I} \quad \mathbf{e}_x \mathbf{I} = \mathbf{e}_y\\[1ex]
+  \mathbf{e}_y\mathbf{e}_x = - \mathbf{I} \quad \mathbf{e}_y\mathbf{e}_y = 1 \quad \mathbf{e}_y \mathbf{I} = -\mathbf{e}_x\\[1ex]
+  \mathbf{I}\mathbf{e}_x = -\mathbf{e}_y \quad \mathbf{I}\mathbf{e}_y=\mathbf{e}_x \quad \mathbf{I}^2 = -1
 $$
-
-From this one can see that \\( \bm{I} \\) acts like a rotor on any vector. Multiplying a vector with \\( a + b \bm{I} \\) then follows the rules known from [complex numbers](https://en.wikipedia.org/wiki/Complex_numbers#Multiplication_and_division_in_polar_form).
-
-Because \\( \\{1, \bm{I}\\} \\) is closed under multiplication and both give back a vector when multiplied with a vector, the complete geometric algebra \\( \\{1, \mathbf{e}_x, \mathbf{e}_y, \bm{I}\\} \\) is closed under multiplication, with the following multiplication table:
-
-$$
-  \mathbf{e}_x\mathbf{e}_x = 1 \quad \mathbf{e}_x\mathbf{e}_y = \bm{I} \quad \mathbf{e}_x \bm{I} = \mathbf{e}_y\\[1ex]
-  \mathbf{e}_y\mathbf{e}_x = - \bm{I} \quad \mathbf{e}_y\mathbf{e}_y = 1 \quad \mathbf{e}_y \bm{I} = -\mathbf{e}_x\\[1ex]
-  \bm{I}\mathbf{e}_x = -\mathbf{e}_y \quad \bm{I}\mathbf{e}_y=\mathbf{e}_x \quad \bm{I}^2 = -1
-$$
-
-Together with associativity and distributivity, this can be simplified to the two following rules:
-
-$$
-  1=\mathbf{e}_x\mathbf{e}_x = \mathbf{e}_y \mathbf{e}_y \qquad \bm{I}=\mathbf{e}_x\mathbf{e}_y = -\mathbf{e}_y\mathbf{e}_x
-$$
-
-Note that defining the squares \\( \mathbf{e}_x\mathbf{e}_x \\) and \\( \mathbf{e}_y\mathbf{e}_y \\) to be \\( 1 \\) is important since this implies that they are the [neutral element](https://en.wikipedia.org/wiki/Identity_element), whereas \\( \bm{I} \\) is just another name for \\( \mathbf{e}_x\mathbf{e}_y \\) and will change in higher dimensions.
 
 In fact the geometric algebra can be generalized to any number of dimensions where for any \\( i \neq j \\):
 
 $$
-  \mathbf{e}_i\mathbf{e}_i = 1 \qquad \mathbf{e}_i\mathbf{e}_j = -\mathbf{e}_j\mathbf{e}_i
+  \mathbf{\hat{e}}_i\mathbf{\hat{e}}_i = 1 \qquad \mathbf{\hat{e}}_i\mathbf{\hat{e}}_j = -\mathbf{\hat{e}}_j\mathbf{\hat{e}}_i
 $$
 
 Using the [anti-commutator](https://en.wikipedia.org/wiki/Commutator#Ring_theory) and the [delta symbol](https://en.wikipedia.org/wiki/Kronecker_delta) this can be written more elegantly as:
 
 $$
-  \frac{1}{2}\{\mathbf{e}_i,\mathbf{e}_j\} = \delta_{ij}
+  \frac{1}{2}\{\mathbf{\hat{e}}_i,\mathbf{\hat{e}}_j\} = \delta_{ij}
 $$
 
 ## Part 3: Three Dimensions
