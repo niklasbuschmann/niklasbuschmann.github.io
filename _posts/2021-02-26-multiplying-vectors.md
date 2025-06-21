@@ -45,17 +45,17 @@ $$
 \end{aligned}
 $$
 
-Besides distributivity, the only assumption about the product is that for two vectors it should only depend on the relative angle between them, not on the absolute angles of the vectors themselves. In other words: the product should stay invariant under rotations of the coordinate system.
+Besides distributivity, the only assumption about the product is that for two vectors it should only depend on the relative angle between them, not on the absolute angles of the vectors themselves. In other words: *The product should stay invariant under rotations of the coordinate system.*
 
-Let us now consider for example the product of a unit vector \\( \mathbf{\hat{u}} \\) with itself: We could then choose three coordinate systems where \\( \mathbf{\hat{u}} \\) points (i) along the x-axis or (ii) somewhere between x and y-axis or (iii) along the y-axis. Calculating the three products and requiring them to be equal yields:
+Let us now consider for example the product of a unit vector \\( \mathbf{\hat{u}} \\) with itself: We could choose \\( \mathbf{\hat{u}} \\) to point (i) along the x-axis or (ii) somewhere between x and y-axis or (iii) along the y-axis. Calculating the three products and requiring them to be equal yields:
 
 $$
   \mathbf{e}_x\mathbf{e}_x \overset{!}{=} u_1^2 \mathbf{e}_x\mathbf{e}_x + u_1u_2 \mathbf{e}_x\mathbf{e}_y + u_2u_1\mathbf{e}_y\mathbf{e}_x + u_2^2 \mathbf{e}_y\mathbf{e}_y \overset{!}{=} \mathbf{e}_y\mathbf{e}_y
 $$
 
-It immediately follows that \\( \mathbf{e}_x\mathbf{e}_x = \mathbf{e}_y\mathbf{e}_y \\) and \\( \mathbf{e}_x\mathbf{e}_y = -\mathbf{e}_y\mathbf{e}_x \\) since \\( u_1^2+u_2^2 = 1 \\).
+From this immediately follow two fundamental properties: \\( \mathbf{e}_x\mathbf{e}_x = \mathbf{e}_y\mathbf{e}_y \\) and \\( \mathbf{e}_x\mathbf{e}_y = -\mathbf{e}_y\mathbf{e}_x \\) since \\( u_1^2+u_2^2 = 1 \\).
 
-The product can now be simplified to:
+The product can thus be simplified to:
 
 $$
 \begin{aligned}
@@ -65,7 +65,7 @@ $$
 \end{aligned}
 $$
 
-The resulting multiplication closely resembles the definition of the [dot product](https://en.wikipedia.org/wiki/Dot_product) \\(\ \mathbf{a}\cdot\mathbf{b} = a_1b_1 + a_2b_2 \\) and the [cross product](https://en.wikipedia.org/wiki/Cross_product) \\(\ \mathbf{a}\times\mathbf{b} = a_1b_2 - a_2b_1 \\), since those two are invariant under rotations in the plane.
+The result contains only two components \\( \mathbf{e}_x\mathbf{e}_x \\) and \\( \mathbf{e}_x\mathbf{e}_y \\), which are called scalar and pseudoscalar, because the scalar stays the same when \\( \mathbf{e}_x \\) and \\( \mathbf{e}_y \\) are flipped and the pseudoscalar changes its sign. The scalar part resembles the definition of the [dot product](https://en.wikipedia.org/wiki/Dot_product) \\(\ \mathbf{a}\cdot\mathbf{b} = a_1b_1 + a_2b_2 \\) and the pseudoscalar part resembles the [cross product](https://en.wikipedia.org/wiki/Cross_product) \\(\ \mathbf{a}\times\mathbf{b} = a_1b_2 - a_2b_1 \\), since those two are the products invariant under rotations in the plane.
 
 ## Part 2: Geometric Algebra
 
@@ -147,7 +147,7 @@ $$
   \mathbf{a}\mathbf{b} = \mathbf{a}\cdot\mathbf{b} + (\mathbf{a}\times\mathbf{b}) \mathbf{I}
 $$
 
-Another interesting property is that the pseudoscalar part of the product of three vectors equals the [determinant](https://en.wikipedia.org/wiki/Determinant) or [triple product](https://en.wikipedia.org/wiki/Triple_product) of them:
+The product of three vectors contains the [determinant](https://en.wikipedia.org/wiki/Determinant) or [triple product](https://en.wikipedia.org/wiki/Triple_product) in the pseudoscalar part:
 
 $$
 \begin{aligned}
