@@ -54,8 +54,10 @@ $$
 $$
 
 Since \\( u_1^2+u_2^2 = 1 \\) the two fundamental properties of the multiplication follow:
- - \\( \mathbf{e}_x\mathbf{e}_x = \mathbf{e}_y\mathbf{e}_y \\)
- - \\( \mathbf{e}_x\mathbf{e}_y = -\mathbf{e}_y\mathbf{e}_x \\)
+
+$$
+  \mathbf{e}_x\mathbf{e}_x = \mathbf{e}_y\mathbf{e}_y \qquad \mathbf{e}_x\mathbf{e}_y = -\mathbf{e}_y\mathbf{e}_x
+$$
 
 The product can thus be simplified to:
 
