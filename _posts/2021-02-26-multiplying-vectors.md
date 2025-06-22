@@ -53,7 +53,9 @@ $$
   \mathbf{e}_x\mathbf{e}_x \overset{!}{=} u_1^2 \mathbf{e}_x\mathbf{e}_x + u_1u_2 \mathbf{e}_x\mathbf{e}_y + u_2u_1\mathbf{e}_y\mathbf{e}_x + u_2^2 \mathbf{e}_y\mathbf{e}_y \overset{!}{=} \mathbf{e}_y\mathbf{e}_y
 $$
 
-From this immediately follow two fundamental properties: \\( \mathbf{e}_x\mathbf{e}_x = \mathbf{e}_y\mathbf{e}_y \\) and \\( \mathbf{e}_x\mathbf{e}_y = -\mathbf{e}_y\mathbf{e}_x \\) since \\( u_1^2+u_2^2 = 1 \\).
+Since \\( u_1^2+u_2^2 = 1 \\) the two fundamental properties of the multiplication follow:
+ - \\( \mathbf{e}_x\mathbf{e}_x = \mathbf{e}_y\mathbf{e}_y \\)
+ - \\( \mathbf{e}_x\mathbf{e}_y = -\mathbf{e}_y\mathbf{e}_x \\)
 
 The product can thus be simplified to:
 
@@ -341,13 +343,7 @@ $$
 This construction can be continued for **higher dimensions**, starting with an odd dimension \\( n \\) then:
 
 $$
-  \mathbf{e}_i' = \begin{pmatrix}-\bm{e}_i & 0\\ 0 & \bm{e}_i\end{pmatrix} \qquad \bm{e}_{n+1}' = \begin{pmatrix}0 & \mathbf{1}\\ \mathbf{1} & 0\end{pmatrix}
-$$
-
-Starting with an even dimension \\( n \\) then: 
-
-$$
-  \mathbf{e}_i' = \mathbf{e}_i \qquad \bm{e}_{n+1}' = \begin{pmatrix}0 & -i\cdot\mathbf{1}\\ i\cdot\mathbf{1} & 0\end{pmatrix}
+  \mathbf{e}_i' = \begin{pmatrix}-\bm{e}_i & 0\\ 0 & \bm{e}_i\end{pmatrix} \qquad \bm{e}_{n+1}' = \begin{pmatrix}0 & \mathbf{1}\\ \mathbf{1} & 0\end{pmatrix} \qquad \bm{e}_{n+2}' = \begin{pmatrix}0 & -i\cdot\mathbf{1}\\ i\cdot\mathbf{1} & 0\end{pmatrix}
 $$
 
 ## Summary
