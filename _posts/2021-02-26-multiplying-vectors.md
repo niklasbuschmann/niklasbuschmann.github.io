@@ -342,7 +342,7 @@ $$
   \bm{\gamma}_0 = \begin{pmatrix}0 & \mathbf{1}\\ \mathbf{1} & 0\end{pmatrix} \quad \bm{\gamma}_1 = \begin{pmatrix}0 & \bm{\sigma}_x\\ -\bm{\sigma}_x & 0\end{pmatrix} \quad \bm{\gamma}_2 = \begin{pmatrix}0 & \bm{\sigma}_y\\ -\bm{\sigma}_y & 0\end{pmatrix} \quad \bm{\gamma}_3 = \begin{pmatrix}0 & \bm{\sigma}_z\\ -\bm{\sigma}_z & 0\end{pmatrix}
 $$
 
-This construction can be continued for **higher dimensions**, starting with an odd dimension \\( n \\) then:
+This construction can be continued for **higher dimensions**, starting with an even dimension \\( n \\) then:
 
 $$
   \mathbf{e}_i' = \begin{pmatrix}-\bm{e}_i & 0\\ 0 & \bm{e}_i\end{pmatrix} \qquad \bm{e}_{n+1}' = \begin{pmatrix}0 & \mathbf{1}\\ \mathbf{1} & 0\end{pmatrix} \qquad \bm{e}_{n+2}' = \begin{pmatrix}0 & -i\cdot\mathbf{1}\\ i\cdot\mathbf{1} & 0\end{pmatrix}
