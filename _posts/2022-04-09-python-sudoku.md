@@ -1,5 +1,5 @@
 ---
-title: "Simple Sudoku solver written in Python"
+title: "Python: Simple Sudoku solver"
 date: 2022-04-09
 description: A simple backtracking algorithm for solving Sudokus with Python
 ---
