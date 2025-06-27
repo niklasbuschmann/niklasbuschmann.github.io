@@ -1,6 +1,6 @@
 ---
 title: "Multiplying vectors: An introduction to geometric algebra"
-date: 2021-02-26
+date: 2023-02-26
 description: An introduction to geometric algebra
 ---
 
