@@ -30,4 +30,4 @@ def solve(board):
     board[pos_x][pos_y] = 0
 ```
 
-Using this to solve the [world's hardest sudoku](https://www.telegraph.co.uk/news/science/science-news/9359579/Worlds-hardest-sudoku-can-you-crack-it.html) takes around 0.25s on a 2020 MacBook and 40000 wrong guesses.
+Using this to solve the [world's hardest sudoku](https://www.telegraph.co.uk/news/science/science-news/9359579/Worlds-hardest-sudoku-can-you-crack-it.html) takes around 40000 wrong guesses before finding the correct solution.
