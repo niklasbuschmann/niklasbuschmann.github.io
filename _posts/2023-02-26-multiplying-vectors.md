@@ -203,12 +203,13 @@ $$
   \left(\frac{1}{c^2}\frac{\partial^2}{\partial t^2} - \nabla^2\right)\left(\phi + c\mathbf{A}\right) = \frac{\rho}{\epsilon_0} + \mu_0c\mathbf{j}
 $$
 
-The Lorentz force law can then be expressed as:
+<!---The Lorentz force law can then be expressed as:
 
 $$
   (c\rho + \mathbf{j})(-\mathbf{E}+c\mathbf{B}\mathbf{I})
   = -\underbrace{(\mathbf{E}\cdot\mathbf{j})}_{\textrm{power}} - c\underbrace{(\rho\mathbf{E} + \mathbf{j}\times\mathbf{B})}_{\textrm{electric monopole force}} + c^2\underbrace{\left(\rho\mathbf{B} - \mathbf{j}\times\frac{\mathbf{E}}{c^2}\right)}_{\textrm{magnetic monopole force}} \mathbf{I} + c\underbrace{(\mathbf{B}\cdot\mathbf{j})}_{\textrm{power}}\mathbf{I}
 $$
+-->
 
 ## Part 4: Four Dimensions
 
