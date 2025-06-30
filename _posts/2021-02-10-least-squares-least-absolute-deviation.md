@@ -40,7 +40,7 @@ $$
 
 Now - with least absolute deviations - the constant \\( c \\) ensures that the **median** difference between predicted and measured values is zero. Since \\( \frac{\Delta_i}{\|\Delta_i\|}=\pm 1 \\), depending on whether the difference is positive or negative, the amount of times the difference is lower and greater than zero must be the same.
 
-The same applies to all other parameters: least squares optimizes the mean difference and least absolute deviations optimizes the median difference - only that now the differences are weighted by a factor \\( \frac{\partial f_{\theta}}{\partial \theta_j} \\) (which since \\(f_{\theta}\\) is linear in \\( \theta_j \\) only depends on \\( x_i\\)).
+The same applies to all other parameters: least squares optimizes the mean difference and least absolute deviations optimizes the median difference - only that now the differences are weighted by a factor \\( \frac{\partial f_{\theta}}{\partial \theta_j} \\).
 
 This explains why usually the least squares approach is chosen, because intuitively one would expect the model to be on average equal to the measurement. But when outliers are present, the least absolute deviations approach can be more useful, since optimizing the median is more robust to outliers.
 
