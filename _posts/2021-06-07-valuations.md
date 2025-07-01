@@ -16,13 +16,14 @@ $$
   P = \sum_{n=1}^N \frac{C_n}{(1+i)^n}
 $$
 
-This is the [discounted cash flow](https://en.wikipedia.org/wiki/Discounted_cash_flow) formula, where the price \\( P \\) depends on the future yearly incomes \\( C_n \\) and the current interest rate \\( i \\). We simply discount all the cash received by a factor \\( (1+i)^{-n} \\), assuming that we could have instead gotten the same cash by compounding the interest at the current market rate of \\( i \\). Assuming a constant income \\( C_n = C \\), the [geometric series](https://en.wikipedia.org/wiki/Geometric_series) yields:
+This is the [discounted cash flow](https://en.wikipedia.org/wiki/Discounted_cash_flow) formula, where the price \\( P \\) depends on the future yearly incomes \\( C_n \\) and the current interest rate \\( i \\). We simply discount all the cash received by a factor \\( (1+i)^{-n} \\), assuming that we could have instead gotten the same cash by compounding the interest at the current market rate of \\( i \\).
 
-$$
-  P = \frac{C}{i}\left(1 - \frac{1}{(1+i)^N}\right) \overset{N\rightarrow \infty}{\rightarrow}\ \frac{C}{i}
-$$
+> Assuming a constant income \\( C_n = C \\), the [geometric series](https://en.wikipedia.org/wiki/Geometric_series) yields:
+>
+> $$ P = \frac{C}{i}\left(1 - \frac{1}{(1+i)^N}\right) \overset{N\rightarrow \infty}{\rightarrow}\ \frac{C}{i} $$
+>
 
-So when interest rates rise, the value of the business declines and vice versa.
+So when interest rates rise, the valuation of the business declines and vice versa.
 
 For a constant yearly income we should now be willing to pay the annual income divided by the current long-term interest rate of a riskless investment (Treasury bond).
 
