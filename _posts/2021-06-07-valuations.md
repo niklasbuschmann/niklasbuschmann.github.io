@@ -20,7 +20,7 @@ This is the [discounted cash flow](https://en.wikipedia.org/wiki/Discounted_cash
 
 > Assuming a constant income \\( C_n = C \\), the [geometric series](https://en.wikipedia.org/wiki/Geometric_series) yields:
 >
-> $$ P = = \sum_{n=1}^N \frac{C}{(1+i)^n} = \frac{C}{i}\left(1 - \frac{1}{(1+i)^N}\right) \overset{N\rightarrow \infty}{\rightarrow}\ \frac{C}{i} $$
+> $$ P = \sum_{n=1}^N \frac{C}{(1+i)^n} = \frac{C}{i}\left(1 - \frac{1}{(1+i)^N}\right) \overset{N\rightarrow \infty}{\rightarrow}\ \frac{C}{i} $$
 >
 
 So when interest rates rise, the valuation of the business declines and vice versa.
