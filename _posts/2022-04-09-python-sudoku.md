@@ -6,6 +6,7 @@ description: A simple backtracking algorithm for solving Sudokus with Python
 
 Solving Sudokus with Python is surprisingly easy: One can simply start with an empty square and guess a number that doesn't appear in the corresponding row, column and square and then recursively do this again for the next empty square until either there is no square left or one hits a square with no possible candidates. In the latter case one of the previous guesses must have been wrong and the recursion should go back one step and try the next valid number for that square.
 
+
 So a simple Python implementation could look like this:
 
 ```python
