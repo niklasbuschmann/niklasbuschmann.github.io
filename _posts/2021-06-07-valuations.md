@@ -8,6 +8,7 @@ Assuming someone approached you and offered to sell you his business. Now, how m
 
 Intuitively one might estimate that he can get 10% returns p.a. on the stock market, so 10x the amount of income generated yearly would seem like a reasonable price. In the following we will look deeper into this question: first for a riskless return and later with more volatile returns.
 
+
 ### Part 1: A riskless investment
 
 Let us first assume that we can forecast the future yearly incomes with perfect accuracy, making it a riskless investment. Now how are riskless investments valued? Consider that 1$ invested now at the risk free (central bank) rate of 4% is worth 1.04$ in one year. Conversely 1$ in one year should be worth roughly 0.96$ now. The same holds true for longer time frames:
