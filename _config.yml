@@ -4,7 +4,7 @@ permalink: /:title/
 lang: "en"
 excerpt_separator: "\n\n\n"
 mathjax: true
-show_excerpts: true
+show_excerpts: false
 show_frame: true
 
 navigation:
