@@ -11,7 +11,7 @@ Intuitively one might estimate that he can get 10% returns p.a. on the stock mar
 
 ### Part 1: A riskless investment
 
-Let us first assume that we can forecast the future yearly incomes with perfect accuracy, making it a riskless investment. Now how are riskless investments valued? Consider that 1$ invested now at the risk free (central bank) rate of 4% is worth 1.04$ in one year. Conversely 1$ in one year should be worth roughly 0.96$ now. The same holds true for longer time frames:
+Let us first assume that we can forecast the future yearly incomes with perfect accuracy, making it a riskless investment. Now how are riskless investments valued? Consider that $1 invested now at the risk free (central bank) rate of 4% is worth $1.04 in one year. Conversely $1 in one year should be worth roughly $0.96 now. The same holds true for longer time frames:
 
 $$
   P = \sum_{n=1}^N \frac{C_n}{(1+i)^n}
