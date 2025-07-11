@@ -16,3 +16,4 @@ remote_theme: niklasbuschmann/contrast
 plugins:
  - jekyll-remote-theme
  - jekyll-feed
+ - jektex
