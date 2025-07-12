@@ -9,7 +9,7 @@ Solving Sudokus with Python is surprisingly easy: One can simply start with an e
 
 So a simple Python implementation could look like this:
 
-{% highlight python linenos %}
+```python
 def next_empty_square(board):
     empty_squares = ((x, y) for x in range(9) for y in range(9) if not board[x][y])
     return next(empty_squares, (None, None))
@@ -29,6 +29,6 @@ def solve(board):
         if solve(board):
             return board
     board[pos_x][pos_y] = 0
-{% endhighlight %}
+```
 
 Using this to solve the [world's hardest sudoku](https://www.telegraph.co.uk/news/science/science-news/9359579/Worlds-hardest-sudoku-can-you-crack-it.html) takes around 40000 wrong guesses before finding the correct solution.
