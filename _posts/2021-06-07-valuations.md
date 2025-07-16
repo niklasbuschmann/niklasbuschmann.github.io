@@ -6,7 +6,7 @@ mathjax: true
 layout: post
 ---
 
-Assuming someone approached you and offered to sell you his business. Now, how much should you be willing to pay?
+Assuming someone approached you and offered to sell you his business: How much should you be willing to pay for it?
 
 Intuitively one might estimate that he can get 10% returns p.a. on the stock market, so 10x the amount of income generated yearly would seem like a reasonable price. In the following we will look deeper into this question: first for a riskless return and later with more volatile returns.
 
@@ -52,7 +52,7 @@ $$
   \sqrt[N]{\prod_i x_i} = \sqrt[N]{e^{\ln\left(\prod_i x_i\right)}}  = e^{\frac{\sum_i\ln(x_i)}{N}} = e^{\mathbb{E}[\ln(x)]}
 $$
 
-Thus the geometric mean is the exponential of the expectation value of the logarithm.
+Thus the geometric mean equals the exponential of the expectation value of the logarithm.
 
 > For a continous distribution \\( f(x) \\) of returns the geometric mean can be calculated analogously from the [product integral](https://en.wikipedia.org/wiki/Product_integral#Type_II:_Geometric_integral):
 > 
