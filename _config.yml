@@ -7,7 +7,7 @@ show_excerpts: false
 show_frame: true
 
 navigation:
-  - {title: Mail, icon: envelope, url: "mailto:niklas_github@posteo.me"}
+  - {title: Color, icon: adjust, url: "javascript:toggle()"}
   - {title: Github, icon: github, url: "https://github.com/niklasbuschmann/"}
   - {title: Feed, icon: rss, url: "/feed.xml"}
 
