@@ -71,7 +71,10 @@ $$
   \mu = \mu_a - \frac{\sigma^2}{2}
 $$
 
-> From [Jensen's inequality](https://en.wikipedia.org/wiki/Jensen%27s_inequality) follows that for any distribution \\( \mathbb{E}[\ln(x)] < \ln(\mathbb{E}[x]) \\).
+> From [Jensen's inequality](https://en.wikipedia.org/wiki/Jensen%27s_inequality) follows that for any distribution:
+>
+> $$ \mathbb{E}[\ln(x)] < \ln(\mathbb{E}[x]) $$
+> 
 
 We can see that the geometric growth rate \\( \mu \\) decreases with increasing volatility \\( \sigma \\).
 
