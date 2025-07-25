@@ -62,7 +62,7 @@ Thus the geometric mean equals the exponential of the expectation value of the l
 Now, for a log-normal distribution \\( \ln(x) \\) is normally distributed with mean \\( \mu \\) and the [expectation value of the log-normal distribution](https://en.wikipedia.org/wiki/Log-normal_distribution#Arithmetic_moments) is \\( \mathbb{E}[x] = e^{\mu + \frac{\sigma^2}{2}} \\), yielding:
 
 $$
-  \mathbb{E}[\ln(x)] = \mu \qquad  \ln(\mathbb{E}[x]) = \mu + \frac{\sigma^2}{2} =: \mu_a
+  \mathbb{E}[\ln(x)] = \mu \qquad \ln(\mathbb{E}[x]) = \mu + \frac{\sigma^2}{2} =: \mu_a
 $$
 
 This gives the following important relationship between geometric and arithmetic growth rate:
@@ -70,6 +70,8 @@ This gives the following important relationship between geometric and arithmetic
 $$
   \mu = \mu_a - \frac{\sigma^2}{2}
 $$
+
+> From [Jensen's inequality](https://en.wikipedia.org/wiki/Jensen%27s_inequality) follows that for any distribution \\( \mathbb{E}[\ln(x)] < \ln(\mathbb{E}[x]) \\).
 
 We can see that the geometric growth rate \\( \mu \\) decreases with increasing volatility \\( \sigma \\).
 
