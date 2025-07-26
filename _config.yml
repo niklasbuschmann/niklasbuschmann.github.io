@@ -13,10 +13,6 @@ navigation:
 
 remote_theme: niklasbuschmann/contrast
 
-comments:
-  disqus_shortname: "disqus-contrast"
-  disqus: true
-
 plugins:
  - jekyll-remote-theme
  - jekyll-feed
