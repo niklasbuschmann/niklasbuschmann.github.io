@@ -98,7 +98,7 @@ $$
 A prior that maximizes this difference is the Jeffreys prior, which is square root of the Fisher information:
 
 $$
-  \textrm{p}(\theta) = \sqrt{\mathbb{E}\left[\left(\frac{\partial \log(\textrm{p}(x|\theta))}{\partial \theta}\right)^2\right]}
+  \textrm{p}(\theta) = \sqrt{\mathbb{E}\left[\left(\frac{\partial \log(\textrm{p}(x|\theta))}{\partial \theta}\right)^2\right]} \equiv \sqrt{I(\theta)}
 $$
 
 ### Credible intervals
@@ -118,7 +118,7 @@ Instead of stating the full posterior \\( \textrm{p}(\theta\|\mathbf{x}) \\), on
 The loss function \\( L=\left\|\hat{\theta}(\mathbf{x})-\theta\right\|^2 \\)  is minimized by \\( \hat{\theta}(\mathbf{x}) = \textrm{mean}_\theta[\textrm{p}(\theta\|x)] \\) since one requires:
 
 $$
-  \frac{\partial}{\partial\,\hat{\theta}(\mathbf{x})} \int \left|\hat{\theta}(\mathbf{x})-\theta\right|^2 \textrm{p}(\theta|\mathbf{x})\textrm{d}\theta = 2\left(\hat{\theta}(\mathbf{x})-\int \theta\,\textrm{p}(\theta|\mathbf{x})\textrm{d}\theta\right) \overset{!}{=} 0
+  \frac{\partial}{\partial \hat{\theta}} \int \left|\hat{\theta}(\mathbf{x})-\theta\right|^2 \textrm{p}(\theta|\mathbf{x})\textrm{d}\theta = 2\left(\hat{\theta}(\mathbf{x})-\int \theta\,\textrm{p}(\theta|\mathbf{x})\textrm{d}\theta\right) \overset{!}{=} 0
 $$
 
 Where was used that \\( \hat{\theta}(\mathbf{x}) \\) must be independent of \\( \theta \\). Plugging the mean back into the average squared error shows that the error is then given by the variance of the posterior.
@@ -134,7 +134,7 @@ The loss function \\( L=\left\|\hat{\theta}(\mathbf{x})-\theta\right\|^1 \\)  is
 
 $$
 \begin{aligned}
-  \frac{\partial}{\partial\,\hat{\theta}(\mathbf{x})} \int \left|\hat{\theta}(\mathbf{x})-\theta\right|^1 \textrm{p}(\theta|\mathbf{x})\textrm{d}\theta
+  \frac{\partial}{\partial \hat{\theta}} \int \left|\hat{\theta}(\mathbf{x})-\theta\right|^1 \textrm{p}(\theta|\mathbf{x})\textrm{d}\theta
   &=  \frac{\partial}{\partial\,\hat{\theta}(\mathbf{x})} \left(\int_{\hat{\theta}(\mathbf{x})}^{\infty} \left(\hat{\theta}(\mathbf{x})-\theta\right)\textrm{p}(\theta|\mathbf{x})\textrm{d}\theta -\int_{-\infty}^{\hat{\theta}(\mathbf{x})} \left(\hat{\theta}(\mathbf{x})-\theta\right)\textrm{p}(\theta|\mathbf{x})\textrm{d}\theta\right)\\
   &= \int_{-\infty}^{\hat{\theta}(\mathbf{x})} \textrm{p}(\theta|\mathbf{x})\textrm{d}\theta - \int_{\hat{\theta}(\mathbf{x})}^{\infty} \textrm{p}(\theta|\mathbf{x})\textrm{d}\theta \overset{!}{=} 0
 \end{aligned}
@@ -148,7 +148,7 @@ The loss function \\( L=\left\|\hat{\theta}(\mathbf{x})-\theta\right\|^0 \\)  is
 
 $$
 \begin{aligned}
-  \frac{\partial}{\partial\,\hat{\theta}(\mathbf{x})} \int \left|\hat{\theta}(\mathbf{x})-\theta\right|^0 \textrm{p}(\theta|\mathbf{x})\textrm{d}\theta &= \frac{\partial}{\partial\,\hat{\theta}(\mathbf{x})} \left(1 - \int \delta\left(\hat{\theta}(\mathbf{x})-\theta\right)\textrm{p}(\theta|\mathbf{x})\textrm{d}\theta\right) \\
+  \frac{\partial}{\partial \hat{\theta}} \int \left|\hat{\theta}(\mathbf{x})-\theta\right|^0 \textrm{p}(\theta|\mathbf{x})\textrm{d}\theta &= \frac{\partial}{\partial\,\hat{\theta}(\mathbf{x})} \left(1 - \int \delta\left(\hat{\theta}(\mathbf{x})-\theta\right)\textrm{p}(\theta|\mathbf{x})\textrm{d}\theta\right) \\
   &= -\frac{\partial}{\partial\,\hat{\theta}(\mathbf{x})} \textrm{p}(\hat{\theta}(\mathbf{x})|x) \overset{!}{=} 0
 \end{aligned}
 $$
