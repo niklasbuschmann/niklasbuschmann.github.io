@@ -74,18 +74,18 @@ $$
 The first term is just a multiplicative constant that is removed by the normalisation of the posterior. By the [law of large numbers](https://en.wikipedia.org/wiki/Law_of_large_numbers) the second term will converge to the expectation value of the second derivative:
 
 $$
-  \frac{1}{N}\sum_i \frac{\partial^2}{\partial \theta^2} \log(\textrm{p}(x_i|\theta)) \quad\overset{N\rightarrow\infty}{\rightarrow}\quad \mathbb{E}\left[\frac{\partial^2}{\partial \theta^2} \log(\textrm{p}(x_i|\theta_{\textrm{ML}}))\right] < 0
+  \frac{1}{N}\sum_i \frac{\partial^2}{\partial \theta^2} \log(\textrm{p}(x_i|\theta_{\textrm{ML}})) \quad\overset{N\rightarrow\infty}{\rightarrow}\quad I(\theta) \equiv \mathbb{E}\left[\frac{\partial^2}{\partial \theta^2} \log(\textrm{p}(x_i|\theta_{\textrm{ML}}))\right] < 0
 $$
 
-The likelihood function thus asymptotically becomes a normal distribution with mean \\( \mu = \theta_{\textrm{ML}} \\) and variance  \\( \sigma^2 = N^{-1} \left\|\mathbb{E}\left[\frac{\partial^2}{\partial \theta^2} \log(\textrm{p}(x_i\|\theta_{\textrm{ML}}))\right]\right\|^{-1} \\):
+> The expectation value of the second derivative of the log likelihood is also known as the [Fisher information](https://en.wikipedia.org/wiki/Fisher_information).
+
+The likelihood function thus asymptotically becomes a normal distribution with mean \\( \mu = \theta_{\textrm{ML}} \\) and variance  \\( \sigma^2 = \frac{1}{NI(\theta)} \\):
 
 $$
-  \textrm{p}(\mathbf{x}|\theta) \quad\overset{n\rightarrow\infty}{\rightarrow}\quad \textrm{p}(\mathbf{x}|\theta_{\textrm{ML}}) e^{-\left(\theta-\theta_{\textrm{ML}}\right)^2 N \left|\mathbb{E}\left[\frac{\partial^2}{\partial \theta^2} \log(\textrm{p}(x_i|\theta_{\textrm{ML}}))\right]\right|/2}
+  \textrm{p}(\mathbf{x}|\theta) \ \overset{n\rightarrow\infty}{\rightarrow}\  \textrm{p}(\mathbf{x}|\theta_{\textrm{ML}}) e^{-\left(\theta-\theta_{\textrm{ML}}\right)^2 N I(\theta)/2}
 $$
 
 A more rigerous statement of this is known as the [Bernstein–von Mises theorem](https://en.wikipedia.org/wiki/Bernstein–von_Mises_theorem).
-
-> The expectation value of the second derivative of the log likelihood is also known as the [Fisher information](https://en.wikipedia.org/wiki/Fisher_information).
 
 ### Choice of Prior
 
