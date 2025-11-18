@@ -135,7 +135,7 @@ The loss function \\( L=\left\|\hat{\theta}(\mathbf{x})-\theta\right\|^1 \\)  is
 $$
 \begin{aligned}
   \frac{\partial}{\partial \hat{\theta}} \int \left|\hat{\theta}(\mathbf{x})-\theta\right|^1 \textrm{p}(\theta|\mathbf{x})\textrm{d}\theta
-  &=  \frac{\partial}{\partial\,\hat{\theta}(\mathbf{x})} \left(\int_{\hat{\theta}(\mathbf{x})}^{\infty} \left(\hat{\theta}(\mathbf{x})-\theta\right)\textrm{p}(\theta|\mathbf{x})\textrm{d}\theta -\int_{-\infty}^{\hat{\theta}(\mathbf{x})} \left(\hat{\theta}(\mathbf{x})-\theta\right)\textrm{p}(\theta|\mathbf{x})\textrm{d}\theta\right)\\
+  &=  \frac{\partial}{\partial \hat{\theta}} \left(\int_{\hat{\theta}(\mathbf{x})}^{\infty} \left(\hat{\theta}(\mathbf{x})-\theta\right)\textrm{p}(\theta|\mathbf{x})\textrm{d}\theta -\int_{-\infty}^{\hat{\theta}(\mathbf{x})} \left(\hat{\theta}(\mathbf{x})-\theta\right)\textrm{p}(\theta|\mathbf{x})\textrm{d}\theta\right)\\
   &= \int_{-\infty}^{\hat{\theta}(\mathbf{x})} \textrm{p}(\theta|\mathbf{x})\textrm{d}\theta - \int_{\hat{\theta}(\mathbf{x})}^{\infty} \textrm{p}(\theta|\mathbf{x})\textrm{d}\theta \overset{!}{=} 0
 \end{aligned}
 $$
@@ -148,8 +148,8 @@ The loss function \\( L=\left\|\hat{\theta}(\mathbf{x})-\theta\right\|^0 \\)  is
 
 $$
 \begin{aligned}
-  \frac{\partial}{\partial \hat{\theta}} \int \left|\hat{\theta}(\mathbf{x})-\theta\right|^0 \textrm{p}(\theta|\mathbf{x})\textrm{d}\theta &= \frac{\partial}{\partial\,\hat{\theta}(\mathbf{x})} \left(1 - \int \delta\left(\hat{\theta}(\mathbf{x})-\theta\right)\textrm{p}(\theta|\mathbf{x})\textrm{d}\theta\right) \\
-  &= -\frac{\partial}{\partial\,\hat{\theta}(\mathbf{x})} \textrm{p}(\hat{\theta}(\mathbf{x})|x) \overset{!}{=} 0
+  \frac{\partial}{\partial \hat{\theta}} \int \left|\hat{\theta}(\mathbf{x})-\theta\right|^0 \textrm{p}(\theta|\mathbf{x})\textrm{d}\theta &= \frac{\partial}{\partial \hat{\theta}} \left(1 - \int \delta\left(\hat{\theta}(\mathbf{x})-\theta\right)\textrm{p}(\theta|\mathbf{x})\textrm{d}\theta\right) \\
+  &= -\frac{\partial}{\partial \hat{\theta}} \textrm{p}(\hat{\theta}(\mathbf{x})|x) \overset{!}{=} 0
 \end{aligned}
 $$
 
