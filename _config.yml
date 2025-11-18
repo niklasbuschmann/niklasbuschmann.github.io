@@ -1,0 +1,19 @@
+title: "Niklas Buschmann"
+author: "Niklas Buschmann"
+permalink: /:title/
+lang: "en"
+excerpt_separator: "\n\n\n"
+show_excerpts: false
+show_frame: true
+
+navigation:
+  - {title: Color, icon: moon, url: "javascript:toggle()"}
+  - {title: Github, icon: github, url: "https://github.com/niklasbuschmann/"}
+  - {title: Feed, icon: rss, url: "/feed.xml"}
+
+remote_theme: niklasbuschmann/contrast
+
+plugins:
+ - jekyll-remote-theme
+ - jekyll-feed
+ - jektex
