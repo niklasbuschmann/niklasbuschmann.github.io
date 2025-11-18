@@ -290,7 +290,7 @@ $$
 \end{aligned}
 $$
 
-For unbiased estimators this gives a lower bound on the mean squared error as the inverse of the fisher information \\( I(\theta) \\):
+For unbiased estimators with \\( \mathbb{E[\hat{\theta}(\mathbf{x})]} = \theta \\) this gives a lower bound on the mean squared error as the inverse of the fisher information \\( I(\theta) \\):
 
 $$
   \mathbb{E}\left[\left(\hat{\theta}(\mathbf{x})-\theta\right)^2\right] \geq \frac{1}{I(\theta)} 
