@@ -12,7 +12,7 @@ Some notes and theorems about the estimation of parameters with Bayesian and Fre
 
 - [Part 1: Bayesian](#part-1-bayesian)
    - [Bayes' Theorem](#bayes-theorem)
-   - [Asymptotic behaviour](#asymptotic-behaviour)
+   - [Asymptotic behaviour](#asymptotic-behaviour-of-the-likelihood)
    - [Choice of Prior](#choice-of-prior)
    - [Credible intervals](#credible-intervals)
    - [Loss functions](#loss-functions)
