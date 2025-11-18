@@ -6,6 +6,22 @@ mathjax: true
 layout: post
 ---
 
+Some notes and theorems about the estimation of parameters with Bayesian and Frequentist methods and their convergence in the limit of many observations.
+
+### Table of contents
+
+- [Part 1: Bayesian](#part-1-bayesian)
+   - [Bayes' Theorem](#bayes-theorem)
+   - [Asymptotic behaviour](#asymptotic-behaviour)
+   - [Choice of Prior](#choice-of-prior)
+   - [Credible intervals](#credible-intervals)
+   - [Loss functions](#loss-functions)
+   - [Example: Normal distribution](#example-estimating-the-parameters-of-a-normal-distribution)
+- [Part 2: Frequentist](#part-2-frequentist)
+   - [Maximum Likelihood](#maximum-likelihood)
+   - [Confidence Intervals](#confidence-intervals)
+   - [Cramer Rao bound](#cramer-rao-bound)
+
 ## Part 1: Bayesian
 
 ### Bayes' Theorem
@@ -70,7 +86,7 @@ A more rigerous statement of this is known as the [Bernstein–von Mises theorem
 
 > The expectation value of the second derivative of the log likelihood is also known as the [Fisher information](https://en.wikipedia.org/wiki/Fisher_information).
 
-### Choice of prior
+### Choice of Prior
 
 A flat prior \\( p(\theta)=1 \\) is a sensible choice when having no prior information, but is not invariant under reparametrizations: For example \\( p(\sigma)\textrm{d}\sigma=1 \\) implies \\( p(\sigma^2)\textrm{d}\sigma^2=\frac{1}{2\sigma}\textrm{d}\sigma^2 \\), even though they are the same parameter. A more sensible choice of prior is one that maximizes the difference between prior and posterior distribution. This difference can be measured by the [Kullback-Leibler divergence](https://en.wikipedia.org/wiki/Kullback–Leibler_divergence):
 

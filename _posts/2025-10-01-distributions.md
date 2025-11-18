@@ -6,6 +6,15 @@ mathjax: true
 layout: post
 ---
 
+### Table of contents
+
+- [Sum of random variables](#probability-of-finding-a-sum-of-random-variables)
+- [Normal distribution](#normal-distribution)
+- [\\( \chi^2 \\) distribution](#-chi2--distribution)
+- [Multinomial distribution](#multinomial-coefficient)
+- [Poisson distribution](#poisson-distribution)
+- [Erlang distribution](#erlang-distribution)
+
 ### Probability of finding a sum of random variables
  
 The probability density \\( p_n(x) \\) of finding the average \\( x = \frac{\sum_i x_i}{n} \\) of \\( n \\) random variables can be written using the [Delta function](https://en.wikipedia.org/wiki/Dirac_delta_function) as:
