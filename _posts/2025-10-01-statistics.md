@@ -20,6 +20,7 @@ Some notes and theorems about the estimation of parameters with Bayesian and Fre
 - [Part 2: Frequentist](#part-2-frequentist)
    - [Maximum Likelihood](#maximum-likelihood)
    - [Confidence Intervals](#confidence-intervals)
+   - [Mean squared error](#mean-squared-error-1)
    - [Cramer Rao bound](#cramer-rao-bound)
 
 ## Part 1: Bayesian
@@ -256,9 +257,13 @@ $$
 
 ### Mean squared error
 
+The mean squared error is taken as the squared difference between estimated parameter \\( \hat{\theta}(\mathbf{x}) \\) and the true parameter \\( \theta \\) over all possible \\( x \\):
+
 $$
-  \int \left(\hat{\theta}(\mathbf{x})-\theta\right)^2 p(x|\theta)\textrm{d}x \equiv \langle(\hat{\theta}(\mathbf{x})-\theta)^2\rangle_x = (\underbrace{\langle\hat{\theta}(\mathbf{x})\rangle_x-\theta}_{\textrm{bias}})^2+\underbrace{\langle\hat{\theta}(\mathbf{x})^2\rangle_x-\langle\hat{\theta}(\mathbf{x})\rangle_x^2}_{\textrm{variance}}
+  \int \left(\hat{\theta}(\mathbf{x})-\theta\right)^2 p(x|\theta)\textrm{d}x \equiv \langle(\hat{\theta}(\mathbf{x})-\theta)^2\rangle = (\underbrace{\langle\hat{\theta}(\mathbf{x})\rangle-\theta}_{\textrm{bias}})^2+\underbrace{\langle\hat{\theta}(\mathbf{x})^2\rangle-\langle\hat{\theta}(\mathbf{x})\rangle^2}_{\textrm{variance}}
 $$
+
+For unbiased estimators the mean squared error equals the variance of the estimator.
 
 > Estimating for example the parameter \\( p \\) of a binomial trial with result \\( k = x \\):
 >
@@ -283,6 +288,12 @@ $$
   &= \partial_\theta\int \hat{\theta}(\mathbf{x}) p(x|\theta) \textrm{d}x - \theta\partial_\theta\int p(x|\theta) \textrm{d}x \\
   &= \partial_\theta \mathbb{E[\hat{\theta}(\mathbf{x})]}
 \end{aligned}
+$$
+
+For unbiased estimators this gives an lower bound on the mean squared error of the inverse of the fisher information \\( I(\theta) \\):
+
+$$
+  \mathbb{E}\left[\left(\hat{\theta}(\mathbf{x})-\theta\right)^2\right] \geq \frac{1}{I(\theta)} 
 $$
 
 > The Cauchy-Schwarz inequality follows from:
