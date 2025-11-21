@@ -100,6 +100,8 @@ $$
 \end{aligned}
 $$
 
+The variance of \\( \frac{\overline{x}-\mu}{s/\sqrt{n}} \\) is no longer 1 but \\( \frac{n}{n-2} \\) instead.
+
 ### Multinomial coefficient
 
 Suppose you wants to arrange \\( k_i \\) copys of \\( i \\) different things into \\( n = \sum_i k_i \\) bins. How many distinct ways \\( \binom{n}{k_1,\dots,k_i} \\) are there to do this?
