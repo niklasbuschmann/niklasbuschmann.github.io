@@ -11,6 +11,7 @@ layout: post
 - [Sum of random variables](#probability-of-finding-a-sum-of-random-variables)
 - [Normal distribution](#normal-distribution)
 - [\\( \chi^2 \\) distribution](#-chi--distribution)
+- [Student t distribution](#student-t-distribution)
 - [Multinomial distribution](#multinomial-coefficient)
 - [Poisson distribution](#poisson-distribution)
 - [Erlang distribution](#erlang-distribution)
@@ -53,14 +54,11 @@ $$
   (\hat{\textrm{p}}(k/n))^n = \left(1 + \frac{ik \mathbb{E}[x_i]}{n} + \frac{i^2k^2\mathbb{E}[x_i^2]}{2n^2} + \dots \right)^n = e^{ik \mathbb{E}[x_i]}e^{i^2k^2(\mathbb{E}[x_i^2]-\mathbb{E}[x_i]^2)/2n} + O\left(\frac{1}{n^2}\right)
 $$
 
-The original \\( \textrm{p}(\overline{x}) \\) can now be recovered using the inverse Fourier transform:
+Writing \\( \mu \equiv \mathbb{E}[x_i] \\) and \\( \sigma^2 \equiv \mathbb{E}[x_i^2]-\mathbb{E}[x_i]^2 \\), the original \\( \textrm{p}(\overline{x}) \\) can now be recovered using the inverse Fourier transform:
 
 $$
-\begin{aligned}
-  \textrm{p}(\overline{x}) &\overset{n\rightarrow\infty}{\rightarrow} \frac{1}{2\pi} \int e^{ik\overline{x}}e^{ik \mathbb{E}[x_i]}e^{i^2k^2(\mathbb{E}[x_i^2]-\mathbb{E}[x_i]^2)/2n}\textrm{d}k \\
-  &= \frac{\exp\left(-\frac{(\overline{x}-\mathbb{E}[x_i])^2}{2(\mathbb{E}[x_i^2]-\mathbb{E}[x_i]^2)/n)}\right)}{\sqrt{2\pi(\mathbb{E}[x_i^2]-\mathbb{E}[x_i]^2)/n}} \\
-  &= \frac{1}{\sqrt{2\pi\sigma^2/n}}e^{-\frac{(\overline{x}-\mu)^2}{2\sigma^2/n}}
-\end{aligned}
+  \textrm{p}(\overline{x}) \overset{n\rightarrow\infty}{\rightarrow} \frac{1}{2\pi} \int e^{ik\overline{x}}e^{ik \mu}e^{i^2k^2\sigma^2/2n}\textrm{d}k
+  = \frac{1}{\sqrt{2\pi\sigma^2/n}}e^{-\frac{(\overline{x}-\mu)^2}{2\sigma^2/n}}
 $$
 
 The average of \\( n \\) identically distributed random variables will for large \\( n \\) become normally distributed with the same mean \\( \mu \\) and lower variance \\( \sigma^2/n \\) compared to the original distribution.
@@ -77,7 +75,7 @@ $$
 
 > The surface area of the n-dimensional sphere can be calculated from:
 >
-> $$ 1=\int\prod_i \frac{e^{-x_i^2/2}}{\sqrt{2\pi}}\textrm{d}x_i = \int \textrm{d}A \int \frac{e^{-r^2/2}r^{n-1}\textrm{d}r}{\sqrt{2\pi}^n} = \int \textrm{d}A \int \frac{e^{-t}t^{\frac{n}{2}-1}}{2\sqrt{\pi^n}}\textrm{d}t \equiv \frac{\Gamma\left(\frac{n}{2}\right)}{2\sqrt{\pi^n}} \int \textrm{d}A $$
+> $$ 1=\int\prod_i \frac{e^{-x_i^2/2}}{\sqrt{2\pi}}\textrm{d}x_i = \int \textrm{d}A \int \frac{e^{-r^2/2}r^{n-1}}{\sqrt{2\pi}^n}\textrm{d}r = \int \textrm{d}A \int \frac{e^{-t}t^{\frac{n}{2}-1}}{2\sqrt{\pi^n}}\textrm{d}t \equiv \frac{\Gamma\left(\frac{n}{2}\right)}{2\sqrt{\pi^n}} \int \textrm{d}A $$
 >
 
 #### \\( \chi^2 \\) distribution
@@ -85,7 +83,21 @@ $$
 A change of variables yields the distribution for the sum of squares:
 
 $$
-  \textrm{p}(\chi^2) = \textrm{p}(\chi)\frac{\textrm{d} \chi}{\textrm{d} \chi^2} = \frac{\textrm{p}(\chi)}{2 \chi} = \frac{e^{-\chi^2/2}\chi^{n-2}}{\sqrt{2^n}\Gamma\left(\frac{n}{2}\right)}
+  \textrm{p}(\chi^2) = \textrm{p}(\chi)\frac{\textrm{d} \chi}{\textrm{d} \chi^2} = \frac{e^{-\chi^2/2}\chi^{n-2}}{\sqrt{2^n}\Gamma\left(\frac{n}{2}\right)}
+$$
+
+### Student t distribution
+
+The estimated mean \\( \overline{x} = \frac{\sum_i x_i}{n} \\) deviates from the true mean \\( \mu \\) with a standard deviation of \\( \frac{\sigma}{\sqrt{n}} \\). Since \\( \sigma \\) ist most likely unknown one has to use the estimated variance \\( \frac{s}{\sqrt{n}} \\) instead. Since \\( \frac{\overline{x}-\mu}{\sigma/\sqrt{n}} \\) ist standardnormal distributed and \\( \frac{s^2}{\sigma^2} \\) is \\( \chi^2 \\) distributed \\( \frac{\overline{x}-\mu}{s/\sqrt{n}} \\) is independent of \\( \sigma \\) and follows a Student t distribution:
+
+$$
+\begin{aligned}
+  p(t) &= \int\delta\left(t-\frac{x}{\sqrt{\chi^2/n}}\right)\frac{e^{-x^2/2}}{\sqrt{2\pi}}\frac{e^{-\chi^2/2}\chi^{n-2}}{\sqrt{2^n}\Gamma\left(\frac{n}{2}\right)}\textrm{d}\chi^2\textrm{d}x \\
+  &= \int\frac{e^{-(t\chi)^2/2n}}{\sqrt{2\pi n}}\frac{e^{-\chi^2/2}\chi^{n-2}}{\sqrt{2^n}\Gamma\left(\frac{n}{2}\right)}\chi\textrm{d}\chi^2 \\
+  &= \int\frac{e^{-\chi^2(1+t^2/n)/2}}{\sqrt{2^{n+1}\pi n }}\frac{(\chi^2)^{\frac{n-1}{2}}}{\Gamma\left(\frac{n}{2}\right)}\textrm{d}\chi^2 \\
+  &= \frac{\int e^{-u}u^{\frac{n-1}{2}}\textrm{d}u }{\sqrt{\pi n }\Gamma\left(\frac{n}{2}\right)\left(1+\frac{t^2}{n}\right)^{\frac{n+1}{2}}} \\
+  &= \frac{\Gamma\left(\frac{n+1}{2}\right)}{\sqrt{\pi n }\Gamma\left(\frac{n}{2}\right)}\left(1+\frac{t^2}{n}\right)^{-\frac{n+1}{2}}
+\end{aligned}
 $$
 
 ### Multinomial coefficient

@@ -74,7 +74,7 @@ $$
 The first term is just a multiplicative constant that is removed by the normalisation of the posterior. By the [law of large numbers](https://en.wikipedia.org/wiki/Law_of_large_numbers) the second term will converge to the expectation value of the second derivative:
 
 $$
-  \frac{1}{N}\sum_i \frac{\partial^2}{\partial \theta^2} \log(\textrm{p}(x_i|\theta_{\textrm{ML}})) \quad\overset{N\rightarrow\infty}{\rightarrow}\quad -|I(\theta)| \equiv \mathbb{E}\left[\frac{\partial^2}{\partial \theta^2} \log(\textrm{p}(x|\theta_{\textrm{ML}}))\right] < 0
+  \frac{1}{N}\sum_i \frac{\partial^2}{\partial \theta^2} \log(\textrm{p}(x_i|\theta_{\textrm{ML}})) \quad\overset{N\rightarrow\infty}{\rightarrow}\quad \mathbb{E}\left[\frac{\partial^2}{\partial \theta^2} \log(\textrm{p}(x|\theta_{\textrm{ML}}))\right] \equiv -I(\theta)
 $$
 
 > The expectation value of the second derivative of the log likelihood is also known as the [Fisher information](https://en.wikipedia.org/wiki/Fisher_information).
@@ -118,7 +118,7 @@ Instead of stating the full posterior \\( \textrm{p}(\theta\|\mathbf{x}) \\), on
 
 #### Mean squared error
 
-The loss function \\( L=\left\|\hat{\theta}(\mathbf{x})-\theta\right\|^2 \\)  is minimized by \\( \hat{\theta}(\mathbf{x}) = \textrm{mean}_\theta[\textrm{p}(\theta\|x)] \\) since one requires:
+The loss function \\( L=\left\|\hat{\theta}(\mathbf{x})-\theta\right\|^2 \\)  is minimized by \\( \hat{\theta}(\mathbf{x}) = \textrm{mean}[\textrm{p}(\theta\|x)] \\) since one requires:
 
 $$
   \frac{\partial}{\partial \hat{\theta}} \int \left|\hat{\theta}(\mathbf{x})-\theta\right|^2 \textrm{p}(\theta|\mathbf{x})\textrm{d}\theta = 2\left(\hat{\theta}(\mathbf{x})-\int \theta\,\textrm{p}(\theta|\mathbf{x})\textrm{d}\theta\right) \overset{!}{=} 0
@@ -133,7 +133,7 @@ Where was used that \\( \hat{\theta}(\mathbf{x}) \\) must be independent of \\( 
 
 #### Mean absolute error
 
-The loss function \\( L=\left\|\hat{\theta}(\mathbf{x})-\theta\right\|^1 \\)  is minimized by \\( \hat{\theta}(\mathbf{x}) = \textrm{median}_\theta[\textrm{p}(\theta\|x)] \\) since one requires:
+The loss function \\( L=\left\|\hat{\theta}(\mathbf{x})-\theta\right\|^1 \\)  is minimized by \\( \hat{\theta}(\mathbf{x}) = \textrm{median}[\textrm{p}(\theta\|x)] \\) since one requires:
 
 $$
 \begin{aligned}
@@ -147,7 +147,7 @@ Where by definition the median is the value for that the cumulative probabilitie
 
 #### Mean 0-1 error
 
-The loss function \\( L=\left\|\hat{\theta}(\mathbf{x})-\theta\right\|^0 \\)  is minimized by \\( \hat{\theta}(\mathbf{x}) = \textrm{mode}_\theta[\textrm{p}(\theta\|x)] \\) since one requires:
+The loss function \\( L=\left\|\hat{\theta}(\mathbf{x})-\theta\right\|^0 \\) with \\( 0^0 \equiv 0 \\) is minimized by \\( \hat{\theta}(\mathbf{x}) = \textrm{mode}[\textrm{p}(\theta\|x)] \\) since one requires:
 
 $$
 \begin{aligned}
