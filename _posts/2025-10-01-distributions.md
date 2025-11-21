@@ -10,67 +10,82 @@ layout: post
 
 - [Sum of random variables](#probability-of-finding-a-sum-of-random-variables)
 - [Normal distribution](#normal-distribution)
-- [\\( \chi^2 \\) distribution](#-chi2--distribution)
+- [\\( \chi^2 \\) distribution](#-chi--distribution)
 - [Multinomial distribution](#multinomial-coefficient)
 - [Poisson distribution](#poisson-distribution)
 - [Erlang distribution](#erlang-distribution)
 
 ### Probability of finding a sum of random variables
  
-The probability density \\( p_n(x) \\) of finding the average \\( x = \frac{\sum_i x_i}{n} \\) of \\( n \\) random variables can be written using the [Delta function](https://en.wikipedia.org/wiki/Dirac_delta_function) as:
+The probability density \\( \textrm{p}(\overline{x}) \\) of finding the average \\( \overline{x} = \frac{\sum_i x_i}{n} \\) of \\( n \\) random variables can be written using the [Delta function](https://en.wikipedia.org/wiki/Dirac_delta_function) as:
 
 $$
-  p_n(x) = \int \delta\left(x-\sum_i \frac{x_i}{n}\right)p_1(x_1) \dots p_n(x_n)\textrm{d}x_1 \dots \textrm{d}x_n  = \int \delta\left(x-\sum_i\frac{x_i}{n}\right)\prod_i p_i(x_i) \textrm{d}x_i
+  \textrm{p}(\overline{x}) = \int \delta\left(\overline{x}-\sum_i \frac{x_i}{n}\right)\textrm{p}_1(x_1) \dots \textrm{p}_n(x_n)\textrm{d}x_1 \dots \textrm{d}x_n  = \int \delta\left(\overline{x}-\sum_i\frac{x_i}{n}\right)\prod_i \textrm{p}_i(x_i) \textrm{d}x_i
 $$
 
-Calculating the Fourier transform \\( \hat{p}\_n(k) \\) yields:
+Calculating the Fourier transform \\( \hat{\textrm{p}}(k) \\) yields:
 
 $$
-  \hat{p}_n(k) = \int e^{-ikx}p_n(x)\textrm{d}x = \int e^{-ik \sum_i x_i/n}\prod_i p_i(x_i) \textrm{d}x_i = \prod_i \int  e^{-ikx_i/n} p_i(x_i) \textrm{d}x_i = \prod_i \hat{p}_i(k/n)
+  \hat{\textrm{p}}(k) = \int e^{-ik\overline{x}}\textrm{p}(x)\textrm{d}\overline{x} = \int e^{-ik \sum_i x_i/n}\prod_i \textrm{p}_i(x_i) \textrm{d}x_i = \prod_i \int  e^{-ikx_i/n} \textrm{p}_i(x_i) \textrm{d}x_i = \prod_i \hat{\textrm{p}}_i(k/n)
 $$
 
-The original \\( p_n(x) \\) can now be recovered using the inverse Fourier transform:
+The original \\( \textrm{p}(\overline{x}) \\) can now be recovered using the inverse Fourier transform:
 
 $$
-  p_n(x) = \frac{1}{2\pi} \int e^{ikx}\hat{p}_n(k)\textrm{d}k
-  = \frac{1}{2\pi} \int e^{ikx}\prod_i \hat{p}_i(k/n)\textrm{d}k
-  = \frac{1}{2\pi} \int e^{ikx} \left({p}_i(k/n)\right)^n \textrm{d}k
+  \textrm{p}(\overline{x}) = \frac{1}{2\pi} \int e^{ik\overline{x}}\hat{\textrm{p}}(k)\textrm{d}k
+  = \frac{1}{2\pi} \int e^{ik\overline{x}}\prod_i \hat{\textrm{p}}_i(k/n)\textrm{d}k
+  = \frac{1}{2\pi} \int e^{ik\overline{x}} \left({\textrm{p}}_i(k/n)\right)^n \textrm{d}k
 $$
 
 Where the last equality holds for identically distributed random variables.
 
 ### Normal distribution
 
-Taylor expanding any probability density \\( \hat{p}(k/n) \\) around \\( k = 0 \\) yields:
+Taylor expanding any probability density \\( \hat{\textrm{p}}\_i(k/n) \\) around \\( k = 0 \\) yields:
 
 $$
-  \hat{p}(k/n) = \sum_m \frac{\partial_k^m \hat{p}(0)}{m!}\left(\frac{k}{n}\right)^m = \frac{\mathbb{E}[x_i^m]}{m!}\left(\frac{ik}{n}\right)^m = 1 + \frac{ik \mathbb{E}[x_i]}{n} + \frac{i^2k^2\mathbb{E}[x_i^2]}{2n^2} + \dots
+  \hat{\textrm{p}}_i(k/n) = \sum_m \frac{\partial_k^m \hat{\textrm{p}}_i(0)}{m!}\left(\frac{k}{n}\right)^m = \frac{\mathbb{E}[x_i^m]}{m!}\left(\frac{ik}{n}\right)^m = 1 + \frac{ik \mathbb{E}[x_i]}{n} + \frac{i^2k^2\mathbb{E}[x_i^2]}{2n^2} + \dots
 $$
 
 Comparing up to first order in \\( \frac{1}{n} \\) one gets:
 
 $$
-  (\hat{p}(k/n))^n = \left(1 + \frac{ik \mathbb{E}[x_i]}{n} + \frac{i^2k^2\mathbb{E}[x_i^2]}{2n^2} + \dots \right)^n = e^{ik \mathbb{E}[x_i]}e^{i^2k^2(\mathbb{E}[x_i^2]-\mathbb{E}[x_i]^2)/2n} + O\left(\frac{1}{n^2}\right)
+  (\hat{\textrm{p}}(k/n))^n = \left(1 + \frac{ik \mathbb{E}[x_i]}{n} + \frac{i^2k^2\mathbb{E}[x_i^2]}{2n^2} + \dots \right)^n = e^{ik \mathbb{E}[x_i]}e^{i^2k^2(\mathbb{E}[x_i^2]-\mathbb{E}[x_i]^2)/2n} + O\left(\frac{1}{n^2}\right)
 $$
 
-The original \\( p_n(x) \\) can now be recovered using the inverse Fourier transform:
+The original \\( \textrm{p}(\overline{x}) \\) can now be recovered using the inverse Fourier transform:
 
 $$
 \begin{aligned}
-  p_n(x) &\overset{n\rightarrow\infty}{\rightarrow} \frac{1}{2\pi} \int e^{ikx}e^{ik \mathbb{E}[x_i]}e^{i^2k^2(\mathbb{E}[x_i^2]-\mathbb{E}[x_i]^2)/2n}\textrm{d}k \\
-  &= \frac{\exp\left(-\frac{(x-\mathbb{E}[x_i])^2}{2(\mathbb{E}[x_i^2]-\mathbb{E}[x_i]^2)/n)}\right)}{\sqrt{2\pi(\mathbb{E}[x_i^2]-\mathbb{E}[x_i]^2)/n}} \\
-  &= \frac{1}{\sqrt{2\pi\sigma^2/n}}e^{-\frac{(x-\mu)^2}{2\sigma^2/n}}
+  \textrm{p}(\overline{x}) &\overset{n\rightarrow\infty}{\rightarrow} \frac{1}{2\pi} \int e^{ik\overline{x}}e^{ik \mathbb{E}[x_i]}e^{i^2k^2(\mathbb{E}[x_i^2]-\mathbb{E}[x_i]^2)/2n}\textrm{d}k \\
+  &= \frac{\exp\left(-\frac{(\overline{x}-\mathbb{E}[x_i])^2}{2(\mathbb{E}[x_i^2]-\mathbb{E}[x_i]^2)/n)}\right)}{\sqrt{2\pi(\mathbb{E}[x_i^2]-\mathbb{E}[x_i]^2)/n}} \\
+  &= \frac{1}{\sqrt{2\pi\sigma^2/n}}e^{-\frac{(\overline{x}-\mu)^2}{2\sigma^2/n}}
 \end{aligned}
 $$
 
 The average of \\( n \\) identically distributed random variables will for large \\( n \\) become normally distributed with the same mean \\( \mu \\) and lower variance \\( \sigma^2/n \\) compared to the original distribution.
 
-### \\( \chi^2 \\) distribution
+### \\( \chi \\) distribution
 
-The probability of finde the sum of \\( n \\) squares of normally distributed variables with mean \\( \mu = 0\\) is proportional to the surface area of a [\\( n \\) dimensional sphere](https://en.wikipedia.org/wiki/N-sphere#Volume_and_area):
+The probability of finding the root of the sum of squares of \\( n \\) standard-normal distributed random variables is proportional to the surface area of a [\\( n \\) dimensional sphere](https://en.wikipedia.org/wiki/N-sphere#Volume_and_area):
 
 $$
-  p(\chi^2) = \delta\left(\chi^2-\sum_i\frac{x_i^2}{2\sigma^2}\right)\prod_i \int\frac{e^{-\frac{x_i^2}{2\sigma^2}}}{\sqrt{2\pi \sigma^2}}\textrm{d}x_i = \frac{e^{-\chi^2}}{\sqrt{2\pi \sigma^2}^n} A(r=\chi^2;n-1) = \frac{\chi^{n-1}}{\Gamma(n/2)}\frac{e^{-\chi^2}}{\sigma^{n}}
+  \textrm{p}(\chi) = \int\delta\left(\chi-\sqrt{\sum_ix_i^2}\right)\prod_i \frac{e^{-x_i^2/2}}{\sqrt{2\pi}}\textrm{d}x_i
+  = \int\textrm{d}A\int\delta(\chi-r)\frac{e^{-r^2/2}}{\sqrt{2\pi}^n}r^{n-1}\textrm{d}r
+  = \frac{e^{-\chi^2/2}\chi^{n-1}}{\sqrt{2^{n-2}}\Gamma\left(\frac{n}{2}\right)}
+$$
+
+> The surface area of the n-dimensional sphere can be calculated from:
+>
+> $$ 1=\int\prod_i \frac{e^{-x_i^2/2}}{\sqrt{2\pi}}\textrm{d}x_i = \int \textrm{d}A \int \frac{e^{-r^2/2}r^{n-1}\textrm{d}r}{\sqrt{2\pi}^n} = \int \textrm{d}A \int \frac{e^{-t}t^{\frac{n}{2}-1}}{2\sqrt{\pi^n}}\textrm{d}t \equiv \frac{\Gamma\left(\frac{n}{2}\right)}{2\sqrt{\pi^n}} \int \textrm{d}A $$
+>
+
+#### \\( \chi^2 \\) distribution
+
+A change of variables yields the distribution for the sum of squares:
+
+$$
+  \textrm{p}(\chi^2) = \textrm{p}(\chi)\frac{\textrm{d} \chi}{\textrm{d} \chi^2} = \frac{\textrm{p}(\chi)}{2 \chi} = \frac{e^{-\chi^2/2}\chi^{n-2}}{\sqrt{2^n}\Gamma\left(\frac{n}{2}\right)}
 $$
 
 ### Multinomial coefficient
@@ -93,27 +108,27 @@ $$
 
 #### Multinomial distribution
 
-Now what is the probability \\( P(k_1,\dots,k_i) \\) when measuring \\( n = \sum_i k_i \\) outcomes that there will be \\( k_i \\) outcomes of each type \\( i \\)? With the probabilities \\( p_i \\) of measuring outcome \\( i \\) in a single observation the total proability \\( P \\) is then the number of possibilities realizing this outcome multiplied by the product all of the \\( p_i \\):
+Now what is the probability \\( \textrm{P}(k_1,\dots,k_i) \\) when measuring \\( n = \sum_i k_i \\) outcomes that there will be \\( k_i \\) outcomes of each type \\( i \\)? With the probabilities \\( p_i \\) of measuring outcome \\( i \\) in a single observation the total proability \\( P \\) is then the number of possibilities realizing this outcome multiplied by the product all of the \\( p_i \\):
 
 $$
-  P(k_1,\dots,k_i) = \binom{n}{k_1,\dots,k_i} \prod_i p_i^{k_i} = n!\prod_i \frac{p_i^{k_i}}{k_i!}
+  \textrm{P}(k_1,\dots,k_i) = \binom{n}{k_1,\dots,k_i} \prod_i p_i^{k_i} = n!\prod_i \frac{p_i^{k_i}}{k_i!}
 $$
 
 > For two possible outcomes with \\( k_1 + k_2 = n \\) and \\( p_1 + p_2 = 1 \\) one recovers the **binomial distribution**:
 >
-> $$ P(n, k) = \frac{n!}{k!(n-k)!}p^k(1-p)^{n-k} $$
+> $$ \textrm{P}(n, k) = \frac{n!}{k!(n-k)!}p^k(1-p)^{n-k} $$
 >
 
 ### Poisson distribution
 
-Now taking the limit \\( n \rightarrow \infty \\) and \\( p_i \rightarrow 0 \\) while keeping the expectation values \\( \lambda_i = n \cdot p_i \\) constant yields the Poisson distribution. With the requirement \\( \sum_i p_i = 1 \\) we set \\( p_0 = 1-\sum_i p_i = 1-\sum_i \frac{\lambda_i}{n} \\) as the probability of nothing happening during one of the \\( n \\) obervations and \\( k_0 = n-\sum_i k_i \\) as the number of times this happens. The probability of observing each event \\( {k_i} \\) times is then given by:
+Now taking the limit \\( n \rightarrow \infty \\) and \\( p_i \rightarrow 0 \\) while keeping the expectation values \\( \lambda_i \equiv n \cdot p_i \\) constant yields the Poisson distribution. With the requirement \\( \sum_i p_i = 1 \\) we set \\( p_0 \equiv 1-\sum_i p_i = 1-\sum_i \frac{\lambda_i}{n} \\) as the probability of nothing happening during one of the \\( n \\) obervations and \\( k_0 \equiv n-\sum_i k_i \equiv n-k \\) as the number of times this happens. The probability of observing each event \\( {k_i} \\) times is then given by:
 
 $$
 \begin{aligned}
-  P(k_1,\dots,k_i) &= n!\frac{p_0^{k_0}}{k_0!}\prod_i \frac{p_i^{k_i}}{k_i!}  \\
-  &= n!\frac{\left(1-\frac{\sum_i \lambda_i}{n}\right)^{n-\sum_i k_i}}{(n-\sum_i k_i)!}\prod_i \frac{1}{k_i!}\left(\frac{\lambda_i}{n}\right)^{k_i} \\
-  &= \frac{n!}{(n-\sum_i k_i)!} \left(n\left(1- \frac{\sum_i\lambda_i}{n}\right)\right)^{-\sum_i k_i} \left(1-\frac{\sum_i \lambda_i}{n}\right)^n \prod_i \frac{\lambda_i^{k_i}}{k_i!} \\
-  &\overset{n\rightarrow\infty}{\rightarrow} \prod_i \frac{\lambda_i^{k_i}}{k_i!}e^{-\lambda_i}
+  \textrm{P}(k_1,\dots,k_i) &= n!\frac{p_0^{k_0}}{k_0!}\prod_i \frac{p_i^{k_i}}{k_i!}  \\
+  &= \frac{n!}{(n-k)!}p_0^{n-k}\frac{1}{n^k}\prod_i \frac{\lambda_i^{k_i}}{k_i!} \\
+  &= \underbrace{\frac{n!}{(n-k)!}\frac{1}{n^k}}_{\rightarrow\ 1}\underbrace{\left(1-\frac{\sum_i \lambda_i}{n}\right)^n}_{\rightarrow\ \exp\left(\sum_i \lambda_i\right)} \bigg({\underbrace{1-\frac{\sum_i \lambda_i}{n}}_{\rightarrow\ 1}} \bigg)^{-k}\prod_i \frac{\lambda_i^{k_i}}{k_i!} \\
+  &\overset{n\rightarrow\infty}{\rightarrow} \prod_i \frac{\lambda_i^{k_i}}{k_i!}e^{\lambda_i}
 \end{aligned}
 $$
 
@@ -122,7 +137,7 @@ $$
 The probability of having the first success in a binomial setup after exactly \\( k \\) trials is simply given by:
 
 $$
-  P(k) = (1-p)^k p
+  \textrm{P}(k) = (1-p)^k p
 $$
 
 #### Exponential distribution
@@ -130,7 +145,7 @@ $$
 Writing \\( x = \frac{k}{n} \\) and \\( p = \frac{\lambda}{n} \\) and taking the limit \\( n \rightarrow \infty \\) yields the waiting time distribution in a Poisson process:
 
 $$
-  p(x) = \left(1-\frac{\lambda}{n}\right)^{xn} \frac{\lambda}{n} \overset{n\rightarrow\infty}{\rightarrow} e^{-\lambda x}\lambda\textrm{d}x
+  \textrm{p}(x) = \left(1-\frac{\lambda}{n}\right)^{xn} \frac{\lambda}{n} \overset{n\rightarrow\infty}{\rightarrow} e^{-\lambda x}\lambda\textrm{d}x
 $$
 
 Here the remaining factor \\( \frac{1}{n} \\) is removed by the normalisation of the density to 1.
@@ -140,5 +155,5 @@ Here the remaining factor \\( \frac{1}{n} \\) is removed by the normalisation of
 The cumulative waiting time for \\( n \\) events is the sum of \\( n \\) exponential distributions. Since the exponential distribution is a special case of a \\( \chi^2 \\) distribution with \\( k=2 \\) we can get the sum of \\( n \\) exponential distributions simply as \\( \chi^2 \\) distribution with \\( k=2n \\):
 
 $$
-  p(\chi^2=\lambda x, k=2n) = \frac{(\lambda x)^{n-1}}{\Gamma(n)}e^{-\lambda x}\frac{\textrm{d}\chi^2}{\textrm{d}x} = \frac{\lambda^n x^{n-1}}{(n-1)!}e^{-\lambda x}
+  \textrm{p}(\chi^2=2\lambda x, k=2n) = \frac{(2\lambda x)^{n-1}}{2^n\Gamma(n)}e^{-\lambda x}\frac{\textrm{d}\chi^2}{\textrm{d}x} = \frac{\lambda^n x^{n-1}}{(n-1)!}e^{-\lambda x}
 $$

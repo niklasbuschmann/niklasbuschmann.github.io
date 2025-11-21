@@ -74,7 +74,7 @@ $$
 The first term is just a multiplicative constant that is removed by the normalisation of the posterior. By the [law of large numbers](https://en.wikipedia.org/wiki/Law_of_large_numbers) the second term will converge to the expectation value of the second derivative:
 
 $$
-  \frac{1}{N}\sum_i \frac{\partial^2}{\partial \theta^2} \log(\textrm{p}(x_i|\theta_{\textrm{ML}})) \quad\overset{N\rightarrow\infty}{\rightarrow}\quad I(\theta) \equiv \mathbb{E}\left[\frac{\partial^2}{\partial \theta^2} \log(\textrm{p}(x_i|\theta_{\textrm{ML}}))\right] < 0
+  \frac{1}{N}\sum_i \frac{\partial^2}{\partial \theta^2} \log(\textrm{p}(x_i|\theta_{\textrm{ML}})) \quad\overset{N\rightarrow\infty}{\rightarrow}\quad -|I(\theta)| \equiv \mathbb{E}\left[\frac{\partial^2}{\partial \theta^2} \log(\textrm{p}(x|\theta_{\textrm{ML}}))\right] < 0
 $$
 
 > The expectation value of the second derivative of the log likelihood is also known as the [Fisher information](https://en.wikipedia.org/wiki/Fisher_information).
@@ -85,20 +85,23 @@ $$
   \textrm{p}(\mathbf{x}|\theta) \ \overset{n\rightarrow\infty}{\rightarrow}\  \textrm{p}(\mathbf{x}|\theta_{\textrm{ML}}) e^{-\left(\theta-\theta_{\textrm{ML}}\right)^2 N I(\theta)/2}
 $$
 
-A more rigerous statement of this is known as the [Bernstein–von Mises theorem](https://en.wikipedia.org/wiki/Bernstein–von_Mises_theorem).
+A more rigerous proof of this is known as the [Bernstein–von Mises theorem](https://en.wikipedia.org/wiki/Bernstein–von_Mises_theorem).
 
 ### Choice of Prior
 
-A flat prior \\( \textrm{p}(\theta)=1 \\) is a sensible choice when having no prior information, but is not invariant under reparametrizations: For example \\( \textrm{p}(\sigma)\textrm{d}\sigma=1 \\) implies \\( \textrm{p}(\sigma^2)\textrm{d}\sigma^2=\frac{1}{2\sigma}\textrm{d}\sigma^2 \\), even though they are the same parameter. A more sensible choice of prior is one that maximizes the difference between prior and posterior distribution. This difference can be measured by the [Kullback-Leibler divergence](https://en.wikipedia.org/wiki/Kullback–Leibler_divergence):
+A flat prior \\( \textrm{p}(\theta)=1 \\) seems like a sensible choice when having no prior information, but is not invariant under reparametrizations: For example \\( \textrm{p}(\sigma)\textrm{d}\sigma=1 \\) implies \\( \textrm{p}(\sigma^2)\textrm{d}\sigma^2=\frac{1}{2\sigma}\textrm{d}\sigma^2 \\), even though they are the same parameter. A more sensible choice of prior is one that maximizes the difference between prior and posterior distribution. This difference can be measured by the [Kullback-Leibler divergence](https://en.wikipedia.org/wiki/Kullback–Leibler_divergence):
 
 $$
-  \iint \textrm{p}(x)\textrm{p}(\theta|x)\log \frac{\textrm{p}(\theta|x)}{\textrm{p}(\theta)}\textrm{d}\theta\textrm{d}x
+\begin{aligned}
+  \iint \textrm{p}(x)\textrm{p}(\theta|x)\log \frac{\textrm{p}(\theta|x)}{\textrm{p}(\theta)}\textrm{d}\theta\textrm{d}x &= \iint \textrm{p}(\theta)\textrm{p}(x|\theta)\log \frac{\textrm{p}(\theta|x)}{\textrm{p}(\theta)}\textrm{d}\theta\textrm{d}x \\
+  &\rightarrow \int \textrm{p}(\theta)\log\frac{\sqrt{NI(\theta)/2\pi}}{\textrm{p}(\theta)}\textrm{d}\theta
+\end{aligned}
 $$
 
-A prior that maximizes this difference is the Jeffreys prior, which is square root of the Fisher information:
+A prior that maximizes this difference is the Jeffreys prior, which is given by the square root of the Fisher information:
 
 $$
-  \textrm{p}(\theta) = \sqrt{\mathbb{E}\left[\left(\frac{\partial \log(\textrm{p}(x|\theta))}{\partial \theta}\right)^2\right]} \equiv \sqrt{I(\theta)}
+  \textrm{p}(\theta) = \sqrt{I(\theta)} \equiv \sqrt{\mathbb{E}\left[\left(\frac{\partial \log(\textrm{p}(x|\theta))}{\partial \theta}\right)^2\right]}
 $$
 
 ### Credible intervals
