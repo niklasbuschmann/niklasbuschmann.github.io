@@ -77,6 +77,8 @@ $$
 >
 > $$ 1=\int\prod_i \frac{e^{-x_i^2/2}}{\sqrt{2\pi}}\textrm{d}x_i = \int \textrm{d}A \int \frac{e^{-r^2/2}r^{n-1}}{\sqrt{2\pi}^n}\textrm{d}r = \int \textrm{d}A \int \frac{e^{-t}t^{\frac{n}{2}-1}}{2\sqrt{\pi^n}}\textrm{d}t \equiv \frac{\Gamma\left(\frac{n}{2}\right)}{2\sqrt{\pi^n}} \int \textrm{d}A $$
 >
+> Where the gamma function is defined as \\( \Gamma(x) = \int_0^\infty e^{-t}t^{x-1}\textrm{d}t \\).
+>
 
 #### \\( \chi^2 \\) distribution
 
@@ -100,7 +102,7 @@ $$
 \end{aligned}
 $$
 
-The variance of \\( \frac{\overline{x}-\mu}{s/\sqrt{n}} \\) is no longer 1 but \\( \frac{n}{n-2} \\) instead.
+Where \\( u \equiv \frac{\chi^2(1+t^2/n)}{2} \\). The variance of \\( \frac{\overline{x}-\mu}{s/\sqrt{n}} \\) is no longer 1 but \\( \frac{n}{n-2} \\) instead.
 
 ### Multinomial coefficient
 
