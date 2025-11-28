@@ -207,7 +207,7 @@ $$
 >
 > And a mean squared error of:
 >
-> $$ (\delta \hat{p})^2 = \frac{\int p^2 p^x(1-p)^{n-x} \textrm{p}(p)\textrm{d}p - \left(\int p p^x(1-p)^{n-x} \textrm{p}(p)\textrm{d}p\right)^2}{\int p^x(1-p)^{n-x} \textrm{p}(p)\textrm{d}p} = \frac{(n-x+\frac{1}{2})(x+\frac{1}{2})}{(n+2)(n+1)^2} $$
+> $$ (\Delta \hat{p})^2 = \frac{\int p^2 p^x(1-p)^{n-x} \textrm{p}(p)\textrm{d}p - \left(\int p p^x(1-p)^{n-x} \textrm{p}(p)\textrm{d}p\right)^2}{\int p^x(1-p)^{n-x} \textrm{p}(p)\textrm{d}p} = \frac{(n-x+\frac{1}{2})(x+\frac{1}{2})}{(n+2)(n+1)^2} $$
 >
 
 ### Bayes factor
@@ -263,7 +263,7 @@ $$
 The mean squared error is taken as the squared difference between estimated parameter \\( \hat{\theta}(\mathbf{x}) \\) and the true parameter \\( \theta \\) over all possible \\( x \\):
 
 $$
-  \int \left(\hat{\theta}(\mathbf{x})-\theta\right)^2 \textrm{p}(x|\theta)\textrm{d}x \equiv \langle(\hat{\theta}(\mathbf{x})-\theta)^2\rangle = (\underbrace{\langle\hat{\theta}(\mathbf{x})\rangle-\theta}_{\textrm{bias}})^2+\underbrace{\langle\hat{\theta}(\mathbf{x})^2\rangle-\langle\hat{\theta}(\mathbf{x})\rangle^2}_{\textrm{variance}}
+  \mathbb{E}\left[\left(\hat{\theta}(\mathbf{x})-\theta\right)^2\right] = \underbrace{\left(\mathbb{E}\left[\hat{\theta}(\mathbf{x})\right]-\theta\right)^2}_{\textrm{bias}^2} + \underbrace{\mathbb{E}\left[\hat{\theta}(\mathbf{x})^2\right] - \mathbb{E}\left[\hat{\theta}(\mathbf{x})\right]^2}_{\textrm{variance}}
 $$
 
 For unbiased estimators the mean squared error equals the variance of the estimator.
@@ -272,28 +272,27 @@ For unbiased estimators the mean squared error equals the variance of the estima
 >
 > $$ \hat{p}(x) = \frac{x}{n} $$
 >
-> $$ (\delta \hat{p})^2 = \sum_x\binom{n}{x}p^x(1-p)^{n-x}\left(\frac{x}{n}-p\right)^2 = \frac{p-p^2}{n} $$
+> $$ (\Delta \hat{p})^2 = \sum_x\binom{n}{x}p^x(1-p)^{n-x}\left(\frac{x}{n}-p\right)^2 = \frac{p-p^2}{n} $$
 
 ### Cramer Rao bound
 
-Defining the scalar product \\( \langle f(x)g(x) \rangle \equiv \mathbb{E}[f(x)g(x)]\\) one gets from the [Cauchy–Schwarz inequality](https://en.wikipedia.org/wiki/Cauchy–Schwarz_inequality) that the variance of an estimator \\( \hat{\theta}(\mathbf{x}) \\) is bounded by the [Fisher information](https://en.wikipedia.org/wiki/Fisher_information):
+Defining the scalar product \\( \langle f(x)g(x) \rangle \equiv \mathbb{E}\left[f(x)g(x)\right]\\) one gets from the [Cauchy–Schwarz inequality](https://en.wikipedia.org/wiki/Cauchy–Schwarz_inequality) that the variance of an estimator \\( \hat{\theta}(\mathbf{x}) \\) is bounded by the [Fisher information](https://en.wikipedia.org/wiki/Fisher_information):
 
 $$
-  \left(\partial_\theta\mathbb{E}[\hat{\theta}(\mathbf{x})]\right)^2 = \mathbb{E}\left[\left(\hat{\theta}(\mathbf{x})-\theta\right) \partial_\theta \log(\textrm{p}(x|\theta))\right]^2 \leq \mathbb{E}\left[\left(\hat{\theta}(\mathbf{x})-\theta\right)^2\right]\mathbb{E}\left[\left(\partial_\theta \log(\textrm{p}(x|\theta))\right)^2\right]
+  \left(\frac{\partial}{\partial \theta}\mathbb{E}\left[\hat{\theta}(\mathbf{x})\right]\right)^2 = \mathbb{E}\left[\left(\hat{\theta}(\mathbf{x})-\theta\right) \frac{\partial}{\partial \theta} \log(\textrm{p}(x|\theta))\right]^2 \leq \mathbb{E}\left[\left(\hat{\theta}(\mathbf{x})-\theta\right)^2\right]\mathbb{E}\left[\left(\frac{\partial}{\partial \theta} \log(\textrm{p}(x|\theta))\right)^2\right]
 $$
 
 Where the first equality follows from the interchange of integration and differentiation:
 
 $$
 \begin{aligned}
-  \mathbb{E}\left[\left(\hat{\theta}(\mathbf{x})-\theta\right) \partial_\theta \log(\textrm{p}(x|\theta))\right] &= \int \textrm{p}(x|\theta)\left(\hat{\theta}(\mathbf{x})-\theta\right) \partial_\theta \log(\textrm{p}(x|\theta)) \textrm{d}x \\
-  &= \int \left(\hat{\theta}(\mathbf{x})-\theta\right) \partial_\theta \textrm{p}(x|\theta) \textrm{d}x \\
-  &= \partial_\theta\int \hat{\theta}(\mathbf{x}) \textrm{p}(x|\theta) \textrm{d}x - \theta\partial_\theta\int \textrm{p}(x|\theta) \textrm{d}x \\
-  &= \partial_\theta \mathbb{E[\hat{\theta}(\mathbf{x})]}
+  \mathbb{E}\left[\left(\hat{\theta}(\mathbf{x})-\theta\right) \frac{\partial \log(\textrm{p}(x|\theta))}{\partial \theta} \right]
+  &= \int \textrm{p}(x|\theta)\left(\hat{\theta}(\mathbf{x})-\theta\right) \frac{1}{\textrm{p}(x|\theta)} \frac{\partial \textrm{p}(x|\theta)}{\partial \theta}\textrm{d}x \\
+  &= \frac{\partial}{\partial \theta}\underbrace{\int \hat{\theta}(\mathbf{x}) \textrm{p}(x|\theta) \textrm{d}x}_{=\,\mathbb{E\left[\hat{\theta}(\mathbf{x})\right]}} - \theta\frac{\partial}{\partial \theta} \underbrace{\int \textrm{p}(x|\theta) \textrm{d}x}_{=\,1}
 \end{aligned}
 $$
 
-For unbiased estimators with \\( \mathbb{E[\hat{\theta}(\mathbf{x})]} = \theta \\) this gives a lower bound on the mean squared error as the inverse of the fisher information \\( I(\theta) \\):
+For unbiased estimators \\( \left(\mathbb{E}[\hat{\theta}(\mathbf{x})] = \theta \right) \\) this gives a lower bound on the mean squared error as the inverse of the fisher information \\( I(\theta) \\):
 
 $$
   \mathbb{E}\left[\left(\hat{\theta}(\mathbf{x})-\theta\right)^2\right] \geq \frac{1}{I(\theta)} 
