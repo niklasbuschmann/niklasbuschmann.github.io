@@ -84,10 +84,10 @@ Calculating the geometric growth rate from \\( \mu = \mu_a - \sigma^2 / 2 = \ln(
 
 ## Part 3: How much to invest?
 
-Now, is an investment with small return and low volatility worse than one with high return and high volatility? If we have access to leverage we can lever up both the arithmetic return \\( \mu_a \\) and the standard deviation \\( \sigma \\). Assuming one maintains a constant leverage and accouting for the borrowing rate \\( r \\) yields the geometric growth rate:
+Now, is an investment with small return and low volatility worse than one with high return and high volatility? If we have access to leverage we can scale the arithmetic return \\( \mu_a \\) by a factor of \\( l \\), which will scale the variance \\( \sigma^2 \\) by a factor of \\( l^2 \\). Assuming one maintains a constant leverage and accouting for the borrowing rate \\( r \\) yields the geometric growth rate:
 
 $$
-  \mu = l \mu_a - (l\sigma)^2/2 + (1 - l)r
+  \mu = l \mu_a - \frac{l^2\sigma^2}{2} + (1 - l)r
 $$
 
 Optimizing the growth rate \\( \mu \\) leads to:
@@ -111,14 +111,14 @@ So when valuing an asset we should discount assets with higher volatility and ch
 
 For a portfolio of multiple uncorrelated assets the standard deviation has the [same form](https://en.wikipedia.org/wiki/Propagation_of_uncertainty#Example_formulae) as a vector: Adding a small, orthogonal (uncorrelated) step leaves its overall length unchanged, but increases the expected return, making a diversified portfolio more attractive than an undiversified one.
 
-The geometric growth of the portfolio from above can be generalized for a number of correlated assets with allocations \\( l_i \\), arithmetic returns \\( \mu^a_i \\) and the covariance matrix \\( \hat{\sigma}_{ij} \\):
+The geometric growth of the portfolio from above can be generalized for a number of correlated assets with allocations \\( \vec{l} \\), arithmetic returns \\( \vec{\mu}_a \\) and the covariance matrix \\( \hat{\Sigma} \\):
 
 $$
-  \mu = \sum_i l_i \mu^a_i - \frac{1}{2}\sum_{ij} l_i\hat{\sigma}_{ij}l_j + \left(1-\sum_i l_i\right)r = \vec{l}\cdot\vec{\mu}_a - \vec{l}^\intercal \hat{\sigma} \vec{l}/2 + (1-l)r
+  \mu = \vec{l}\cdot\vec{\mu}_a - \frac{1}{2}\vec{l}^\intercal \hat{\Sigma} \vec{l} + r- \vec{l}\cdot\vec{r}
 $$
 
-Optimizing \\( \mu \\) again yields:
+Where \\( \vec{r} \\) is a vector with every component set to \\( r \\). Optimizing \\( \mu \\) again yields:
 
 $$
-  \vec{l} = \frac{\vec{\mu}_a - r}{\hat{\sigma}}
+  \vec{l} = \hat{\Sigma}^{-1}(\vec{\mu}_a - \vec{r})
 $$
