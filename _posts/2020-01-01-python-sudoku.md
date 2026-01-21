@@ -16,10 +16,8 @@ def next_empty_square(board):
     return next(empty_squares, (None, None))
 
 def get_candidates(board, pos_x, pos_y):
-    row = [board[pos_x][y] for y in range(9)]
-    col = [board[x][pos_y] for x in range(9)]
-    square = [board[x][y] for x in range((pos_x//3)*3, (pos_x//3)*3+3) for y in range((pos_y//3)*3, (pos_y//3)*3+3)]
-    return set(range(1, 10)) - set(row + col + square)
+    found = [board[x][y] for x in range(9) for y in range(9) if x == pos_x or y == pos_y or (pos_x//3)*3 <= x <= (pos_x//3)*3+2 and (pos_y//3)*3 <= y <= (pos_y//3)*3+2]
+    return set(range(1, 10)) - set(found)
 
 def solve(board):
     pos_x, pos_y = next_empty_square(board)
