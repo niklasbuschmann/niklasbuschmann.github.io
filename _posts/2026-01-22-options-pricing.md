@@ -10,7 +10,7 @@ When writing an option, the market maker will hedge his exposure by buying stock
 
 However, the option price is convex in regard to the stock price, thus the amount of stock held \\( \frac{\partial V}{\partial S} \\) decreases when \\( S \\) decreases and increase when \\( S \\) increases. In other words: the market maker always buys high and sells low, making volatility costly for him. To compensate for this, an option will lose value over time, compensating for the volatility experienced during that time, and leaving the market maker with the risk-free return when averaged over many different underlyings.
 
-The famous Black-Scholes formula quantizes this relationship between the time evolution of the option price and its second derivative with respect to \\( S \\), allowing one to calculate the time premium for a given expected volatility.
+The famous [Black-Scholes formula](https://en.wikipedia.org/wiki/Black–Scholes_equation) quantizes this relationship between the time evolution of the option price and its second derivative with respect to \\( S \\), allowing one to calculate the time premium for a given expected volatility.
 
 ### Random Walk
 
