@@ -157,13 +157,11 @@ $$
 
 #### Exponential distribution
 
-Writing \\( x = \frac{k}{n} \\) and \\( p = \frac{\lambda}{n} \\) and taking the limit \\( n \rightarrow \infty \\) yields the waiting time distribution in a Poisson process:
+Writing \\( x = \frac{k}{n} \\), \\( p = \frac{\lambda}{n} \\), \\( \frac{1}{n} = \textrm{d}x \\) and taking the limit \\( n \rightarrow \infty \\) yields the waiting time distribution in a Poisson process:
 
 $$
   \textrm{P}(x) = \left(1-\frac{\lambda}{n}\right)^{xn} \frac{\lambda}{n} \overset{n\rightarrow\infty}{\rightarrow} e^{-\lambda x}\lambda\textrm{d}x
 $$
-
-Where \\( \textrm{d}x = \frac{1}{n} \\).
 
 ### Erlang distribution
 
