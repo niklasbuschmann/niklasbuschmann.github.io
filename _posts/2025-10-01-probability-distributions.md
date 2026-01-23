@@ -160,10 +160,10 @@ $$
 Writing \\( x = \frac{k}{n} \\) and \\( p = \frac{\lambda}{n} \\) and taking the limit \\( n \rightarrow \infty \\) yields the waiting time distribution in a Poisson process:
 
 $$
-  \textrm{p}(x) = \left(1-\frac{\lambda}{n}\right)^{xn} \frac{\lambda}{n} \overset{n\rightarrow\infty}{\rightarrow} e^{-\lambda x}\lambda\textrm{d}x
+  \textrm{P}(x) = \left(1-\frac{\lambda}{n}\right)^{xn} \frac{\lambda}{n} \overset{n\rightarrow\infty}{\rightarrow} e^{-\lambda x}\lambda\textrm{d}x
 $$
 
-Here the remaining factor \\( \frac{1}{n} \\) is removed by the normalisation of the density to 1.
+Where \\( \textrm{d}x = \frac{1}{n} \\).
 
 ### Erlang distribution
 
