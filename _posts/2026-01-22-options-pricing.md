@@ -72,7 +72,7 @@ $$
 >  This differential equation is solved by:
 >
 >  $$
->    e^{rt}V(F,\tau) = F\phi\left(\frac{\ln(\frac{F}{K})}{\sigma\sqrt{\tau}}+\frac{1}{2}\sigma\sqrt{\tau}\right)-K\phi\left(\frac{\ln(\frac{F}{K})}{\sigma\sqrt{\tau}}-\frac{1}{2}\sigma\sqrt{\tau}\right)
+>    e^{rt}V(F,\tau) = F\phi\left(\frac{\ln(\frac{F}{K})}{\sigma\sqrt{\tau}}+\frac{\sigma\sqrt{\tau}}{2}\right)-K\phi\left(\frac{\ln(\frac{F}{K})}{\sigma\sqrt{\tau}}-\frac{\sigma\sqrt{\tau}}{2}\right)
 >  $$
 >
 >  Here \\( \tau = T - t\\) is the remaining time, \\( F = e^{r-d}S \\) the forward price of the stock, \\( K \\) the strike price of the option and \\( \phi(x) = \pm\int_{-\infty}^{\pm x} \frac{e^{-t^2/2}}{\sqrt{2\pi}}\textrm{d}t \\) with positive sign for the call and negative for the put option.
