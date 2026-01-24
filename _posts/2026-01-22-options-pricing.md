@@ -14,7 +14,7 @@ The famous [Black-Scholes formula](https://en.wikipedia.org/wiki/Black–Scholes
 
 ### Random Walk
 
-Assume one takes steps of equal size \\( s \\) after a fixed interval \\( \tau \\), with the direction of each step decided randomly between noth and south. After the time \\( t \\) there will have been made \\( \frac{t}{\tau} \\) steps, and the probability of then beeing at point \\( x(t) \\) will, by the [central limit theorem](https://en.wikipedia.org/wiki/Central_limit_theorem), as long as \\( t \gg \tau \\), follow a normal distribution with expectation value \\( \mathbb{E}[x] = \frac{t}{\tau} (p_\uparrow-p_\downarrow) s =: \mu t \\) and variance \\( \mathbb{V}[x] = \frac{t}{\tau} s^2 =: \sigma^2 t \\).
+Assume one takes steps of equal size \\( s \\) after a fixed interval \\( \tau \\), with the direction of each step decided randomly between noth and south. After the time \\( t \\) there will have been made \\( \frac{t}{\tau} \\) steps, and the probability of then beeing at point \\( x(t) \\) will after many steps, by the [central limit theorem](https://en.wikipedia.org/wiki/Central_limit_theorem), follow a normal distribution with expectation value \\( \mathbb{E}[x] = \frac{t}{\tau} (p_\uparrow-p_\downarrow) s =: \mu t \\) and variance \\( \mathbb{V}[x] = \frac{t}{\tau} s^2 =: \sigma^2 t \\).
 
 Taking the limit \\( \tau \rightarrow 0 \\) while keeping \\( \mu \\) and \\( \sigma^2 \\) constant results in a so-called Wiener process. A change \\( \Delta x \\) after time \\( \Delta t\\) is then again drawn from a normal distribution \\( \Delta x \sim \mathcal{N}(\Delta t \mu, \Delta t \sigma^2) \sim \mu\Delta t + \sigma\sqrt{\Delta t}\,\mathcal{N}(0, 1) \\), making the derivative \\( \frac{\Delta x}{\Delta t} \sim \mu + \frac{\sigma}{\sqrt{\Delta t}}\mathcal{N}(0, 1) \\) divergent in the limit \\( \Delta t \rightarrow 0 \\) and leaving the function \\( x(t) \\) continous everywhere but differentiable nowhere.
 
@@ -57,7 +57,7 @@ $$
 >    V(F,\tau) = (F-K)\phi\left(\frac{F-K}{\sigma\sqrt{\tau}}\right)+\sigma\sqrt{\tau}\phi'\left(\frac{F-K}{\sigma\sqrt{\tau}}\right)
 >  $$
 >
->  Here \\( \tau = T - t\\) is the time remaining, \\( F = e^{r-d}S \\) the forward price of the stock, \\( K \\) the strike price of the option and \\( \phi(x) = \pm\int_{-\infty}^{\pm x} \frac{e^{-t^2/2}}{\sqrt{2\pi}}\textrm{d}t \\) with positive sign for the call and negative for the put option.
+>  Here \\( \tau = T - t\\) is the remaining time, \\( F = e^{r-d}S \\) the forward price of the stock, \\( K \\) the strike price of the option and \\( \phi(x) = \pm\int_{-\infty}^{\pm x} \frac{e^{-t^2/2}}{\sqrt{2\pi}}\textrm{d}t \\) with positive sign for the call and negative for the put option.
 
 In this model, the stock price itself follows a normal-distribution, whereas in a more appropriate model one would expect the stock prices to follow a lognormal-distribution, avoiding the possibility of negative prices.
 
@@ -69,10 +69,10 @@ $$
   \frac{\partial V}{\partial t} + \frac{1}{2}\frac{\partial^2 V}{\partial S^2}S^2\sigma^2 \overset{!}{=} r V - r\frac{\partial V}{\partial S}S
 $$
 
-This differential equation is solved by:
-
-$$
-  e^{rt}V(F,\tau) = F\phi\left(\frac{\ln(\frac{F}{K})}{\sigma\sqrt{\tau}}+\frac{1}{2}\sigma\sqrt{\tau}\right)-K\phi\left(\frac{\ln(\frac{F}{K})}{\sigma\sqrt{\tau}}-\frac{1}{2}\sigma\sqrt{\tau}\right)
-$$
-
-Here \\( \tau = T - t\\) is the time remaining, \\( F = e^{r-d}S \\) the forward price of the stock, \\( K \\) the strike price of the option and \\( \phi(x) = \pm\int_{-\infty}^{\pm x} \frac{e^{-t^2/2}}{\sqrt{2\pi}}\textrm{d}t \\) with positive sign for the call and negative for the put option.
+>  This differential equation is solved by:
+>
+>  $$
+>    e^{rt}V(F,\tau) = F\phi\left(\frac{\ln(\frac{F}{K})}{\sigma\sqrt{\tau}}+\frac{1}{2}\sigma\sqrt{\tau}\right)-K\phi\left(\frac{\ln(\frac{F}{K})}{\sigma\sqrt{\tau}}-\frac{1}{2}\sigma\sqrt{\tau}\right)
+>  $$
+>
+>  Here \\( \tau = T - t\\) is the remaining time, \\( F = e^{r-d}S \\) the forward price of the stock, \\( K \\) the strike price of the option and \\( \phi(x) = \pm\int_{-\infty}^{\pm x} \frac{e^{-t^2/2}}{\sqrt{2\pi}}\textrm{d}t \\) with positive sign for the call and negative for the put option.
