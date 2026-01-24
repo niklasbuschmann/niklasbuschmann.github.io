@@ -6,8 +6,10 @@ excerpt_separator: "\n\n\n"
 show_excerpts: false
 show_frame: true
 
+show_frame: "/assets/background.jpeg"
+
 navigation:
-  - {title: Color, icon: moon, url: "javascript:toggle()"}
+  - {title: Mail, icon: envelope, url: "mailto:niklas_github@posteo.me"}
   - {title: Github, icon: github, url: "https://github.com/niklasbuschmann/"}
   - {title: Feed, icon: rss, url: "/feed.xml"}
 
