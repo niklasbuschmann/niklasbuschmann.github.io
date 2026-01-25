@@ -43,7 +43,7 @@ Since the first-order price-swings of the portfolio have been eliminated and onl
 
 ### Bachelier model
 
-The only remaining part is the expression for \\( (\Delta S)^2 \\). Assuming the stock price itself is a Wiener process, then \\( \mathbb{E}[(\Delta S)^2] = \sigma^2\Delta t \\) and \\( \mathbb{V}[(\Delta S)^2] = 2\sigma^4(\Delta t)^2 \\). Here the random part behaves much nicer and causes no divergence in the limit \\( \Delta t \rightarrow 0 \\). Because of this, we can assume by the central limit theorem that for the sum / integral the random parts will cancel each other and we can replace \\( (\Delta S)^2 \\) by its expectation value \\( \mathbb{E}[(\Delta S)^2] = \sigma^2\Delta t\\).
+The only remaining part is the expression for \\( (\Delta S)^2 \\). Assuming the stock price itself is a Wiener process, then \\( \mathbb{E}[(\Delta S)^2] = \sigma^2\Delta t \\) and \\( \mathbb{V}[(\Delta S)^2] = 2\sigma^4(\Delta t)^2 \\), up to leading order in \\( \Delta t) \\). Here the random part behaves much nicer and causes no divergence in the limit \\( \Delta t \rightarrow 0 \\). Because of this, we can assume by the central limit theorem that for the sum / integral the random parts will cancel each other and we can replace \\( (\Delta S)^2 \\) by its expectation value \\( \mathbb{E}[(\Delta S)^2] = \sigma^2\Delta t\\).
 
 This model was first described in 1900 by [Louis Bachelier](https://en.wikipedia.org/wiki/Louis_Bachelier), predating Black and Scholes by seven decades. The resulting differential equation is then given by:
 
