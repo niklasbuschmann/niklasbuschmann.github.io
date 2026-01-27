@@ -11,22 +11,16 @@ Solving Sudokus with Python is surprisingly easy: One can simply start with an e
 So a simple Python implementation could look like this:
 
 ```python
-def next_empty_square(board):
-    return next(((x, y) for x in range(9) for y in range(9) if not board[x][y]), None)
-
-def get_candidates(board, x, y):
-    found = [board[i][j] for i in range(9) for j in range(9) if i == x or j == y or (x//3)*3 <= i <= (x//3)*3+2 and (y//3)*3 <= j <= (y//3)*3+2]
-    return set(range(1, 10)) - set(found)
-
 def solve(board):
-    if not (position := next_empty_square(board)):
-        return board
-    x, y = position
-    for candidate in get_candidates(board, x, y):
-        board[x][y] = candidate
-        if solve(board):
-            return board
-    board[x][y] = 0
+    if position := next(((x, y) for x in range(9) for y in range(9) if not board[x][y]), None):
+        x, y = position
+        found = [board[i][j] for i in range(9) for j in range(9) if i == x or j == y or (x//3)*3 <= i <= (x//3)*3+2 and (y//3)*3 <= j <= (y//3)*3+2]
+        for candidate in set(range(1, 10)) - set(found):
+            board[x][y] = candidate
+            yield from solve(board)
+        board[x][y] = 0
+    else:
+        yield board
 ```
 
 Using this to solve the [world's hardest sudoku](https://www.telegraph.co.uk/news/science/science-news/9359579/Worlds-hardest-sudoku-can-you-crack-it.html) takes around 40000 wrong guesses before finding the correct solution.
