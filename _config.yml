@@ -6,7 +6,7 @@ excerpt_separator: "\n\n\n"
 show_excerpts: false
 show_frame: true
 
-show_frame: "/assets/background.jpeg"
+#show_frame: "/assets/background.jpeg"
 
 navigation:
   - {title: Mail, icon: envelope, url: "mailto:niklas_github@posteo.me"}
