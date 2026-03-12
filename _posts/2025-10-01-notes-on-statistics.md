@@ -36,13 +36,13 @@ $$
 This theorem - called Bayes' Theorem - can be used to estimate the probability \\( \textrm{p}(\theta\|x) \\) of a parameter being \\( \theta \\) after measuring a value \\( x \\) drawn from a probability distribution \\( p_{\theta}(x) \equiv \textrm{p}(x\|\theta) \\):
 
 $$
-  \textrm{p}(\theta|x) = \frac{\textrm{p}(x|\theta)\textrm{p}(\theta)}{\textrm{p}(x)} = \frac{\textrm{p}(x|\theta)\textrm{p}(\theta)}{\int \textrm{p}(x|\theta')\textrm{p}(\theta') \textrm{d}\theta'}
+  \textrm{p}(\theta|x) = \frac{\textrm{p}(x|\theta)\textrm{p}(\theta)}{\textrm{p}(x)} = \frac{\textrm{p}(x|\theta)\textrm{p}(\theta)}{\int \textrm{p}(x|\theta')\textrm{p}(\theta') \mathrm{d}\theta'}
 $$
 
 Where the fact that conditional probabilities sum up to one was used, implying that:
 
 $$
-  \textrm{p}(x) = \textrm{p}(x)\int \textrm{p}(\theta|x)\textrm{d}\theta = \int \textrm{p}(x|\theta)\textrm{p}(\theta)\textrm{d}\theta
+  \textrm{p}(x) = \textrm{p}(x)\int \textrm{p}(\theta|x)\mathrm{d}\theta = \int \textrm{p}(x|\theta)\textrm{p}(\theta)\mathrm{d}\theta
 $$
 
 The four probability densities are then:
@@ -51,7 +51,7 @@ The four probability densities are then:
  - the **prior** \\( \textrm{p}(\theta) \\) which is the assumed distribution of the parameter \\( \theta \\) for many repeated experiments
  - the **marginal probability** \\( \textrm{p}(x) \\) of measuring \\( x \\) averaged over all possible parameters \\( \theta \\)
 
-After the posterior has been found, the new probability \\( \textrm{p}(x\|\mathbf{x}) = \int \textrm{p}(x\|\theta)\textrm{p}(\theta\|\mathbf{x})\textrm{d}\theta \\) is called **posterior predictive distribution**.
+After the posterior has been found, the new probability \\( \textrm{p}(x\|\mathbf{x}) = \int \textrm{p}(x\|\theta)\textrm{p}(\theta\|\mathbf{x})\mathrm{d}\theta \\) is called **posterior predictive distribution**.
 
 Since the likelihood \\( \textrm{p}(\mathbf{x}\|\theta) = \prod_i \textrm{p}(x_i\|\theta) \\) becomes narrower and narrower for more measurements, the posterior becomes more independent of the prior with more measurements.
 
@@ -89,12 +89,12 @@ A more rigerous proof of this is known as the [Bernstein–von Mises theorem](ht
 
 ### Choice of Prior
 
-A flat prior \\( \textrm{p}(\theta)=1 \\) seems like a sensible choice when having no prior information, but is not invariant under reparametrizations: For example \\( \textrm{p}(\sigma)\textrm{d}\sigma=1 \\) implies \\( \textrm{p}(\sigma^2)\textrm{d}\sigma^2=\frac{1}{2\sigma}\textrm{d}\sigma^2 \\), even though they are the same parameter. A more sensible choice of prior is one that maximizes the difference between prior and posterior distribution. This difference can be measured by the [Kullback-Leibler divergence](https://en.wikipedia.org/wiki/Kullback–Leibler_divergence):
+A flat prior \\( \textrm{p}(\theta)=1 \\) seems like a sensible choice when having no prior information, but is not invariant under reparametrizations: For example \\( \textrm{p}(\sigma)\mathrm{d}\sigma=1 \\) implies \\( \textrm{p}(\sigma^2)\mathrm{d}\sigma^2=\frac{1}{2\sigma}\mathrm{d}\sigma^2 \\), even though they are the same parameter. A more sensible choice of prior is one that maximizes the difference between prior and posterior distribution. This difference can be measured by the [Kullback-Leibler divergence](https://en.wikipedia.org/wiki/Kullback–Leibler_divergence):
 
 $$
 \begin{aligned}
-  \iint \textrm{p}(x)\textrm{p}(\theta|x)\log \frac{\textrm{p}(\theta|x)}{\textrm{p}(\theta)}\textrm{d}\theta\textrm{d}x &= \iint \textrm{p}(\theta)\textrm{p}(x|\theta)\log \frac{\textrm{p}(\theta|x)}{\textrm{p}(\theta)}\textrm{d}\theta\textrm{d}x \\
-  &\rightarrow \int \textrm{p}(\theta)\log\frac{\sqrt{NI(\theta)/2\pi}}{\textrm{p}(\theta)}\textrm{d}\theta
+  \iint \textrm{p}(x)\textrm{p}(\theta|x)\log \frac{\textrm{p}(\theta|x)}{\textrm{p}(\theta)}\mathrm{d}\theta\mathrm{d}x &= \iint \textrm{p}(\theta)\textrm{p}(x|\theta)\log \frac{\textrm{p}(\theta|x)}{\textrm{p}(\theta)}\mathrm{d}\theta\mathrm{d}x \\
+  &\rightarrow \int \textrm{p}(\theta)\log\frac{\sqrt{NI(\theta)/2\pi}}{\textrm{p}(\theta)}\mathrm{d}\theta
 \end{aligned}
 $$
 
@@ -109,19 +109,19 @@ $$
 From the posterior \\( \textrm{p}(\theta\|\mathbf{x}) \\) one can determine a range \\( [\theta_{\textrm{min}}, \theta_{\textrm{max}}]\\) in which \\( \theta \\) lies with probability \\( 1-\alpha \\), called credible interval:
 
 $$
-  P(\theta\leq \theta_{\textrm{max}}|\mathbf{x})=\int_{-\infty}^{\theta_{\textrm{max}}} \textrm{p}(\theta|\mathbf{x})\textrm{d}\theta \overset{!}{=} 1-\alpha/2 \overset{!}{=} \int^{\infty}_{\theta_{\textrm{min}}} \textrm{p}(\theta|\mathbf{x})\textrm{d}\theta = P(\theta\geq \theta_{\textrm{min}}|\mathbf{x})
+  P(\theta\leq \theta_{\textrm{max}}|\mathbf{x})=\int_{-\infty}^{\theta_{\textrm{max}}} \textrm{p}(\theta|\mathbf{x})\mathrm{d}\theta \overset{!}{=} 1-\alpha/2 \overset{!}{=} \int^{\infty}_{\theta_{\textrm{min}}} \textrm{p}(\theta|\mathbf{x})\mathrm{d}\theta = P(\theta\geq \theta_{\textrm{min}}|\mathbf{x})
 $$
 
 ### Loss functions
 
-Instead of stating the full posterior \\( \textrm{p}(\theta\|\mathbf{x}) \\), one can characterise the distribution by a value \\( \hat{\theta}(\mathbf{x}) \\) that minimizes on average a loss function \\( \mathbb{E}[L] \equiv \int L(\hat{\theta}(\mathbf{x}),\theta)\textrm{p}(\theta\|\mathbf{x})\textrm{d}\theta \\) over the posterior \\( \textrm{p}(\theta\|x) \\). Possible loss functions include:
+Instead of stating the full posterior \\( \textrm{p}(\theta\|\mathbf{x}) \\), one can characterise the distribution by a value \\( \hat{\theta}(\mathbf{x}) \\) that minimizes on average a loss function \\( \mathbb{E}[L] \equiv \int L(\hat{\theta}(\mathbf{x}),\theta)\textrm{p}(\theta\|\mathbf{x})\mathrm{d}\theta \\) over the posterior \\( \textrm{p}(\theta\|x) \\). Possible loss functions include:
 
 #### Mean squared error
 
 The loss function \\( L=\left\|\hat{\theta}(\mathbf{x})-\theta\right\|^2 \\)  is minimized by \\( \hat{\theta}(\mathbf{x}) = \textrm{mean}[\textrm{p}(\theta\|x)] \\) since one requires:
 
 $$
-  \frac{\partial}{\partial \hat{\theta}} \int \left|\hat{\theta}(\mathbf{x})-\theta\right|^2 \textrm{p}(\theta|\mathbf{x})\textrm{d}\theta = 2\left(\hat{\theta}(\mathbf{x})-\int \theta\,\textrm{p}(\theta|\mathbf{x})\textrm{d}\theta\right) \overset{!}{=} 0
+  \frac{\partial}{\partial \hat{\theta}} \int \left|\hat{\theta}(\mathbf{x})-\theta\right|^2 \textrm{p}(\theta|\mathbf{x})\mathrm{d}\theta = 2\left(\hat{\theta}(\mathbf{x})-\int \theta\,\textrm{p}(\theta|\mathbf{x})\mathrm{d}\theta\right) \overset{!}{=} 0
 $$
 
 Where was used that \\( \hat{\theta}(\mathbf{x}) \\) must be independent of \\( \theta \\). Plugging the mean back into the average squared error shows that the error is then given by the variance of the posterior.
@@ -137,9 +137,9 @@ The loss function \\( L=\left\|\hat{\theta}(\mathbf{x})-\theta\right\|^1 \\)  is
 
 $$
 \begin{aligned}
-  \frac{\partial}{\partial \hat{\theta}} \int \left|\hat{\theta}(\mathbf{x})-\theta\right|^1 \textrm{p}(\theta|\mathbf{x})\textrm{d}\theta
-  &=  \frac{\partial}{\partial \hat{\theta}} \left(\int_{\hat{\theta}(\mathbf{x})}^{\infty} \left(\hat{\theta}(\mathbf{x})-\theta\right)\textrm{p}(\theta|\mathbf{x})\textrm{d}\theta -\int_{-\infty}^{\hat{\theta}(\mathbf{x})} \left(\hat{\theta}(\mathbf{x})-\theta\right)\textrm{p}(\theta|\mathbf{x})\textrm{d}\theta\right)\\
-  &= \int_{-\infty}^{\hat{\theta}(\mathbf{x})} \textrm{p}(\theta|\mathbf{x})\textrm{d}\theta - \int_{\hat{\theta}(\mathbf{x})}^{\infty} \textrm{p}(\theta|\mathbf{x})\textrm{d}\theta \overset{!}{=} 0
+  \frac{\partial}{\partial \hat{\theta}} \int \left|\hat{\theta}(\mathbf{x})-\theta\right|^1 \textrm{p}(\theta|\mathbf{x})\mathrm{d}\theta
+  &=  \frac{\partial}{\partial \hat{\theta}} \left(\int_{\hat{\theta}(\mathbf{x})}^{\infty} \left(\hat{\theta}(\mathbf{x})-\theta\right)\textrm{p}(\theta|\mathbf{x})\mathrm{d}\theta -\int_{-\infty}^{\hat{\theta}(\mathbf{x})} \left(\hat{\theta}(\mathbf{x})-\theta\right)\textrm{p}(\theta|\mathbf{x})\mathrm{d}\theta\right)\\
+  &= \int_{-\infty}^{\hat{\theta}(\mathbf{x})} \textrm{p}(\theta|\mathbf{x})\mathrm{d}\theta - \int_{\hat{\theta}(\mathbf{x})}^{\infty} \textrm{p}(\theta|\mathbf{x})\mathrm{d}\theta \overset{!}{=} 0
 \end{aligned}
 $$
 
@@ -151,7 +151,7 @@ The loss function \\( L=\left\|\hat{\theta}(\mathbf{x})-\theta\right\|^0 \\) wit
 
 $$
 \begin{aligned}
-  \frac{\partial}{\partial \hat{\theta}} \int \left|\hat{\theta}(\mathbf{x})-\theta\right|^0 \textrm{p}(\theta|\mathbf{x})\textrm{d}\theta &= \frac{\partial}{\partial \hat{\theta}} \left(1 - \int \delta\left(\hat{\theta}(\mathbf{x})-\theta\right)\textrm{p}(\theta|\mathbf{x})\textrm{d}\theta\right) \\
+  \frac{\partial}{\partial \hat{\theta}} \int \left|\hat{\theta}(\mathbf{x})-\theta\right|^0 \textrm{p}(\theta|\mathbf{x})\mathrm{d}\theta &= \frac{\partial}{\partial \hat{\theta}} \left(1 - \int \delta\left(\hat{\theta}(\mathbf{x})-\theta\right)\textrm{p}(\theta|\mathbf{x})\mathrm{d}\theta\right) \\
   &= -\frac{\partial}{\partial \hat{\theta}} \textrm{p}(\hat{\theta}(\mathbf{x})|x) \overset{!}{=} 0
 \end{aligned}
 $$
@@ -172,9 +172,9 @@ Using the Jeffreys prior \\( \textrm{p}(\mu) = 1 \\), \\( \textrm{p}(\sigma) = \
 
 $$
 \begin{aligned}
-  \textrm{p}(\mathbf{x}) &= \iint \textrm{p}(\mathbf{x}|\mu,\sigma)\textrm{p}(\mu)\textrm{p}(\sigma)\textrm{d}\mu\textrm{d}\sigma
-  = \int\frac{e^{- \frac{\sum_i(x_i-\overline{x})^2 + n(\overline{x}-\mu)^2}{2\sigma^2}}}{\sqrt{2\pi \sigma^2}^{n+1}}\textrm{d}\mu\textrm{d}\sigma \\
-  &= \int\frac{e^{-\frac{\sum_i(x_i-\overline{x})^2}{2\sigma^2}}}{\sqrt{n}\sqrt{2\pi \sigma^2}^n}\textrm{d}\sigma
+  \textrm{p}(\mathbf{x}) &= \iint \textrm{p}(\mathbf{x}|\mu,\sigma)\textrm{p}(\mu)\textrm{p}(\sigma)\mathrm{d}\mu\mathrm{d}\sigma
+  = \int\frac{e^{- \frac{\sum_i(x_i-\overline{x})^2 + n(\overline{x}-\mu)^2}{2\sigma^2}}}{\sqrt{2\pi \sigma^2}^{n+1}}\mathrm{d}\mu\mathrm{d}\sigma \\
+  &= \int\frac{e^{-\frac{\sum_i(x_i-\overline{x})^2}{2\sigma^2}}}{\sqrt{n}\sqrt{2\pi \sigma^2}^n}\mathrm{d}\sigma
   = \sqrt{\sum_i(x_i-\overline{x})^2}^{-(n-1)}\frac{\Gamma\left(\frac{n-1}{2}\right)}{\sqrt{n}\sqrt{2\pi^n}}
 \end{aligned}
 $$
@@ -183,8 +183,8 @@ The posterior of the mean is a [Student's t distribution](https://en.wikipedia.o
 
 $$
 \begin{aligned}
-  \textrm{p}(\mu|\mathbf{x}) &= \frac{1}{\textrm{p}(x)}\int \textrm{p}(\mathbf{x}|\mu,\sigma)\textrm{p}(\mu)\textrm{p}(\sigma)\textrm{d}\sigma
-  = \frac{1}{\textrm{p}(\mathbf{x})}\int\frac{e^{- \frac{\sum_i(x_i-\overline{x})^2 + n(\overline{x}-\mu)^2}{2\sigma^2}}}{\sqrt{2\pi \sigma^2}^{n+1}}\textrm{d}\sigma \\
+  \textrm{p}(\mu|\mathbf{x}) &= \frac{1}{\textrm{p}(x)}\int \textrm{p}(\mathbf{x}|\mu,\sigma)\textrm{p}(\mu)\textrm{p}(\sigma)\mathrm{d}\sigma
+  = \frac{1}{\textrm{p}(\mathbf{x})}\int\frac{e^{- \frac{\sum_i(x_i-\overline{x})^2 + n(\overline{x}-\mu)^2}{2\sigma^2}}}{\sqrt{2\pi \sigma^2}^{n+1}}\mathrm{d}\sigma \\
   &= \frac{1}{\textrm{p}(\mathbf{x})}\frac{\Gamma\left(\frac{n}{2}\right)}{\sqrt{2\pi^{n+1}}}\sqrt{\sum_i(x_i-\overline{x})^2 + n(\overline{x}-\mu)^2}^{-n} \\
   &= \frac{\Gamma\left(\frac{n}{2}\right)\sqrt{n}}{\sqrt{\pi}\Gamma\left(\frac{n-1}{2}\right)\sqrt{\sum_i(x_i-\overline{x})^2}}\sqrt{1 + \frac{n(\overline{x}-\mu)^2}{\sum_i(x_i-\overline{x})^2}}^{-n}
 \end{aligned}
@@ -194,8 +194,8 @@ The posterior of the variance is an [inverse \\( \chi^2 \\) distribution](https:
 
 $$
 \begin{aligned}
-  \textrm{p}(\sigma|\mathbf{x}) &= \frac{1}{\textrm{p}(\mathbf{x})}\int \textrm{p}(\mathbf{x}|\mu,\sigma)\textrm{p}(\mu)\textrm{p}(\sigma)\textrm{d}\mu
-  = \frac{1}{\textrm{p}(\mathbf{x})}\int \frac{e^{- \frac{\sum_i(x_i-\overline{x})^2 + n(\overline{x}-\mu)^2}{2\sigma^2}}}{\sqrt{2\pi \sigma^2}^{n+1}}\textrm{d}\mu \\
+  \textrm{p}(\sigma|\mathbf{x}) &= \frac{1}{\textrm{p}(\mathbf{x})}\int \textrm{p}(\mathbf{x}|\mu,\sigma)\textrm{p}(\mu)\textrm{p}(\sigma)\mathrm{d}\mu
+  = \frac{1}{\textrm{p}(\mathbf{x})}\int \frac{e^{- \frac{\sum_i(x_i-\overline{x})^2 + n(\overline{x}-\mu)^2}{2\sigma^2}}}{\sqrt{2\pi \sigma^2}^{n+1}}\mathrm{d}\mu \\
   &= \frac{1}{\textrm{p}(\mathbf{x})} \frac{e^{- \frac{\sum_i(x_i-\overline{x})^2}{2\sigma^2}}}{\sqrt{n}\sqrt{2\pi \sigma^2}^n}
   = \sqrt{\sum_i(x_i-\overline{x})^2}^n\frac{\sqrt{2}}{\Gamma\left(\frac{n-1}{2}\right)}\frac{e^{- \frac{\sum_i(x_i-\overline{x})^2}{2\sigma^2}}}{\sqrt{2\sigma^2}^n}
 \end{aligned}
@@ -203,11 +203,11 @@ $$
 
 > Estimating the parameter \\( p \\) of a binomial trial with Jeffreys prior \\( \textrm{p}(p)=\sqrt{\textrm{p}(1-p)}^{-1} \\) yields a mean of:
 >
-> $$ \hat{p}(x) = \frac{\int p p^x(1-p)^{n-x} \textrm{p}(p)\textrm{d}p}{\int p^x(1-p)^{n-x} \textrm{p}(p)\textrm{d}p} = \frac{x+\frac{1}{2}}{n+1} $$
+> $$ \hat{p}(x) = \frac{\int p p^x(1-p)^{n-x} \textrm{p}(p)\mathrm{d}p}{\int p^x(1-p)^{n-x} \textrm{p}(p)\mathrm{d}p} = \frac{x+\frac{1}{2}}{n+1} $$
 >
 > And a mean squared error of:
 >
-> $$ (\Delta \hat{p})^2 = \frac{\int p^2 p^x(1-p)^{n-x} \textrm{p}(p)\textrm{d}p - \left(\int p p^x(1-p)^{n-x} \textrm{p}(p)\textrm{d}p\right)^2}{\int p^x(1-p)^{n-x} \textrm{p}(p)\textrm{d}p} = \frac{(n-x+\frac{1}{2})(x+\frac{1}{2})}{(n+2)(n+1)^2} $$
+> $$ (\Delta \hat{p})^2 = \frac{\int p^2 p^x(1-p)^{n-x} \textrm{p}(p)\mathrm{d}p - \left(\int p p^x(1-p)^{n-x} \textrm{p}(p)\mathrm{d}p\right)^2}{\int p^x(1-p)^{n-x} \textrm{p}(p)\mathrm{d}p} = \frac{(n-x+\frac{1}{2})(x+\frac{1}{2})}{(n+2)(n+1)^2} $$
 >
 
 ## Part 2: Frequentist
@@ -231,7 +231,7 @@ $$
 Where was used that the derivative of the logarithm vanishes in expectation:
 
 $$
-  \mathbb{E}\left[\frac{\partial \log(\textrm{p}(x|\theta_0))}{\partial \theta}\right] = \int \textrm{p}(x|\theta_0)\frac{\partial \log(\textrm{p}(x|\theta_0))}{\partial \theta}\textrm{d}x = \int \frac{\partial}{\partial \theta}\textrm{p}(x|\theta_0)\textrm{d}x = \frac{\partial }{\partial \theta} \mathbb{E}[1] = 0
+  \mathbb{E}\left[\frac{\partial \log(\textrm{p}(x|\theta_0))}{\partial \theta}\right] = \int \textrm{p}(x|\theta_0)\frac{\partial \log(\textrm{p}(x|\theta_0))}{\partial \theta}\mathrm{d}x = \int \frac{\partial}{\partial \theta}\textrm{p}(x|\theta_0)\mathrm{d}x = \frac{\partial }{\partial \theta} \mathbb{E}[1] = 0
 $$
 
 Similarly the expecation values in the nominator and denominator are in fact both equal to the Fisher information:
@@ -252,7 +252,7 @@ $$
 The confidence interval \\( [\hat{\theta}\_\textrm{min},\hat{\theta}\_\textrm{max}] \\) is the analog of the credible interval, where after repeated measurements the true parameter \\( \theta \\) is included \\( 1-\alpha \\) of the time. For a given \\( x \\) the confidence interval can be found from:
 
 $$
-  P(X\leq x|\hat{\theta}_{\textrm{min}})=\int_{-\infty}^x \textrm{p}(x'|\hat{\theta}_{\textrm{min}})\textrm{d}x' \overset{!}{=} 1-\alpha/2 \overset{!}{=} \int_x^{\infty} \textrm{p}(x'|\hat{\theta}_{\textrm{max}})\textrm{d}x' = P(X\geq x|\hat{\theta}_{\textrm{max}})
+  P(X\leq x|\hat{\theta}_{\textrm{min}})=\int_{-\infty}^x \textrm{p}(x'|\hat{\theta}_{\textrm{min}})\mathrm{d}x' \overset{!}{=} 1-\alpha/2 \overset{!}{=} \int_x^{\infty} \textrm{p}(x'|\hat{\theta}_{\textrm{max}})\mathrm{d}x' = P(X\geq x|\hat{\theta}_{\textrm{max}})
 $$
 
 ### Mean squared error
@@ -284,8 +284,8 @@ Where the first equality follows from the interchange of integration and differe
 $$
 \begin{aligned}
   \mathbb{E}\left[\left(\hat{\theta}(\mathbf{x})-\theta\right) \frac{\partial \log(\textrm{p}(x|\theta))}{\partial \theta} \right]
-  &= \int \textrm{p}(x|\theta)\left(\hat{\theta}(\mathbf{x})-\theta\right) \frac{1}{\textrm{p}(x|\theta)} \frac{\partial \textrm{p}(x|\theta)}{\partial \theta}\textrm{d}x \\
-  &= \frac{\partial}{\partial \theta}\underbrace{\int \hat{\theta}(\mathbf{x}) \textrm{p}(x|\theta) \textrm{d}x}_{=\,\mathbb{E\left[\hat{\theta}(\mathbf{x})\right]}} - \theta\frac{\partial}{\partial \theta} \underbrace{\int \textrm{p}(x|\theta) \textrm{d}x}_{=\,1}
+  &= \int \textrm{p}(x|\theta)\left(\hat{\theta}(\mathbf{x})-\theta\right) \frac{1}{\textrm{p}(x|\theta)} \frac{\partial \textrm{p}(x|\theta)}{\partial \theta}\mathrm{d}x \\
+  &= \frac{\partial}{\partial \theta}\underbrace{\int \hat{\theta}(\mathbf{x}) \textrm{p}(x|\theta) \mathrm{d}x}_{=\,\mathbb{E\left[\hat{\theta}(\mathbf{x})\right]}} - \theta\frac{\partial}{\partial \theta} \underbrace{\int \textrm{p}(x|\theta) \mathrm{d}x}_{=\,1}
 \end{aligned}
 $$
 

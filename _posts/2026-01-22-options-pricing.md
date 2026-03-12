@@ -57,7 +57,7 @@ $$
 >    e^{r\tau}V = (F-K)\phi\left(\frac{F-K}{\sqrt{\tau}\sigma}\right)+\sqrt{\tau}\sigma\phi'\left(\frac{F-K}{\sqrt{\tau}\sigma}\right)
 >  $$
 >
->  Here \\( \tau = T - t\\) is the remaining time, \\( F = e^{r\tau}S \\) the forward price of the stock, \\( K \\) the strike price of the option and \\( \phi(x) = \pm\int_{-\infty}^{\pm x} \frac{e^{-t^2/2}}{\sqrt{2\pi}}\textrm{d}t \\) with positive sign for the call and negative for the put option.
+>  Here \\( \tau = T - t\\) is the remaining time, \\( F = e^{r\tau}S \\) the forward price of the stock, \\( K \\) the strike price of the option and \\( \phi(x) = \pm\int_{-\infty}^{\pm x} \frac{e^{-t^2/2}}{\sqrt{2\pi}}\mathrm{d}t \\) with positive sign for the call and negative for the put option.
 
 In this model, the stock price itself follows a normal-distribution, whereas in a more appropriate model one would expect the stock prices to follow a lognormal-distribution, avoiding the possibility of negative prices.
 
@@ -75,7 +75,7 @@ $$
 >    e^{r\tau}V = F\phi\left(\frac{\ln\left(\frac{F}{K}\right)+\frac{1}{2}\tau\sigma^2}{\sqrt{\tau}\sigma}\right)-K\phi\left(\frac{\ln\left(\frac{F}{K}\right)-\frac{1}{2}\tau\sigma^2}{\sqrt{\tau}\sigma}\right)
 >  $$
 >
->  Here \\( \tau = T - t\\) is the remaining time, \\( F = e^{r\tau}S \\) the forward price of the stock, \\( K \\) the strike price of the option and \\( \phi(x) = \pm\int_{-\infty}^{\pm x} \frac{e^{-t^2/2}}{\sqrt{2\pi}}\textrm{d}t \\) with positive sign for the call and negative for the put option.
+>  Here \\( \tau = T - t\\) is the remaining time, \\( F = e^{r\tau}S \\) the forward price of the stock, \\( K \\) the strike price of the option and \\( \phi(x) = \pm\int_{-\infty}^{\pm x} \frac{e^{-t^2/2}}{\sqrt{2\pi}}\mathrm{d}t \\) with positive sign for the call and negative for the put option.
 
 
 ### Expectation value
@@ -83,7 +83,7 @@ $$
 Instead of delta hedging one could alternatively just calculate the expected value of the option at expiration, using e.g. a normal or log-normal distribution for the outcomes:
 
 $$
-  e^{r\tau}V = \pm\int_{\pm K}^\infty(F-K)\textrm{p}(F) \textrm{d}F
+  e^{r\tau}V = \pm\int_{\pm K}^\infty(F-K)\textrm{p}(F) \mathrm{d}F
 $$
 
 Where \\( \tau = T - t\\) is the remaining time, \\( F = e^{r\tau}S \\) the forward price of the stock and \\( K \\) the strike price of the option. The result is:
@@ -95,7 +95,7 @@ $$
   \end{cases}
 $$
 
-Where \\( \phi(x) = \pm\int_{-\infty}^{\pm x} \frac{e^{-t^2/2}}{\sqrt{2\pi}}\textrm{d}t \\) with positive sign for the call and negative for the put option.
+Where \\( \phi(x) = \pm\int_{-\infty}^{\pm x} \frac{e^{-t^2/2}}{\sqrt{2\pi}}\mathrm{d}t \\) with positive sign for the call and negative for the put option.
 
 One can see that the solutions to the Bachalier and Black-Scholes equation are exactly the expectation value of the option when using \\( \mu = 0 \\) instead of the actual value \\( \mu \\). This is what is meant when one states that the value of the option equals the expectation value under a risk-neutral measure.
 
@@ -104,8 +104,8 @@ One can see that the solutions to the Bachalier and Black-Scholes equation are e
 > $$
 > \begin{aligned}
 >   e^{r\tau}V
->   &= \pm\int_{\pm K}^\infty (F-K)\phi'\left(\frac{F-F_0-\mu\tau}{\sqrt{\tau}\sigma}\right) \frac{\textrm{d}F}{\sqrt{\tau}\sigma} \\
->   &= \left[(F-K)\phi\left(\frac{F-F_0-\mu\tau}{\sqrt{\tau}\sigma}\right)\right]_{\pm K}^\infty - \sqrt{\tau}\sigma\int_{\pm K}^\infty \phi\left(\frac{F-F_0-\mu\tau}{\sqrt{\tau}\sigma}\right) \frac{\textrm{d}F}{\sqrt{\tau}\sigma} \\
+>   &= \pm\int_{\pm K}^\infty (F-K)\phi'\left(\frac{F-F_0-\mu\tau}{\sqrt{\tau}\sigma}\right) \frac{\mathrm{d}F}{\sqrt{\tau}\sigma} \\
+>   &= \left[(F-K)\phi\left(\frac{F-F_0-\mu\tau}{\sqrt{\tau}\sigma}\right)\right]_{\pm K}^\infty - \sqrt{\tau}\sigma\int_{\pm K}^\infty \phi\left(\frac{F-F_0-\mu\tau}{\sqrt{\tau}\sigma}\right) \frac{\mathrm{d}F}{\sqrt{\tau}\sigma} \\
 >   &= (F_0-K+\mu\tau)\phi\left(\frac{F_0-K+\mu\tau}{\sqrt{\tau}\sigma}\right)+\sqrt{\tau}\sigma\phi'\left(\frac{F_0-K+\mu\tau}{\sqrt{\tau}\sigma}\right)
 > \end{aligned}
 > $$
@@ -115,8 +115,8 @@ One can see that the solutions to the Bachalier and Black-Scholes equation are e
 > $$
 > \begin{aligned}
 >   e^{r\tau}V
->   &= \pm\int_{\pm K}^\infty (F-K)\phi'\left(\frac{\ln F-\ln F_0-\mu\tau+\frac{1}{2}\tau\sigma^2}{\sqrt{\tau}\sigma}\right) \frac{\textrm{d}\ln F}{\sqrt{\tau}\sigma} \\
->   &= \pm \int_{\pm \ln K}^\infty e^u\phi'\left(\frac{u-\ln F_0-\mu\tau}{\sqrt{\tau}\sigma}\right) \frac{\textrm{d}u}{\sqrt{\tau}\sigma} \mp K\int_{\pm K}^\infty \phi'\left(\frac{\ln F-\ln F_0-\mu\tau+\frac{1}{2}\tau\sigma^2}{\sqrt{\tau}\sigma}\right)\frac{\textrm{d}\ln F}{\sqrt{\tau}\sigma}  \\
+>   &= \pm\int_{\pm K}^\infty (F-K)\phi'\left(\frac{\ln F-\ln F_0-\mu\tau+\frac{1}{2}\tau\sigma^2}{\sqrt{\tau}\sigma}\right) \frac{\mathrm{d}\ln F}{\sqrt{\tau}\sigma} \\
+>   &= \pm \int_{\pm \ln K}^\infty e^u\phi'\left(\frac{u-\ln F_0-\mu\tau}{\sqrt{\tau}\sigma}\right) \frac{\mathrm{d}u}{\sqrt{\tau}\sigma} \mp K\int_{\pm K}^\infty \phi'\left(\frac{\ln F-\ln F_0-\mu\tau+\frac{1}{2}\tau\sigma^2}{\sqrt{\tau}\sigma}\right)\frac{\mathrm{d}\ln F}{\sqrt{\tau}\sigma}  \\
 >   &= e^{\mu\tau}F_0 \phi\left(\frac{\ln F_0-\ln K+\mu\tau+\frac{1}{2}\tau\sigma^2}{\sqrt{\tau}\sigma}\right)-K \phi\left(\frac{\ln F_0-\ln K+\mu\tau-\frac{1}{2}\tau\sigma^2}{\sqrt{\tau}\sigma}\right)
 > \end{aligned}
 > $$

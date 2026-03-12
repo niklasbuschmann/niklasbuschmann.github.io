@@ -39,7 +39,7 @@ For a constant yearly income we should now be willing to pay the annual income d
 
 > Assuming that the income is paid continuously instead of once every year, one would need to replace the sum above with an integral:
 >
-> $$ P = \int_0^t \frac{C}{(1+i)^n} \textrm{d}n = \frac{C}{\ln(1+i)}\left(1 - \frac{1}{(1+i)^t}\right) \overset{t\rightarrow \infty}{\rightarrow}\ \frac{C}{\ln(1+i)} $$
+> $$ P = \int_0^t \frac{C}{(1+i)^n} \mathrm{d}n = \frac{C}{\ln(1+i)}\left(1 - \frac{1}{(1+i)^t}\right) \overset{t\rightarrow \infty}{\rightarrow}\ \frac{C}{\ln(1+i)} $$
 >
 
 ## Part 2: Volatility

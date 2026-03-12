@@ -21,21 +21,21 @@ layout: post
 The probability density \\( \textrm{p}(\overline{x}) \\) of finding the average \\( \overline{x} = \frac{\sum_i x_i}{n} \\) of \\( n \\) random variables can be written using the [Delta function](https://en.wikipedia.org/wiki/Dirac_delta_function) as:
 
 $$
-  \textrm{p}(\overline{x}) = \int \delta\left(\overline{x}-\sum_i \frac{x_i}{n}\right)\textrm{p}_1(x_1) \dots \textrm{p}_n(x_n)\textrm{d}x_1 \dots \textrm{d}x_n  = \int \delta\left(\overline{x}-\sum_i\frac{x_i}{n}\right)\prod_i \textrm{p}_i(x_i) \textrm{d}x_i
+  \textrm{p}(\overline{x}) = \int \delta\left(\overline{x}-\sum_i \frac{x_i}{n}\right)\textrm{p}_1(x_1) \dots \textrm{p}_n(x_n)\mathrm{d}x_1 \dots \mathrm{d}x_n  = \int \delta\left(\overline{x}-\sum_i\frac{x_i}{n}\right)\prod_i \textrm{p}_i(x_i) \mathrm{d}x_i
 $$
 
 Calculating the Fourier transform \\( \hat{\textrm{p}}(k) \\) yields:
 
 $$
-  \hat{\textrm{p}}(k) = \int e^{-ik\overline{x}}\textrm{p}(x)\textrm{d}\overline{x} = \int e^{-ik \sum_i x_i/n}\prod_i \textrm{p}_i(x_i) \textrm{d}x_i = \prod_i \int  e^{-ikx_i/n} \textrm{p}_i(x_i) \textrm{d}x_i = \prod_i \hat{\textrm{p}}_i(k/n)
+  \hat{\textrm{p}}(k) = \int e^{-ik\overline{x}}\textrm{p}(x)\mathrm{d}\overline{x} = \int e^{-ik \sum_i x_i/n}\prod_i \textrm{p}_i(x_i) \mathrm{d}x_i = \prod_i \int  e^{-ikx_i/n} \textrm{p}_i(x_i) \mathrm{d}x_i = \prod_i \hat{\textrm{p}}_i(k/n)
 $$
 
 The original \\( \textrm{p}(\overline{x}) \\) can now be recovered using the inverse Fourier transform:
 
 $$
-  \textrm{p}(\overline{x}) = \frac{1}{2\pi} \int e^{ik\overline{x}}\hat{\textrm{p}}(k)\textrm{d}k
-  = \frac{1}{2\pi} \int e^{ik\overline{x}}\prod_i \hat{\textrm{p}}_i(k/n)\textrm{d}k
-  = \frac{1}{2\pi} \int e^{ik\overline{x}} \left({\textrm{p}}_i(k/n)\right)^n \textrm{d}k
+  \textrm{p}(\overline{x}) = \frac{1}{2\pi} \int e^{ik\overline{x}}\hat{\textrm{p}}(k)\mathrm{d}k
+  = \frac{1}{2\pi} \int e^{ik\overline{x}}\prod_i \hat{\textrm{p}}_i(k/n)\mathrm{d}k
+  = \frac{1}{2\pi} \int e^{ik\overline{x}} \left({\textrm{p}}_i(k/n)\right)^n \mathrm{d}k
 $$
 
 Where the last equality holds for identically distributed random variables.
@@ -57,7 +57,7 @@ $$
 Writing \\( \mu \equiv \mathbb{E}[x_i] \\) and \\( \sigma^2 \equiv \mathbb{E}[x_i^2]-\mathbb{E}[x_i]^2 \\), the original \\( \textrm{p}(\overline{x}) \\) can now be recovered using the inverse Fourier transform:
 
 $$
-  \textrm{p}(\overline{x}) \overset{n\rightarrow\infty}{\rightarrow} \frac{1}{2\pi} \int e^{ik\overline{x}}e^{ik \mu}e^{i^2k^2\sigma^2/2n}\textrm{d}k
+  \textrm{p}(\overline{x}) \overset{n\rightarrow\infty}{\rightarrow} \frac{1}{2\pi} \int e^{ik\overline{x}}e^{ik \mu}e^{i^2k^2\sigma^2/2n}\mathrm{d}k
   = \frac{1}{\sqrt{2\pi\sigma^2/n}}e^{-\frac{(\overline{x}-\mu)^2}{2\sigma^2/n}}
 $$
 
@@ -68,16 +68,16 @@ The average of \\( n \\) identically distributed random variables will for large
 The probability of finding the root of the sum of squares of \\( n \\) standard-normal distributed random variables is proportional to the surface area of a [\\( n \\) dimensional sphere](https://en.wikipedia.org/wiki/N-sphere#Volume_and_area):
 
 $$
-  \textrm{p}(\chi) = \int\delta\left(\chi-\sqrt{\sum_ix_i^2}\right)\prod_i \frac{e^{-x_i^2/2}}{\sqrt{2\pi}}\textrm{d}x_i
-  = \int\textrm{d}A\int\delta(\chi-r)\frac{e^{-r^2/2}}{\sqrt{2\pi}^n}r^{n-1}\textrm{d}r
+  \textrm{p}(\chi) = \int\delta\left(\chi-\sqrt{\sum_ix_i^2}\right)\prod_i \frac{e^{-x_i^2/2}}{\sqrt{2\pi}}\mathrm{d}x_i
+  = \int\mathrm{d}A\int\delta(\chi-r)\frac{e^{-r^2/2}}{\sqrt{2\pi}^n}r^{n-1}\mathrm{d}r
   = \frac{e^{-\chi^2/2}\chi^{n-1}}{\sqrt{2^{n-2}}\Gamma\left(\frac{n}{2}\right)}
 $$
 
 > The surface area of the n-dimensional sphere can be calculated from:
 >
-> $$ 1=\prod_i \int\frac{e^{-x_i^2/2}}{\sqrt{2\pi}}\textrm{d}x_i = \int \textrm{d}A \int \frac{e^{-r^2/2}r^{n-1}}{\sqrt{2\pi}^n}\textrm{d}r = \int \textrm{d}A \int \frac{e^{-t}t^{\frac{n}{2}-1}}{2\sqrt{\pi^n}}\textrm{d}t \equiv \frac{\Gamma\left(\frac{n}{2}\right)}{2\sqrt{\pi^n}} \int \textrm{d}A $$
+> $$ 1=\prod_i \int\frac{e^{-x_i^2/2}}{\sqrt{2\pi}}\mathrm{d}x_i = \int \mathrm{d}A \int \frac{e^{-r^2/2}r^{n-1}}{\sqrt{2\pi}^n}\mathrm{d}r = \int \mathrm{d}A \int \frac{e^{-t}t^{\frac{n}{2}-1}}{2\sqrt{\pi^n}}\mathrm{d}t \equiv \frac{\Gamma\left(\frac{n}{2}\right)}{2\sqrt{\pi^n}} \int \mathrm{d}A $$
 >
-> Where the gamma function is defined as \\( \Gamma(x) \equiv \int_0^\infty e^{-t}t^{x-1}\textrm{d}t \\).
+> Where the gamma function is defined as \\( \Gamma(x) \equiv \int_0^\infty e^{-t}t^{x-1}\mathrm{d}t \\).
 >
 
 #### \\( \chi^2 \\) distribution
@@ -85,7 +85,7 @@ $$
 A change of variables yields the distribution for the sum of squares, called the [\\( \chi^2 \\) distribution](https://en.wikipedia.org/wiki/Chi-squared_distribution):
 
 $$
-  \textrm{p}(\chi^2) = \textrm{p}(\chi)\frac{\textrm{d} \chi}{\textrm{d} \chi^2} = \frac{e^{-\chi^2/2}\chi^{n-2}}{\sqrt{2^n}\Gamma\left(\frac{n}{2}\right)}
+  \textrm{p}(\chi^2) = \textrm{p}(\chi)\frac{\mathrm{d} \chi}{\mathrm{d} \chi^2} = \frac{e^{-\chi^2/2}\chi^{n-2}}{\sqrt{2^n}\Gamma\left(\frac{n}{2}\right)}
 $$
 
 ### Student-t distribution
@@ -95,10 +95,10 @@ When estimating the true mean \\( \mu \\) of a normally-distributed random varia
 $$
 \begin{aligned}
   p(t)
-  &= \iint\delta\left(t-\frac{\delta}{\chi/\sqrt{n-1}}\right)\underbrace{\frac{e^{-\delta^2/2}}{\sqrt{2\pi}}}_{p(\delta)}\underbrace{\frac{e^{-\chi^2/2}\chi^{n-3}}{\sqrt{2^{n-1}}\Gamma\left(\frac{n-1}{2}\right)}}_{p(\chi^2)}\textrm{d}\delta\textrm{d}\chi^2 \\
-  &= \int\frac{e^{-(t\chi)^2/2(n-1)}}{\sqrt{2\pi}}\frac{e^{-\chi^2/2}\chi^{n-3}}{\sqrt{2^{n-1}}\Gamma\left(\frac{n-1}{2}\right)}\frac{\chi}{\sqrt{n-1}}\textrm{d}\chi^2 \\
-  &= \int\frac{e^{-\chi^2(t^2/(n-1)+1)/2}}{\sqrt{2^n\pi(n-1)}}\frac{(\chi^2)^{\frac{n-2}{2}}}{\Gamma\left(\frac{n-1}{2}\right)}\textrm{d}\chi^2 \\
-  &= \int\frac{e^{-u}u^{\frac{n}{2}-1}}{\sqrt{2^n\pi(n-1)}}\frac{\left(\frac{2}{t^2/(n-1)+1}\right)^{\frac{n}{2}}}{\Gamma\left(\frac{n-1}{2}\right)}\textrm{d}u \\
+  &= \iint\delta\left(t-\frac{\delta}{\chi/\sqrt{n-1}}\right)\underbrace{\frac{e^{-\delta^2/2}}{\sqrt{2\pi}}}_{p(\delta)}\underbrace{\frac{e^{-\chi^2/2}\chi^{n-3}}{\sqrt{2^{n-1}}\Gamma\left(\frac{n-1}{2}\right)}}_{p(\chi^2)}\mathrm{d}\delta\mathrm{d}\chi^2 \\
+  &= \int\frac{e^{-(t\chi)^2/2(n-1)}}{\sqrt{2\pi}}\frac{e^{-\chi^2/2}\chi^{n-3}}{\sqrt{2^{n-1}}\Gamma\left(\frac{n-1}{2}\right)}\frac{\chi}{\sqrt{n-1}}\mathrm{d}\chi^2 \\
+  &= \int\frac{e^{-\chi^2(t^2/(n-1)+1)/2}}{\sqrt{2^n\pi(n-1)}}\frac{(\chi^2)^{\frac{n-2}{2}}}{\Gamma\left(\frac{n-1}{2}\right)}\mathrm{d}\chi^2 \\
+  &= \int\frac{e^{-u}u^{\frac{n}{2}-1}}{\sqrt{2^n\pi(n-1)}}\frac{\left(\frac{2}{t^2/(n-1)+1}\right)^{\frac{n}{2}}}{\Gamma\left(\frac{n-1}{2}\right)}\mathrm{d}u \\
   &= \frac{\Gamma\left(\frac{n}{2}\right)}{\sqrt{\pi (n-1)}\Gamma\left(\frac{n-1}{2}\right)}\left(1+\frac{t^2}{n-1}\right)^{-\frac{n}{2}}
 \end{aligned}
 $$
@@ -157,10 +157,10 @@ $$
 
 #### Exponential distribution
 
-Writing \\( x = \frac{k}{n} \\), \\( p = \frac{\lambda}{n} \\), \\( \frac{1}{n} = \textrm{d}x \\) and taking the limit \\( n \rightarrow \infty \\) yields the waiting time distribution in a Poisson process:
+Writing \\( x = \frac{k}{n} \\), \\( p = \frac{\lambda}{n} \\), \\( \frac{1}{n} = \mathrm{d}x \\) and taking the limit \\( n \rightarrow \infty \\) yields the waiting time distribution in a Poisson process:
 
 $$
-  \textrm{P}(x) = \left(1-\frac{\lambda}{n}\right)^{xn} \frac{\lambda}{n} \overset{n\rightarrow\infty}{\rightarrow} e^{-\lambda x}\lambda\textrm{d}x
+  \textrm{P}(x) = \left(1-\frac{\lambda}{n}\right)^{xn} \frac{\lambda}{n} \overset{n\rightarrow\infty}{\rightarrow} e^{-\lambda x}\lambda\mathrm{d}x
 $$
 
 ### Erlang distribution
@@ -168,5 +168,5 @@ $$
 The cumulative waiting time for \\( n \\) events is the sum of \\( n \\) exponential distributions. Since the exponential distribution is a special case of a \\( \chi^2 \\) distribution with \\( k=2 \\) we can get the sum of \\( n \\) exponential distributions simply as \\( \chi^2 \\) distribution with \\( k=2n \\):
 
 $$
-  \textrm{p}(\chi^2=2\lambda x, k=2n) = \frac{(2\lambda x)^{n-1}}{2^n\Gamma(n)}e^{-\lambda x}\frac{\textrm{d}\chi^2}{\textrm{d}x} = \frac{\lambda^n x^{n-1}}{(n-1)!}e^{-\lambda x}
+  \textrm{p}(\chi^2=2\lambda x, k=2n) = \frac{(2\lambda x)^{n-1}}{2^n\Gamma(n)}e^{-\lambda x}\frac{\mathrm{d}\chi^2}{\mathrm{d}x} = \frac{\lambda^n x^{n-1}}{(n-1)!}e^{-\lambda x}
 $$
