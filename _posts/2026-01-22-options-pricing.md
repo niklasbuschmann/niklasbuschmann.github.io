@@ -83,7 +83,7 @@ $$
 Instead of delta hedging one could alternatively just calculate the expected value of the option at expiration, using e.g. a normal or log-normal distribution for the outcomes:
 
 $$
-  e^{r\tau}V = \pm\int_{\pm K}^\infty(F-K)\textrm{p}(F) \mathrm{d}F
+  e^{r\tau}V = \pm \int \max(\pm (F-K), 0)\textrm{p}(F) \mathrm{d}F
 $$
 
 Where \\( \tau = T - t\\) is the remaining time, \\( F = e^{r\tau}S \\) the forward price of the stock and \\( K \\) the strike price of the option. The result is:
